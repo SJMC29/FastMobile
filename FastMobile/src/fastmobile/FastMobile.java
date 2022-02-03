@@ -16,7 +16,7 @@ public class FastMobile {
     public static void main(String[] args) {
         System.out.print("Repo");
         System.out.print("rtado papuuu");
-        System.out.print("\nPrueba");
+        System.out.print("\nPrueba12345");
     }
     
 }
