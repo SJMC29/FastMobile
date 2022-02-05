@@ -1,15 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.canvas.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.LoginFXMLController">
-   <children>
-      <Button fx:id="boton1" layoutX="215.0" layoutY="241.0" mnemonicParsing="false" onAction="#BTN" text="Button" />
-      <TextField fx:id="Texto" layoutX="215.0" layoutY="174.0" />
-      <Button fx:id="boton2" layoutX="300.0" layoutY="241.0" mnemonicParsing="false" onAction="#BTN2" text="Button 2" />
-   </children>
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.LoginFXMLController">
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="347.0" fitWidth="600.0" layoutY="1.0">
+               <image>
+                  <Image url="@../../../Images/photo_2022-02-04_19-34-11.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="boton" layoutX="274.0" layoutY="228.0" mnemonicParsing="false" onAction="#BTN" text="Button" />
+            <TextField fx:id="elkakas" layoutX="218.0" layoutY="77.0" />
+            <TextField layoutX="218.0" layoutY="157.0" />
+            <Label layoutX="274.0" layoutY="53.0" text="Holaaaaaaaaaaaa" />
+         </children>
+      </Pane>
+   </center>
+   <top>
+      <Pane prefHeight="61.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="60.0" fitWidth="127.0">
+               <image>
+                  <Image url="@../../../Images/photo_2022-02-04_19-29-54.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </top>
+</BorderPane>
