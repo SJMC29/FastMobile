@@ -6,14 +6,22 @@ package JavaFX;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
  *
  * @author Sara Maradiago
  */
-public class MainFXMLController implements Initializable {
+public class LoginFXMLController implements Initializable {
+
+    @FXML
+    private Button boton1;
+    @FXML
+    private Button boton2;
 
     /**
      * Initializes the controller class.
@@ -22,5 +30,15 @@ public class MainFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void BTN(ActionEvent event) {
+        System.out.println("TATAKAE :P");
+    }
+
+    @FXML
+    private void BTN2(ActionEvent event) {
+        System.out.println("EREN TE AMO <3 puto");
+    }
     
 }

@@ -22,11 +22,11 @@ public class JavaNewFXMain extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("MainFXML.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("LoginFXML.fxml"));
             
-            Scene scene = new Scene(root, 300, 250);
+            Scene scene = new Scene(root);
             
-            primaryStage.setTitle("Hello World!");
+            primaryStage.setTitle("[Soy el JavaNewFXML]");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
