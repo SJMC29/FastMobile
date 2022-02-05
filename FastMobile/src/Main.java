@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMain.java to edit this template
  */
-package JavaFX;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -15,14 +14,14 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Sara Maradiago
+ * @author Fanfo
  */
-public class JavaNewFXMain extends Application {
+public class Main extends Application {
     
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("LoginFXML.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Login_Interface.fxml"));
             
             Scene scene = new Scene(root);
             
@@ -30,7 +29,7 @@ public class JavaNewFXMain extends Application {
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
-            Logger.getLogger(JavaNewFXMain.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
