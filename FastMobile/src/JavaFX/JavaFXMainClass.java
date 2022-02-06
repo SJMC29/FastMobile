@@ -2,35 +2,43 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMain.java to edit this template
  */
+package JavaFX;
 
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
  *
- * @author Fanfo
+ * @author Sara Maradiago
  */
-public class Main extends Application {
+public class JavaFXMainClass extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+        
+        Parent root = null;
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("Login_Interface.fxml"));
-            
-            Scene scene = new Scene(root);
-            
-            primaryStage.setTitle("[Soy el JavaNewFXML]");
-            primaryStage.setScene(scene);
-            primaryStage.show();
+            root = FXMLLoader.load(getClass().getResource("Login_Interface.fxml"));
         } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JavaFXMainClass.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
+        Scene scene = new Scene(root);
+        
+        primaryStage.setTitle("Fast Mobile");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     /**
