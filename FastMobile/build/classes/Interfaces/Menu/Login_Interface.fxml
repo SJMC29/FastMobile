@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="576.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Login_InterfaceController">
+   <children>
+      <Pane fx:id="centerPanel" layoutY="89.0" prefHeight="476.0" prefWidth="1024.0">
+         <children>
+            <ImageView fitHeight="677.0" fitWidth="1024.0" layoutY="-90.0">
+               <image>
+                  <Image url="@../../Images/workspace-g1ebab58cb_1920.jpg" />
+               </image>
+            </ImageView>
+            <Rectangle fx:id="menuWhite" arcHeight="50.0" arcWidth="50.0" fill="#ffffffaa" height="280.0" layoutX="349.0" layoutY="98.0" stroke="TRANSPARENT" strokeType="INSIDE" width="385.0" />
+            <Button fx:id="loginButton" layoutX="479.0" layoutY="376.0" mnemonicParsing="false" onAction="#loginBTN" prefHeight="36.0" prefWidth="116.0" text="LOGIN">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </Button>
+            <Rectangle fx:id="blueCircle" arcHeight="200.0" arcWidth="200.0" fill="DODGERBLUE" height="105.0" layoutX="487.0" layoutY="55.0" stroke="TRANSPARENT" strokeType="INSIDE" width="105.0" />
+            <Label fx:id="bienvenido" layoutX="504.0" layoutY="176.0" text="BIENVENIDO.">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="userName" layoutX="436.0" layoutY="217.0" prefHeight="25.0" prefWidth="251.0" text="Nombre de usuario">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="userPassword" layoutX="436.0" layoutY="259.0" prefHeight="25.0" prefWidth="250.0" text="Contraseña">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </TextField>
+            <CheckBox fx:id="rememberMe" layoutX="405.0" layoutY="317.0" mnemonicParsing="false" text="Recuérdame" />
+            <Hyperlink fx:id="forgotPasword" layoutX="554.0" layoutY="314.0" prefHeight="23.0" prefWidth="124.0" text="Olvidé mi contraseña" textFill="#434343" underline="true" />
+            <ImageView fitHeight="130.0" fitWidth="312.0" layoutX="384.0" layoutY="43.0">
+               <image>
+                  <Image url="@../../Images/FAST%20MOBILE.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="401.0" layoutY="217.0">
+               <image>
+                  <Image url="@../../Images/image_2022-02-05_15-48-50.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="27.0" layoutX="400.0" layoutY="259.0">
+               <image>
+                  <Image url="@../../Images/image_2022-02-05_15-49-16.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="topPane" layoutY="-1.0" prefHeight="100.0" prefWidth="1024.0">
+         <children>
+            <Rectangle fx:id="rectangleWhite" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="101.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1024.0" />
+            <ImageView fitHeight="59.0" fitWidth="142.0" layoutX="22.0" layoutY="21.0">
+               <image>
+                  <Image url="@../../Images/FAST%20MOBILE%20WHITE.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
