@@ -98,6 +98,7 @@ public class Login extends javax.swing.JFrame {
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1024, 576));
         setResizable(false);
         getContentPane().setLayout(null);
 
