@@ -27,7 +27,7 @@ public class Main extends Application {
             
             Scene scene = new Scene(root);
             
-            primaryStage.setTitle("[Soy el JavaNewFXML]");
+            primaryStage.setTitle("Soy JavaNewFXML");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
