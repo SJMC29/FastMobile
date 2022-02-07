@@ -22,9 +22,11 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        menuWhite.setBackground(new Color(255,255,255,150));
-        LOGIN.setBackground(new Color(255,255,255,0));
+        invalidData.setVisible(false);
+        //menuWhite.setBackground(new Color(255,255,255,150));
+        //LOGIN.setBackground(new Color(255,255,255,0));
         scaleImage();
+        this.setTitle("Fast Mobile");
     }
     //Gets
     public String getUser(){
@@ -33,6 +35,10 @@ public class Login extends javax.swing.JFrame {
     
     public String getPassword(){
         return passwordUsuario.getText();
+    }
+    
+    public void showError(){
+        invalidData.setVisible(true);        
     }
     
     public void scaleImage(){
@@ -89,9 +95,10 @@ public class Login extends javax.swing.JFrame {
         userIcon = new javax.swing.JLabel();
         userPassword = new javax.swing.JLabel();
         rememberMe = new javax.swing.JCheckBox();
-        jLabel1 = new javax.swing.JLabel();
+        forgotPassword = new javax.swing.JLabel();
         LOGIN = new javax.swing.JButton();
         fastMobileIcon = new javax.swing.JLabel();
+        invalidData = new javax.swing.JLabel();
         TOP = new javax.swing.JPanel();
         fastMobileWhite = new javax.swing.JLabel();
         CENTER = new javax.swing.JPanel();
@@ -105,6 +112,7 @@ public class Login extends javax.swing.JFrame {
         menuWhite.setBackground(new java.awt.Color(255, 255, 255));
         menuWhite.setLayout(null);
 
+        bienvenido.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         bienvenido.setText("BIENVENIDO");
         menuWhite.add(bienvenido);
         bienvenido.setBounds(140, 50, 80, 20);
@@ -116,7 +124,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         menuWhite.add(passwordUsuario);
-        passwordUsuario.setBounds(90, 120, 180, 22);
+        passwordUsuario.setBounds(90, 110, 180, 22);
 
         nombreUsuario.setText("Nombre de usuario");
         nombreUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -125,15 +133,15 @@ public class Login extends javax.swing.JFrame {
             }
         });
         menuWhite.add(nombreUsuario);
-        nombreUsuario.setBounds(90, 90, 180, 22);
+        nombreUsuario.setBounds(90, 80, 180, 22);
 
         userIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Login/userIcon.png"))); // NOI18N
         menuWhite.add(userIcon);
-        userIcon.setBounds(70, 90, 20, 20);
+        userIcon.setBounds(70, 80, 20, 20);
 
         userPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Login/userPassword.png"))); // NOI18N
         menuWhite.add(userPassword);
-        userPassword.setBounds(70, 120, 20, 20);
+        userPassword.setBounds(70, 110, 20, 20);
 
         rememberMe.setText("Recuérdame");
         rememberMe.addActionListener(new java.awt.event.ActionListener() {
@@ -142,12 +150,12 @@ public class Login extends javax.swing.JFrame {
             }
         });
         menuWhite.add(rememberMe);
-        rememberMe.setBounds(40, 160, 100, 25);
+        rememberMe.setBounds(40, 180, 100, 25);
 
-        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel1.setText("Olvidé mi contraseña");
-        menuWhite.add(jLabel1);
-        jLabel1.setBounds(180, 160, 130, 20);
+        forgotPassword.setForeground(new java.awt.Color(102, 102, 102));
+        forgotPassword.setText("Olvidé mi contraseña");
+        menuWhite.add(forgotPassword);
+        forgotPassword.setBounds(180, 180, 130, 20);
 
         LOGIN.setForeground(new java.awt.Color(41, 135, 217));
         LOGIN.setText("LOGIN");
@@ -157,15 +165,20 @@ public class Login extends javax.swing.JFrame {
             }
         });
         menuWhite.add(LOGIN);
-        LOGIN.setBounds(120, 190, 110, 30);
+        LOGIN.setBounds(120, 210, 110, 30);
 
         fastMobileIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Login/fastMobileIcon.png"))); // NOI18N
         fastMobileIcon.setPreferredSize(new java.awt.Dimension(10, 10));
         menuWhite.add(fastMobileIcon);
         fastMobileIcon.setBounds(90, 0, 160, 60);
 
+        invalidData.setForeground(new java.awt.Color(255, 0, 0));
+        invalidData.setText("Datos inválidos, por favor, intente de nuevo.");
+        menuWhite.add(invalidData);
+        invalidData.setBounds(50, 150, 240, 16);
+
         getContentPane().add(menuWhite);
-        menuWhite.setBounds(360, 190, 340, 230);
+        menuWhite.setBounds(360, 190, 340, 260);
 
         TOP.setBackground(new java.awt.Color(255, 255, 255));
         TOP.setPreferredSize(new java.awt.Dimension(1024, 100));
@@ -204,7 +217,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_rememberMeActionPerformed
 
     private void LOGINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOGINActionPerformed
-        System.out.println("osi");
+        //System.out.println("osi");
         login_controller.letIngreso(this);
     }//GEN-LAST:event_LOGINActionPerformed
 
@@ -234,6 +247,7 @@ public class Login extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -251,7 +265,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel bienvenido;
     private javax.swing.JLabel fastMobileIcon;
     private javax.swing.JLabel fastMobileWhite;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel forgotPassword;
+    private javax.swing.JLabel invalidData;
     private javax.swing.JPanel menuWhite;
     private javax.swing.JTextField nombreUsuario;
     private javax.swing.JTextField passwordUsuario;

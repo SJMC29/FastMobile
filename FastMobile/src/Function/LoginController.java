@@ -13,9 +13,11 @@ import Interface.Menu;
  */
 public class LoginController {
     public void letIngreso(Login login){
-        System.out.println(login.getUser());
-        System.out.println(login.getPassword());
-        new Menu().setVisible(true);
-        login.setVisible(false);
+        if (login.getUser().equals("admin") && login.getPassword().equals("123")) {
+            new Menu().setVisible(true);
+            login.dispose();
+        } else {
+            login.showError();
+        }
     }
 }
