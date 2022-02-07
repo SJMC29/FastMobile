@@ -204,7 +204,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_rememberMeActionPerformed
 
     private void LOGINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOGINActionPerformed
-        System.out.println("osi");
+        //System.out.println("osi");
         login_controller.letIngreso(this);
     }//GEN-LAST:event_LOGINActionPerformed
 
