@@ -4,6 +4,7 @@
  */
 package Interface;
 
+import Function.LoginController;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -13,6 +14,8 @@ import javax.swing.ImageIcon;
  * @author Sara Maradiago
  */
 public class Login extends javax.swing.JFrame {
+    
+    LoginController login_controller = new LoginController();
 
     /**
      * Creates new form Login
@@ -22,6 +25,14 @@ public class Login extends javax.swing.JFrame {
         menuWhite.setBackground(new Color(255,255,255,150));
         LOGIN.setBackground(new Color(255,255,255,0));
         scaleImage();
+    }
+    //Gets
+    public String getUser(){
+        return nombreUsuario.getText();
+    }
+    
+    public String getPassword(){
+        return passwordUsuario.getText();
     }
     
     public void scaleImage(){
@@ -73,8 +84,8 @@ public class Login extends javax.swing.JFrame {
 
         menuWhite = new javax.swing.JPanel();
         bienvenido = new javax.swing.JLabel();
-        nombreUsuario = new javax.swing.JTextField();
         passwordUsuario = new javax.swing.JTextField();
+        nombreUsuario = new javax.swing.JTextField();
         userIcon = new javax.swing.JLabel();
         userPassword = new javax.swing.JLabel();
         rememberMe = new javax.swing.JCheckBox();
@@ -87,7 +98,6 @@ public class Login extends javax.swing.JFrame {
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1024, 576));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -98,23 +108,23 @@ public class Login extends javax.swing.JFrame {
         menuWhite.add(bienvenido);
         bienvenido.setBounds(140, 50, 80, 20);
 
-        nombreUsuario.setText("Contraseña");
-        nombreUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreUsuarioActionPerformed(evt);
-            }
-        });
-        menuWhite.add(nombreUsuario);
-        nombreUsuario.setBounds(90, 120, 180, 22);
-
-        passwordUsuario.setText("Nombre de usuario");
+        passwordUsuario.setText("Contraseña");
         passwordUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordUsuarioActionPerformed(evt);
             }
         });
         menuWhite.add(passwordUsuario);
-        passwordUsuario.setBounds(90, 90, 180, 22);
+        passwordUsuario.setBounds(90, 120, 180, 22);
+
+        nombreUsuario.setText("Nombre de usuario");
+        nombreUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreUsuarioActionPerformed(evt);
+            }
+        });
+        menuWhite.add(nombreUsuario);
+        nombreUsuario.setBounds(90, 90, 180, 22);
 
         userIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Login/userIcon.png"))); // NOI18N
         menuWhite.add(userIcon);
@@ -180,20 +190,21 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nombreUsuarioActionPerformed
-
     private void passwordUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordUsuarioActionPerformed
+
+    private void nombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreUsuarioActionPerformed
 
     private void rememberMeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rememberMeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rememberMeActionPerformed
 
     private void LOGINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOGINActionPerformed
-        // TODO add your handling code here:
+        System.out.println("osi");
+        login_controller.letIngreso(this);
     }//GEN-LAST:event_LOGINActionPerformed
 
     /**

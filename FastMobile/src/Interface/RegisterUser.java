@@ -4,6 +4,9 @@
  */
 package Interface;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Fanfo
@@ -15,6 +18,24 @@ public class RegisterUser extends javax.swing.JFrame {
      */
     public RegisterUser() {
         initComponents();
+        scaleImage();
+    }
+    
+    public void scaleImage(){
+        
+        ImageIcon icon = new ImageIcon("src\\Images\\Login\\FastMobileWhite.png");
+        //Escalando para que se acomoden
+        Image img = icon.getImage();
+        Image imgScale = img.getScaledInstance(fastMobileWhite.getWidth(),fastMobileWhite.getHeight(),Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        fastMobileWhite.setIcon(scaledIcon);   
+        
+        icon = new ImageIcon("src\\Images\\Login\\userIcon.png");
+        //Escalando para que se acomoden
+        img = icon.getImage();
+        imgScale = img.getScaledInstance(userIcon.getWidth(),userIcon.getHeight(),Image.SCALE_SMOOTH);
+        scaledIcon = new ImageIcon(imgScale);
+        userIcon.setIcon(scaledIcon);
     }
 
     /**
@@ -26,21 +47,141 @@ public class RegisterUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        TOP = new javax.swing.JPanel();
+        fastMobileWhite = new javax.swing.JLabel();
+        userIcon = new javax.swing.JLabel();
+        menu = new javax.swing.JLabel();
+        Separador = new javax.swing.JPanel();
+        CENTER = new javax.swing.JPanel();
+        centroAdmin = new javax.swing.JLabel();
+        crearUsuario = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        scrollPanel = new javax.swing.JPanel();
+        ingreseDatos = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1024, 576));
+        getContentPane().setLayout(null);
+
+        TOP.setBackground(new java.awt.Color(255, 255, 255));
+        TOP.setPreferredSize(new java.awt.Dimension(1024, 100));
+        TOP.setLayout(null);
+
+        fastMobileWhite.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Login/FastMobileWhite.png"))); // NOI18N
+        TOP.add(fastMobileWhite);
+        fastMobileWhite.setBounds(20, 20, 140, 60);
+
+        userIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Login/userIcon.png"))); // NOI18N
+        TOP.add(userIcon);
+        userIcon.setBounds(920, 20, 60, 60);
+
+        menu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        menu.setForeground(new java.awt.Color(41, 135, 217));
+        menu.setText("Menú");
+        TOP.add(menu);
+        menu.setBounds(850, 40, 50, 20);
+
+        getContentPane().add(TOP);
+        TOP.setBounds(0, 0, 1030, 100);
+
+        Separador.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout SeparadorLayout = new javax.swing.GroupLayout(Separador);
+        Separador.setLayout(SeparadorLayout);
+        SeparadorLayout.setHorizontalGroup(
+            SeparadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1030, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        SeparadorLayout.setVerticalGroup(
+            SeparadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
+
+        getContentPane().add(Separador);
+        Separador.setBounds(0, 100, 1030, 10);
+
+        CENTER.setBackground(new java.awt.Color(255, 255, 255));
+        CENTER.setLayout(null);
+
+        centroAdmin.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        centroAdmin.setText("Centro de administración Fast Mobile. ");
+        CENTER.add(centroAdmin);
+        centroAdmin.setBounds(100, 20, 287, 19);
+
+        crearUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        crearUsuario.setForeground(new java.awt.Color(41, 135, 217));
+        crearUsuario.setText("CREAR USUSARIO");
+        crearUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearUsuarioActionPerformed(evt);
+            }
+        });
+        CENTER.add(crearUsuario);
+        crearUsuario.setBounds(70, 350, 208, 42);
+
+        jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
+
+        ingreseDatos.setText("Por favor, ingrese los datos.");
+
+        jTextField1.setText("jTextField1");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jTextField2.setText("jTextField2");
+
+        jTextField3.setText("jTextField3");
+
+        javax.swing.GroupLayout scrollPanelLayout = new javax.swing.GroupLayout(scrollPanel);
+        scrollPanel.setLayout(scrollPanelLayout);
+        scrollPanelLayout.setHorizontalGroup(
+            scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(scrollPanelLayout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ingreseDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 741, Short.MAX_VALUE)
+                    .addComponent(jTextField3)
+                    .addComponent(jTextField1))
+                .addContainerGap(66, Short.MAX_VALUE))
+        );
+        scrollPanelLayout.setVerticalGroup(
+            scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(scrollPanelLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(ingreseDatos)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(498, Short.MAX_VALUE))
+        );
+
+        jScrollPane1.setViewportView(scrollPanel);
+
+        CENTER.add(jScrollPane1);
+        jScrollPane1.setBounds(70, 50, 900, 280);
+
+        getContentPane().add(CENTER);
+        CENTER.setBounds(0, 110, 1030, 470);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void crearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_crearUsuarioActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +219,19 @@ public class RegisterUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel CENTER;
+    private javax.swing.JPanel Separador;
+    private javax.swing.JPanel TOP;
+    private javax.swing.JLabel centroAdmin;
+    private javax.swing.JButton crearUsuario;
+    private javax.swing.JLabel fastMobileWhite;
+    private javax.swing.JLabel ingreseDatos;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel menu;
+    private javax.swing.JPanel scrollPanel;
+    private javax.swing.JLabel userIcon;
     // End of variables declaration//GEN-END:variables
 }
