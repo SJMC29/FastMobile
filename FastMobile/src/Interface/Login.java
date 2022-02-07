@@ -26,18 +26,35 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        TOP = new javax.swing.JPanel();
+        CENTER = new javax.swing.JPanel();
+        bienvenido = new javax.swing.JLabel();
+        image = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1024, 576));
+        setResizable(false);
+        getContentPane().setLayout(null);
+
+        TOP.setBackground(new java.awt.Color(255, 255, 255));
+        TOP.setPreferredSize(new java.awt.Dimension(1024, 100));
+        TOP.setLayout(null);
+        getContentPane().add(TOP);
+        TOP.setBounds(0, 0, 1030, 100);
+
+        CENTER.setPreferredSize(new java.awt.Dimension(1024, 476));
+        CENTER.setLayout(null);
+
+        bienvenido.setText("BIENVENIDO");
+        CENTER.add(bienvenido);
+        bienvenido.setBounds(520, 250, 67, 16);
+
+        image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Login/background.jpg"))); // NOI18N
+        CENTER.add(image);
+        image.setBounds(-10, 0, 1050, 580);
+
+        getContentPane().add(CENTER);
+        CENTER.setBounds(-6, -4, 1050, 580);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,5 +95,9 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel CENTER;
+    private javax.swing.JPanel TOP;
+    private javax.swing.JLabel bienvenido;
+    private javax.swing.JLabel image;
     // End of variables declaration//GEN-END:variables
 }
