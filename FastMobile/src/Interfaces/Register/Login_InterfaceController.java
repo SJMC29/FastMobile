@@ -4,8 +4,6 @@
  */
 package Interfaces.Register;
 
-import Interfaces.Menu.*;
-import Interfaces.Login.*;
 import JavaFX.*;
 import java.net.URL;
 import java.util.ResourceBundle;

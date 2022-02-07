@@ -4,7 +4,6 @@
  */
 package Interfaces.Menu;
 
-import Interfaces.Login.*;
 import JavaFX.*;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -30,7 +29,7 @@ public class JavaFXMainClass extends Application {
         
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("Login_Interface.fxml"));
+            root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
         } catch (IOException ex) {
             Logger.getLogger(JavaFXMainClass.class.getName()).log(Level.SEVERE, null, ex);
         }

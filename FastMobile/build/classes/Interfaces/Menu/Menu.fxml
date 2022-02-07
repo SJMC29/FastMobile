@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="576.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaces.Menu.MenuController">
+   <children>
+      <Pane prefHeight="100.0" prefWidth="1024.0">
+         <children>
+            <Rectangle fill="#2987d9" height="100.0" stroke="#2c0d0d00" strokeType="INSIDE" strokeWidth="0.0" width="1024.0" />
+            <Circle fill="WHITE" layoutX="65.0" layoutY="51.0" radius="33.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Label layoutX="125.0" layoutY="27.0" prefHeight="41.0" prefWidth="391.0" text="Eren Jaeger" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="32.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutY="100.0" prefHeight="476.0" prefWidth="840.0">
+         <children>
+            <Rectangle fill="#eeeeee" height="476.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="840.0" />
+         </children></Pane>
+      <Pane layoutX="837.0" layoutY="100.0" prefHeight="476.0" prefWidth="179.0">
+         <children>
+            <Rectangle fill="#d74848" height="476.0" layoutX="2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="185.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
