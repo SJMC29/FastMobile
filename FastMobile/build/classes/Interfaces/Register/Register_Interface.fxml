@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="576.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Login_InterfaceController">
+   <children>
+      <Pane fx:id="topPane" layoutY="-1.0" prefHeight="100.0" prefWidth="1024.0">
+         <children>
+            <Rectangle fx:id="rectangleWhite" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="101.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1024.0" />
+            <ImageView fitHeight="59.0" fitWidth="142.0" layoutX="22.0" layoutY="21.0">
+               <image>
+                  <Image url="@../../Images/FAST%20MOBILE%20WHITE.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="822.0" layoutY="38.0" text="Menú" textFill="#477ada">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Circle fill="DODGERBLUE" layoutX="765.0" layoutY="50.0" radius="33.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+         </children>
+      </Pane>
+      <Pane fx:id="centerPanel" layoutY="89.0" prefHeight="476.0" prefWidth="1024.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="476.0" layoutY="12.0" stroke="#ffffff00" strokeType="INSIDE" width="1024.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d0d0d0" height="2.0" layoutX="-3.0" layoutY="11.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1029.0" />
+            <Label layoutX="89.0" layoutY="56.0" prefHeight="25.0" prefWidth="434.0" text="Centro de administración Fast Mobile. ">
+               <font>
+                  <Font name="Century Gothic Bold" size="20.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#dddddd" height="260.0" layoutX="65.0" layoutY="104.0" stroke="TRANSPARENT" strokeType="INSIDE" width="893.0" />
+            <Button fx:id="crearUsuario" layoutX="66.0" layoutY="391.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="210.0" text="CREAR USUARIO" textFill="#2f61b2">
+               <font>
+                  <Font name="Century Gothic Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label layoutX="113.0" layoutY="129.0" prefHeight="25.0" prefWidth="434.0" text="Por favor, ingrese los datos.">
+               <font>
+                  <Font name="Century Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <ScrollBar layoutX="932.0" layoutY="104.0" orientation="VERTICAL" prefHeight="260.0" prefWidth="27.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
