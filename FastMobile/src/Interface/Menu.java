@@ -4,6 +4,7 @@
  */
 package Interface;
 
+import Function.MenuController;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Image;
@@ -15,6 +16,7 @@ import javax.swing.ImageIcon;
  */
 public class Menu extends javax.swing.JFrame {
 
+    MenuController menu_controller = new MenuController();
     /**
      * Creates new form Menu
      */
@@ -118,6 +120,9 @@ public class Menu extends javax.swing.JFrame {
         logout.setForeground(new java.awt.Color(255, 255, 255));
         logout.setText("Cerrar sesión");
         logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 logoutMouseEntered(evt);
             }
@@ -344,6 +349,11 @@ public class Menu extends javax.swing.JFrame {
     private void RegistroPagos_clickMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistroPagos_clickMouseExited
         RegistroPagos_click.setForeground(Color.black);
     }//GEN-LAST:event_RegistroPagos_clickMouseExited
+
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+        // TODO add your handling code here:
+        menu_controller.logOut(this);
+    }//GEN-LAST:event_logoutMouseClicked
 
     /**
      * @param args the command line arguments
