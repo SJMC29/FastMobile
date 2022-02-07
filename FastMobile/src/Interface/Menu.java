@@ -47,12 +47,15 @@ public class Menu extends javax.swing.JFrame {
         logout = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         crearUsuario = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        CrearUsuario_click = new javax.swing.JLabel();
         crearUsuario_img = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1024, 576));
         setResizable(false);
+        getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(41, 135, 217));
         jPanel1.setPreferredSize(new java.awt.Dimension(0, 100));
@@ -121,28 +124,53 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 1024, 100);
+
         jPanel2.setBackground(new java.awt.Color(238, 238, 238));
 
         crearUsuario.setBackground(new java.awt.Color(255, 255, 255));
         crearUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        crearUsuario.setLayout(null);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        CrearUsuario_click.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        CrearUsuario_click.setText("Crear Usuario");
+        CrearUsuario_click.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CrearUsuario_clickMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                CrearUsuario_clickMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(CrearUsuario_click, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(CrearUsuario_click, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 80, Short.MAX_VALUE))
+        );
+
+        crearUsuario.add(jPanel4);
+        jPanel4.setBounds(0, 90, 220, 110);
 
         crearUsuario_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Menu/CrearUsuario.jpg"))); // NOI18N
         crearUsuario_img.setMaximumSize(new java.awt.Dimension(65, 65));
         crearUsuario_img.setMinimumSize(new java.awt.Dimension(65, 65));
         crearUsuario_img.setPreferredSize(new java.awt.Dimension(65, 65));
-
-        javax.swing.GroupLayout crearUsuarioLayout = new javax.swing.GroupLayout(crearUsuario);
-        crearUsuario.setLayout(crearUsuarioLayout);
-        crearUsuarioLayout.setHorizontalGroup(
-            crearUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(crearUsuario_img, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-        );
-        crearUsuarioLayout.setVerticalGroup(
-            crearUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(crearUsuarioLayout.createSequentialGroup()
-                .addComponent(crearUsuario_img, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 57, Short.MAX_VALUE))
-        );
+        crearUsuario.add(crearUsuario_img);
+        crearUsuario_img.setBounds(0, 0, 216, 140);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -150,16 +178,19 @@ public class Menu extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(crearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(574, Short.MAX_VALUE))
+                .addComponent(crearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(575, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(crearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(612, Short.MAX_VALUE))
+                .addComponent(crearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(594, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 100, 802, 802);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -174,26 +205,8 @@ public class Menu extends javax.swing.JFrame {
             .addGap(0, 801, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel3);
+        jPanel3.setBounds(802, 101, 222, 801);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -215,6 +228,15 @@ public class Menu extends javax.swing.JFrame {
     private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
         logout.setForeground(Color.white);
     }//GEN-LAST:event_logoutMouseExited
+
+    private void CrearUsuario_clickMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearUsuario_clickMouseEntered
+        CrearUsuario_click.setForeground(new Color(41,135,217));
+        CrearUsuario_click.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_CrearUsuario_clickMouseEntered
+
+    private void CrearUsuario_clickMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearUsuario_clickMouseExited
+        CrearUsuario_click.setForeground(Color.black);
+    }//GEN-LAST:event_CrearUsuario_clickMouseExited
 
     /**
      * @param args the command line arguments
@@ -252,6 +274,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CrearUsuario_click;
     private javax.swing.JPanel crearUsuario;
     private javax.swing.JLabel crearUsuario_img;
     private javax.swing.JLabel jLabel1;
@@ -259,6 +282,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel logout;
     private javax.swing.JLabel perfil;
     // End of variables declaration//GEN-END:variables
