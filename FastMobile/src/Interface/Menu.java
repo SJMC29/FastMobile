@@ -87,7 +87,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(0, 100));
         jPanel1.setLayout(null);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/image_2022-02-05_15-48-50.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Login/Profile.png"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(65, 65));
         jLabel2.setMinimumSize(new java.awt.Dimension(65, 65));
         jLabel2.setPreferredSize(new java.awt.Dimension(65, 65));
