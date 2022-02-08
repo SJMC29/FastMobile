@@ -3,6 +3,7 @@ package Models;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,14 +15,14 @@ import javax.persistence.OneToOne;
 public class User implements Serializable {
     
     @Id
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name="id_Person")
     private Person person;
     @Column(nullable = false ,length = 50)
     private String password;
     @Basic
     private boolean active;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name="id_Rol")
     private Rol rol;
 

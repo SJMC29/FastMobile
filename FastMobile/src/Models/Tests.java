@@ -37,9 +37,20 @@ public class Tests {
             System.out.println(c);
         }
           */
-        
+        /*
         Person per_1 = new Person("1193477073", "Alejandro", "Caicedo", "alejandrocaicedo21216@gmail.com", "3153990050", "Calle 72F #5N-23", 123333.12, 94.377777);
         personControl.createPerson(per_1);
+        */
+        /*
+        Person per_1 = personControl.getPerson("1193477073");
+        System.out.println(per_1);
+        Rol rol_1 = rolControl.getRol(1);
+        User user_1 = new User(per_1, "Admin", true, rol_1);
+        userControl.createUser(user_1);
+        */
+        for(User u :userControl.getUsers()){
+            System.out.println(u);
+        }
     }
     
 }

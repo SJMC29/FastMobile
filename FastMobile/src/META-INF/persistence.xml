@@ -7,6 +7,8 @@
     <class>Models.Person</class>
     <class>Models.Plan</class>
     <class>Models.User</class>
+    <class>Models.Client</class>
+    <class>Models.Client_Phone</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://castor.db.elephantsql.com:5432/brqcicjo"/>
       <property name="javax.persistence.jdbc.user" value="brqcicjo"/>
