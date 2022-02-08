@@ -4,6 +4,9 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>Models.Rol</class>
     <class>Models.Client_Type</class>
+    <class>Models.Person</class>
+    <class>Models.Plan</class>
+    <class>Models.User</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://castor.db.elephantsql.com:5432/brqcicjo"/>
       <property name="javax.persistence.jdbc.user" value="brqcicjo"/>
