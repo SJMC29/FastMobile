@@ -7,6 +7,7 @@ package Interface;
 import Function.LoginController;
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 
 /**
@@ -37,8 +38,26 @@ public class Login extends javax.swing.JFrame {
         return passwordUsuario.getText();
     }
     
-    public void showError(){
-        invalidData.setVisible(true);        
+    public void showError(int error){
+        Toolkit.getDefaultToolkit().beep();
+        invalidData.setVisible(true);       
+        
+        switch(error)
+        {
+           case 1 :
+              invalidData.setText("Los campos no pueden estar vacios");
+              break;
+
+           case 2 :
+              invalidData.setText("La contraseña es incorrecta");
+              break;
+
+           case 3 :
+              invalidData.setText("Usuario no ha sido encontrado");
+              break;
+           default : 
+              invalidData.setText("Mis programadores no me saben programar");
+        }
     }
     
     public void scaleImage(){
