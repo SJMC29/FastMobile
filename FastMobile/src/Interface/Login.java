@@ -8,6 +8,9 @@ import Function.LoginController;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
@@ -240,8 +243,12 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_rememberMeActionPerformed
 
     private void LOGINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOGINActionPerformed
-        //System.out.println("osi");
-        login_controller.letIngreso(this);
+        try {
+            //System.out.println("osi");
+            login_controller.letIngreso(this);
+        } catch (IOException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_LOGINActionPerformed
 
     /**
