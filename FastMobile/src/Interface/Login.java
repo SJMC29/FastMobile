@@ -28,6 +28,7 @@ public class Login extends javax.swing.JFrame {
         //LOGIN.setBackground(new Color(255,255,255,0));
         scaleImage();
         this.setTitle("Fast Mobile");
+        //Esto de ultimo siempre
     }
     //Gets
     public String getUser(){
@@ -38,10 +39,13 @@ public class Login extends javax.swing.JFrame {
         return passwordUsuario.getText();
     }
     
+    public Boolean getRemember(){
+        return rememberMe.isSelected();
+    }
+    
     public void showError(int error){
         Toolkit.getDefaultToolkit().beep();
-        invalidData.setVisible(true);       
-        
+        invalidData.setVisible(true);        
         switch(error)
         {
            case 1 :
