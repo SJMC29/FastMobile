@@ -4,7 +4,14 @@
  */
 package Interface;
 
+import Controllers.PersonController;
+import Controllers.RolController;
+import Controllers.UserController;
+import Models.Person;
+import Models.Rol;
+import Models.User;
 import java.awt.Image;
+import java.util.List;
 import javax.swing.ImageIcon;
 
 /**
@@ -12,13 +19,19 @@ import javax.swing.ImageIcon;
  * @author Fanfo
  */
 public class RegisterUser extends javax.swing.JFrame {
-
+    
+    RolController rolControl = new RolController();
+    PersonController personControl = new PersonController();
+    UserController userControl = new UserController();
+    List<Rol> roles;
+    boolean active = false;
     /**
      * Creates new form RegisterUser
      */
     public RegisterUser() {
         initComponents();
         scaleImage();
+        cargarRoles();
     }
     
     public void scaleImage(){
@@ -58,9 +71,18 @@ public class RegisterUser extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         scrollPanel = new javax.swing.JPanel();
         ingreseDatos = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        jTextFieldCedula = new javax.swing.JTextField();
+        jTextFieldNombre = new javax.swing.JTextField();
+        jTextFieldApellido = new javax.swing.JTextField();
+        jTextFieldEmail = new javax.swing.JTextField();
+        jTextFieldPhone = new javax.swing.JTextField();
+        jTextFieldAddress = new javax.swing.JTextField();
+        jTextFieldLatitud = new javax.swing.JTextField();
+        jTextFieldLongitud = new javax.swing.JTextField();
+        jTextFieldPassword = new javax.swing.JTextField();
+        jRadioButtonActive = new javax.swing.JRadioButton();
+        jComboBoxRol = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1024, 576));
@@ -126,16 +148,36 @@ public class RegisterUser extends javax.swing.JFrame {
 
         ingreseDatos.setText("Por favor, ingrese los datos.");
 
-        jTextField1.setText("jTextField1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldCedula.setText("Cedula");
+        jTextFieldCedula.setToolTipText("Cedula de Ciudadania");
+
+        jTextFieldNombre.setText("Nombre");
+        jTextFieldNombre.setToolTipText("nombre");
+
+        jTextFieldApellido.setText("Apellido");
+
+        jTextFieldEmail.setText("Correo Electronico");
+
+        jTextFieldPhone.setText("Phone");
+
+        jTextFieldAddress.setText("Direccion de residencia");
+
+        jTextFieldLatitud.setText("Latitud");
+        jTextFieldLatitud.setToolTipText("Cedula de Ciudadania");
+
+        jTextFieldLongitud.setText("Longitud");
+        jTextFieldLongitud.setToolTipText("Cedula de Ciudadania");
+
+        jTextFieldPassword.setText("jTextField9");
+
+        jRadioButtonActive.setText("Activo");
+        jRadioButtonActive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jRadioButtonActiveActionPerformed(evt);
             }
         });
 
-        jTextField2.setText("jTextField2");
-
-        jTextField3.setText("jTextField3");
+        jComboBoxRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout scrollPanelLayout = new javax.swing.GroupLayout(scrollPanel);
         scrollPanel.setLayout(scrollPanelLayout);
@@ -143,12 +185,31 @@ public class RegisterUser extends javax.swing.JFrame {
             scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(scrollPanelLayout.createSequentialGroup()
                 .addGap(52, 52, 52)
-                .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ingreseDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 741, Short.MAX_VALUE)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField1))
-                .addContainerGap(66, Short.MAX_VALUE))
+                    .addGroup(scrollPanelLayout.createSequentialGroup()
+                        .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jTextFieldAddress, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scrollPanelLayout.createSequentialGroup()
+                                .addComponent(jTextFieldCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jComboBoxRol, javax.swing.GroupLayout.Alignment.TRAILING, 0, 257, Short.MAX_VALUE)
+                                .addComponent(jTextFieldPhone, javax.swing.GroupLayout.Alignment.TRAILING))))
+                    .addGroup(scrollPanelLayout.createSequentialGroup()
+                        .addComponent(jTextFieldLatitud, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(jTextFieldLongitud, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(scrollPanelLayout.createSequentialGroup()
+                        .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(jRadioButtonActive)))
+                .addContainerGap(275, Short.MAX_VALUE))
         );
         scrollPanelLayout.setVerticalGroup(
             scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,18 +217,40 @@ public class RegisterUser extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addComponent(ingreseDatos)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(498, Short.MAX_VALUE))
+                .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldLatitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldLongitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRadioButtonActive))
+                .addContainerGap(418, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(scrollPanel);
 
         CENTER.add(jScrollPane1);
         jScrollPane1.setBounds(70, 50, 900, 280);
+
+        jLabel1.setBackground(new java.awt.Color(204, 255, 204));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 51));
+        jLabel1.setText("Se Agrego el Usuario exitosamente");
+        CENTER.add(jLabel1);
+        jLabel1.setBounds(340, 360, 360, 30);
 
         getContentPane().add(CENTER);
         CENTER.setBounds(0, 110, 1030, 470);
@@ -177,12 +260,46 @@ public class RegisterUser extends javax.swing.JFrame {
 
     private void crearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearUsuarioActionPerformed
         // TODO add your handling code here:
+        Person p = new Person(jTextFieldCedula.getText(), 
+                                jTextFieldNombre.getText(), 
+                                jTextFieldApellido.getText(),
+                                jTextFieldEmail.getText(),
+                                jTextFieldPhone.getText(),
+                                jTextFieldAddress.getText(),
+                                Double.parseDouble(jTextFieldLatitud.getText()),
+                                Double.parseDouble(jTextFieldLongitud.getText()));
+        // System.out.println("p = " + p);
+        Rol r = roles.get(jComboBoxRol.getSelectedIndex());
+        User u = new User(p, jTextFieldPassword.getText(), this.active, r);
+        personControl.createPerson(p);
+        userControl.createUser(u);
+        
+        jTextFieldAddress.setText("");
+        jTextFieldApellido.setText("");
+        jTextFieldCedula.setText("");
+        jTextFieldEmail.setText("");
+        jTextFieldLatitud.setText("");
+        jTextFieldLongitud.setText("");
+        jTextFieldNombre.setText("");
+        jTextFieldPassword.setText("");
+        jTextFieldPhone.setText("");
+        
     }//GEN-LAST:event_crearUsuarioActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jRadioButtonActiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonActiveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
+        this.active = !this.active;
+        System.out.println(this.active);
+    }//GEN-LAST:event_jRadioButtonActiveActionPerformed
+    
+    public void cargarRoles(){
+        roles = rolControl.getRols();
+        jComboBoxRol.removeAllItems();
+        for(int i=0;i<roles.size();i++){
+            jComboBoxRol.addItem(roles.get(i).getName());
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -226,10 +343,19 @@ public class RegisterUser extends javax.swing.JFrame {
     private javax.swing.JButton crearUsuario;
     private javax.swing.JLabel fastMobileWhite;
     private javax.swing.JLabel ingreseDatos;
+    private javax.swing.JComboBox<String> jComboBoxRol;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JRadioButton jRadioButtonActive;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextFieldAddress;
+    private javax.swing.JTextField jTextFieldApellido;
+    private javax.swing.JTextField jTextFieldCedula;
+    private javax.swing.JTextField jTextFieldEmail;
+    private javax.swing.JTextField jTextFieldLatitud;
+    private javax.swing.JTextField jTextFieldLongitud;
+    private javax.swing.JTextField jTextFieldNombre;
+    private javax.swing.JTextField jTextFieldPassword;
+    private javax.swing.JTextField jTextFieldPhone;
     private javax.swing.JLabel menu;
     private javax.swing.JPanel scrollPanel;
     private javax.swing.JLabel userIcon;
