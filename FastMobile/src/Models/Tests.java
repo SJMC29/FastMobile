@@ -49,7 +49,7 @@ public class Tests {
         userControl.createUser(user_1);
         */
         for(User u :userControl.getUsers()){
-            System.out.println(u);
+            System.out.println(u.getPerson());
         }
     }
     

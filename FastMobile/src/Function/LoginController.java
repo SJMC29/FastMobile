@@ -4,6 +4,7 @@
  */
 package Function;
 
+import Controllers.UserController;
 import Interface.Login;
 import Interface.Menu;
 
@@ -12,8 +13,12 @@ import Interface.Menu;
  * @author Fanfo
  */
 public class LoginController {
+    UserController user_controller = new UserController();
     public void letIngreso(Login login){
-        if (login.getUser().equals("admin") && login.getPassword().equals("123")) {
+        //System.out.println(user_controller.getUser(login.getUser()).getPassword());
+        String passBD = user_controller.getUser(login.getUser()).getPassword();
+        String passInterface = login.getPassword();
+        if (passBD.equals(passInterface)) {
             new Menu().setVisible(true);
             login.dispose();
         } else {
