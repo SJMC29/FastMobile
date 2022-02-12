@@ -65,9 +65,12 @@ public class Tests {
         }
         */
         
+        /*
         for(Client c: clientControl.getClients()){
             System.out.println(c);
         }
+        */
+        
     }
     
 }

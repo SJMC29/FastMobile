@@ -5,11 +5,10 @@
 package Interface;
 
 //import Controllers.ClientController;
-import Controllers.Client_TypeController;
 import Controllers.PersonController;
 import Controllers.RolController;
 import Controllers.UserController;
-import Function.ClientController;
+import Function.RegisterClientController;
 import Models.Person;
 import Models.Rol;
 import Models.User;
@@ -17,6 +16,7 @@ import java.awt.Image;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 /**
@@ -25,8 +25,7 @@ import javax.swing.JTextField;
  */
 public class RegisterClient extends javax.swing.JFrame {
     
-    ClientController clientControl = new ClientController();
-    Client_TypeController typeControl = new Client_TypeController();
+    RegisterClientController clientControl = new RegisterClientController();
     //ClientController clientControl = new ClientController();
     RolController rolControl = new RolController();
     PersonController personControl = new PersonController();
@@ -66,10 +65,12 @@ public class RegisterClient extends javax.swing.JFrame {
         return jTextFieldNombre;
     }
 
-  
-
     public JTextField getjTextFieldPhone() {
         return jTextFieldPhone;
+    }
+
+    public boolean getjRadioButtonSuspended() {
+        return active;
     }
     
     
@@ -80,7 +81,7 @@ public class RegisterClient extends javax.swing.JFrame {
     public RegisterClient() {
         initComponents();
         scaleImage();
-        clientControl.loadPlans(jComboBoxType);
+        clientControl.loadTypes(jComboBoxType);
     }
     
     public void scaleImage(){
@@ -313,7 +314,7 @@ public class RegisterClient extends javax.swing.JFrame {
 
     private void jRadioButtonSuspendedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSuspendedActionPerformed
         // TODO add your handling code here:
-        this.active = !this.active;
+        this.active= !this.active;
         System.out.println(this.active);
     }//GEN-LAST:event_jRadioButtonSuspendedActionPerformed
 
