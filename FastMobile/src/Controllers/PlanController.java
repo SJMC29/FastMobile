@@ -3,6 +3,7 @@ package Controllers;
 
 import Models.Plan;
 import Persistence.PlanJpaController;
+import Persistence.exceptions.NonexistentEntityException;
 import java.util.List;
 
 public class PlanController {
@@ -21,4 +22,5 @@ public class PlanController {
         return planJPA.findPlan(id);
     }
     
+   
 }

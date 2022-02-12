@@ -2,6 +2,7 @@ package Controllers;
 
 import Models.Client_Type;
 import Persistence.Client_TypeJpaController;
+import Persistence.exceptions.NonexistentEntityException;
 import java.util.List;
 
 
