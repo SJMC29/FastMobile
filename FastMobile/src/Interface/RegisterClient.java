@@ -150,11 +150,9 @@ public class RegisterClient extends javax.swing.JFrame {
         jTable = new javax.swing.JTable();
         jButtonInsert = new javax.swing.JButton();
         jButtonRemove = new javax.swing.JButton();
-        jButtonPrint = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1024, 576));
         getContentPane().setLayout(null);
 
         TOP.setBackground(new java.awt.Color(255, 255, 255));
@@ -293,13 +291,6 @@ public class RegisterClient extends javax.swing.JFrame {
             }
         });
 
-        jButtonPrint.setText("Show");
-        jButtonPrint.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPrintActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout scrollPanelLayout = new javax.swing.GroupLayout(scrollPanel);
         scrollPanel.setLayout(scrollPanelLayout);
         scrollPanelLayout.setHorizontalGroup(
@@ -339,9 +330,7 @@ public class RegisterClient extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonInsert)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonRemove)
-                            .addComponent(jButtonPrint)))
+                        .addComponent(jButtonRemove))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(181, Short.MAX_VALUE))
         );
@@ -375,9 +364,7 @@ public class RegisterClient extends javax.swing.JFrame {
                     .addComponent(jComboBoxPlan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonInsert)
                     .addComponent(jButtonRemove))
-                .addGap(18, 18, 18)
-                .addComponent(jButtonPrint)
-                .addGap(18, 18, 18)
+                .addGap(61, 61, 61)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(227, Short.MAX_VALUE))
         );
@@ -431,10 +418,6 @@ public class RegisterClient extends javax.swing.JFrame {
         clientControl.removePhone(this);
 
     }//GEN-LAST:event_jButtonRemoveActionPerformed
-
-    private void jButtonPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintActionPerformed
-        //clientControl.addClient_Phones(getjTable());
-    }//GEN-LAST:event_jButtonPrintActionPerformed
     
     
     /**
@@ -482,7 +465,6 @@ public class RegisterClient extends javax.swing.JFrame {
     private javax.swing.JLabel fastMobileWhite;
     private javax.swing.JLabel ingreseDatos;
     private javax.swing.JButton jButtonInsert;
-    private javax.swing.JButton jButtonPrint;
     private javax.swing.JButton jButtonRemove;
     private javax.swing.JComboBox<String> jComboBoxPlan;
     private javax.swing.JComboBox<String> jComboBoxType;

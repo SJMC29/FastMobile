@@ -3,6 +3,7 @@ package Controllers;
 
 import Models.Person;
 import Persistence.PersonJpaController;
+import Persistence.exceptions.NonexistentEntityException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,6 +22,10 @@ public class PersonController {
         
     public List<Person> getPeople(){
         return personJPA.findPersonEntities();
+    }
+    
+    public void destroyPerson(String id) throws NonexistentEntityException{
+        personJPA.destroy(id);
     }
     
     public Person getPerson(String id){

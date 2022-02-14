@@ -91,13 +91,18 @@ public class RegisterClientController {
     public void insertTable(RegisterClient rc){
         //Comprobar antes de insertar
         //System.out.println(tablePlans.getRowCount());
-        
-        String []info=new String[3];
-        info[0] = rc.getjTextFieldClient_Phone().getText();
-        info[1] = plans.get(rc.getjComboBoxPlan().getSelectedIndex()).getName();
-        info[2] = Integer.toString(rc.getjComboBoxPlan().getSelectedIndex());
-        tablePlans.addRow(info);
-        rc.getjTextFieldClient_Phone().setText("");        
+        Client_Type selected_type = types.get(rc.getjComboBoxType().getSelectedIndex());
+        if(tablePlans.getRowCount()<3 || !"Natural".equals(selected_type.getName())){
+            String []info=new String[3];
+            info[0] = rc.getjTextFieldClient_Phone().getText();
+            info[1] = plans.get(rc.getjComboBoxPlan().getSelectedIndex()).getName();
+            info[2] = Integer.toString(rc.getjComboBoxPlan().getSelectedIndex());
+            tablePlans.addRow(info);
+            rc.getjTextFieldClient_Phone().setText("");    
+        }else{
+            JOptionPane.showMessageDialog(null,"Los clientes naturales pueden tener solo hasta 3 líneas telefónicas");
+        }
+            
     }
     
     public void removePhone(RegisterClient rc){
