@@ -56,8 +56,8 @@ public class Tests {
         }
         */
         
-       // Plan pl_1 = new Plan("Plan de 15 GB",500,15,false,34990);
-        //planControl
+       // Plan pl_2 = new Plan("Plan de 25 GB",750,25,true,44990);
+       //planControl.createPlan(pl_2);
         
         /*
         for(Client_Type cl: typeControl.getClient_Types()){
@@ -65,11 +65,11 @@ public class Tests {
         }
         */
         
-        /*
+        
         for(Client c: clientControl.getClients()){
             System.out.println(c);
         }
-        */
+        
         
     }
     

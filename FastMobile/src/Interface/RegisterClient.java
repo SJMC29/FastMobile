@@ -17,6 +17,7 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -79,6 +80,10 @@ public class RegisterClient extends javax.swing.JFrame {
 
     public JTextField getjTextFieldClient_Phone() {
         return jTextFieldClient_Phone;
+    }
+
+    public JTable getjTable() {
+        return jTable;
     }
        
     /**
@@ -144,6 +149,8 @@ public class RegisterClient extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
         jButtonInsert = new javax.swing.JButton();
+        jButtonRemove = new javax.swing.JButton();
+        jButtonPrint = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -279,6 +286,20 @@ public class RegisterClient extends javax.swing.JFrame {
             }
         });
 
+        jButtonRemove.setText("Remover");
+        jButtonRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRemoveActionPerformed(evt);
+            }
+        });
+
+        jButtonPrint.setText("Show");
+        jButtonPrint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPrintActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout scrollPanelLayout = new javax.swing.GroupLayout(scrollPanel);
         scrollPanel.setLayout(scrollPanelLayout);
         scrollPanelLayout.setHorizontalGroup(
@@ -308,17 +329,20 @@ public class RegisterClient extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, scrollPanelLayout.createSequentialGroup()
                                 .addGap(17, 17, 17)
                                 .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(scrollPanelLayout.createSequentialGroup()
-                            .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jComboBoxType, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(scrollPanelLayout.createSequentialGroup()
-                                    .addComponent(jTextFieldClient_Phone, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jComboBoxPlan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGap(12, 12, 12)
-                            .addComponent(jButtonInsert))
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(scrollPanelLayout.createSequentialGroup()
+                        .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBoxType, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(scrollPanelLayout.createSequentialGroup()
+                                .addComponent(jTextFieldClient_Phone, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBoxPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonInsert)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonRemove)
+                            .addComponent(jButtonPrint)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(181, Short.MAX_VALUE))
         );
         scrollPanelLayout.setVerticalGroup(
@@ -349,10 +373,13 @@ public class RegisterClient extends javax.swing.JFrame {
                 .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldClient_Phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxPlan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonInsert))
+                    .addComponent(jButtonInsert)
+                    .addComponent(jButtonRemove))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonPrint)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(270, Short.MAX_VALUE))
+                .addContainerGap(227, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(scrollPanel);
@@ -399,6 +426,15 @@ public class RegisterClient extends javax.swing.JFrame {
     private void jButtonInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertActionPerformed
         clientControl.insertTable(this);
     }//GEN-LAST:event_jButtonInsertActionPerformed
+
+    private void jButtonRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveActionPerformed
+        clientControl.removePhone(this);
+
+    }//GEN-LAST:event_jButtonRemoveActionPerformed
+
+    private void jButtonPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintActionPerformed
+        //clientControl.addClient_Phones(getjTable());
+    }//GEN-LAST:event_jButtonPrintActionPerformed
     
     
     /**
@@ -446,6 +482,8 @@ public class RegisterClient extends javax.swing.JFrame {
     private javax.swing.JLabel fastMobileWhite;
     private javax.swing.JLabel ingreseDatos;
     private javax.swing.JButton jButtonInsert;
+    private javax.swing.JButton jButtonPrint;
+    private javax.swing.JButton jButtonRemove;
     private javax.swing.JComboBox<String> jComboBoxPlan;
     private javax.swing.JComboBox<String> jComboBoxType;
     private javax.swing.JLabel jLabel1;
