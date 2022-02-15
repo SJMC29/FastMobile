@@ -7,12 +7,15 @@ package Interface;
 import Controllers.PersonController;
 import Controllers.RolController;
 import Controllers.UserController;
+import Function.RegisterUserController;
 import Models.Person;
 import Models.Rol;
 import Models.User;
 import java.awt.Image;
 import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 /**
  *
@@ -20,10 +23,7 @@ import javax.swing.ImageIcon;
  */
 public class RegisterUser extends javax.swing.JFrame {
     
-    RolController rolControl = new RolController();
-    PersonController personControl = new PersonController();
-    UserController userControl = new UserController();
-    List<Rol> roles;
+    RegisterUserController userController = new RegisterUserController();
     boolean active = false;
     /**
      * Creates new form RegisterUser
@@ -31,8 +31,55 @@ public class RegisterUser extends javax.swing.JFrame {
     public RegisterUser() {
         initComponents();
         scaleImage();
-        cargarRoles();
+        userController.cargarRoles(jComboBoxRol);
+        
     }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public JComboBox<String> getjComboBoxRol() {
+        return jComboBoxRol;
+    }
+
+    public JTextField getjTextFieldAddress() {
+        return jTextFieldAddress;
+    }
+
+    public JTextField getjTextFieldApellido() {
+        return jTextFieldApellido;
+    }
+
+    public JTextField getjTextFieldCedula() {
+        return jTextFieldCedula;
+    }
+
+    public JTextField getjTextFieldEmail() {
+        return jTextFieldEmail;
+    }
+
+    public JTextField getjTextFieldLatitud() {
+        return jTextFieldLatitud;
+    }
+
+    public JTextField getjTextFieldLongitud() {
+        return jTextFieldLongitud;
+    }
+
+    public JTextField getjTextFieldNombre() {
+        return jTextFieldNombre;
+    }
+
+    public JTextField getjTextFieldPassword() {
+        return jTextFieldPassword;
+    }
+
+    public JTextField getjTextFieldPhone() {
+        return jTextFieldPhone;
+    }
+    
+    
     
     public void scaleImage(){
         
@@ -268,29 +315,7 @@ public class RegisterUser extends javax.swing.JFrame {
 
     private void crearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearUsuarioActionPerformed
         // TODO add your handling code here:
-        Person p = new Person(jTextFieldCedula.getText(), 
-                                jTextFieldNombre.getText(), 
-                                jTextFieldApellido.getText(),
-                                jTextFieldEmail.getText(),
-                                jTextFieldPhone.getText(),
-                                jTextFieldAddress.getText(),
-                                Double.parseDouble(jTextFieldLatitud.getText()),
-                                Double.parseDouble(jTextFieldLongitud.getText()));
-        // System.out.println("p = " + p);
-        Rol r = roles.get(jComboBoxRol.getSelectedIndex());
-        User u = new User(p, jTextFieldPassword.getText(), this.active, r);
-        personControl.createPerson(p);
-        userControl.createUser(u);
-        
-        jTextFieldAddress.setText("");
-        jTextFieldApellido.setText("");
-        jTextFieldCedula.setText("");
-        jTextFieldEmail.setText("");
-        jTextFieldLatitud.setText("");
-        jTextFieldLongitud.setText("");
-        jTextFieldNombre.setText("");
-        jTextFieldPassword.setText("");
-        jTextFieldPhone.setText("");
+        userController.sendForm(this);
         
     }//GEN-LAST:event_crearUsuarioActionPerformed
 
@@ -303,14 +328,7 @@ public class RegisterUser extends javax.swing.JFrame {
     private void jTextFieldPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPhoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPhoneActionPerformed
-    
-    public void cargarRoles(){
-        roles = rolControl.getRols();
-        jComboBoxRol.removeAllItems();
-        for(int i=0;i<roles.size();i++){
-            jComboBoxRol.addItem(roles.get(i).getName());
-        }
-    }
+
     
     /**
      * @param args the command line arguments
