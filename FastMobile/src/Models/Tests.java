@@ -7,6 +7,7 @@ import Controllers.PersonController;
 import Controllers.PlanController;
 import Controllers.RolController;
 import Controllers.UserController;
+import Interface.RegisterUser;
 import Persistence.exceptions.NonexistentEntityException;
 
 public class Tests {
@@ -55,6 +56,12 @@ public class Tests {
             System.out.println(u.getPerson());
         }
         */
+        User u = userControl.getUser("1193477073");
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new RegisterUser(u).setVisible(true);
+            }
+        });
         
        // Plan pl_1 = new Plan("Plan de 15 GB",500,15,false,34990);
         //planControl

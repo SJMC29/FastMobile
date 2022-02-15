@@ -34,6 +34,25 @@ public class RegisterUser extends javax.swing.JFrame {
         userController.cargarRoles(jComboBoxRol);
         
     }
+    
+    public RegisterUser(User u) {
+        initComponents();
+        scaleImage();
+        userController.cargarRoles(jComboBoxRol);
+        jTextFieldAddress.setText(u.getPerson().getAddress());
+        jTextFieldApellido.setText(u.getPerson().getLastName());
+        jTextFieldCedula.setText(u.getPerson().getId_Person());
+        jTextFieldCedula.setEditable(false);
+        jTextFieldEmail.setText(u.getPerson().geteMail());
+        jTextFieldLatitud.setText(String.valueOf(u.getPerson().getLatitude()));
+        jTextFieldLongitud.setText(String.valueOf(u.getPerson().getLongitude()));
+        jTextFieldNombre.setText(u.getPerson().getName());
+        jTextFieldPassword.setText(u.getPassword());
+        jTextFieldPhone.setText(u.getPerson().getPhone());
+        jComboBoxRol.setSelectedIndex(u.getRol().getId_Rol()-1);
+        active = u.isActive();
+        jRadioButtonActive.setSelected(active);
+    }
 
     public boolean isActive() {
         return active;
