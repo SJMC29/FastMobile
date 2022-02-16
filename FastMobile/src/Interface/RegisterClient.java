@@ -17,14 +17,15 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Fanfo
  */
-public class RegisterClient extends javax.swing.JFrame {
-    
+public class RegisterClient extends javax.swing.JFrame {    
     RegisterClientController clientControl = new RegisterClientController();
     //ClientController clientControl = new ClientController();
     RolController rolControl = new RolController();
@@ -72,9 +73,19 @@ public class RegisterClient extends javax.swing.JFrame {
     public boolean getjRadioButtonSuspended() {
         return active;
     }
-    
-    
-    
+
+    public JComboBox<String> getjComboBoxPlan() {
+        return jComboBoxPlan;
+    }
+
+    public JTextField getjTextFieldClient_Phone() {
+        return jTextFieldClient_Phone;
+    }
+
+    public JTable getjTable() {
+        return jTable;
+    }
+       
     /**
      * Creates new form RegisterUser
      */
@@ -82,6 +93,8 @@ public class RegisterClient extends javax.swing.JFrame {
         initComponents();
         scaleImage();
         clientControl.loadTypes(jComboBoxType);
+        clientControl.loadPlans(jComboBoxPlan);
+        clientControl.loadTable(jTable);
     }
     
     public void scaleImage(){
@@ -131,10 +144,15 @@ public class RegisterClient extends javax.swing.JFrame {
         jTextFieldLongitud = new javax.swing.JTextField();
         jRadioButtonSuspended = new javax.swing.JRadioButton();
         jComboBoxType = new javax.swing.JComboBox<>();
+        jTextFieldClient_Phone = new javax.swing.JTextField();
+        jComboBoxPlan = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable = new javax.swing.JTable();
+        jButtonInsert = new javax.swing.JButton();
+        jButtonRemove = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1024, 576));
         getContentPane().setLayout(null);
 
         TOP.setBackground(new java.awt.Color(255, 255, 255));
@@ -231,6 +249,48 @@ public class RegisterClient extends javax.swing.JFrame {
 
         jComboBoxType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jTextFieldClient_Phone.setText("Telefono");
+        jTextFieldClient_Phone.setToolTipText("Cedula de Ciudadania");
+        jTextFieldClient_Phone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldClient_PhoneActionPerformed(evt);
+            }
+        });
+
+        jComboBoxPlan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxPlan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxPlanActionPerformed(evt);
+            }
+        });
+
+        jTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable);
+
+        jButtonInsert.setText("Insertar");
+        jButtonInsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonInsertActionPerformed(evt);
+            }
+        });
+
+        jButtonRemove.setText("Remover");
+        jButtonRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRemoveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout scrollPanelLayout = new javax.swing.GroupLayout(scrollPanel);
         scrollPanel.setLayout(scrollPanelLayout);
         scrollPanelLayout.setHorizontalGroup(
@@ -239,6 +299,10 @@ public class RegisterClient extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ingreseDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(scrollPanelLayout.createSequentialGroup()
+                        .addComponent(jTextFieldLatitud, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldLongitud, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(scrollPanelLayout.createSequentialGroup()
                         .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,19 +313,26 @@ public class RegisterClient extends javax.swing.JFrame {
                             .addComponent(jTextFieldAddress))
                         .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(scrollPanelLayout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(scrollPanelLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextFieldPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBoxType, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioButtonSuspended)))))
+                                    .addComponent(jRadioButtonSuspended)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, scrollPanelLayout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(scrollPanelLayout.createSequentialGroup()
-                        .addComponent(jTextFieldLatitud, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
-                        .addComponent(jTextFieldLongitud, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                        .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBoxType, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(scrollPanelLayout.createSequentialGroup()
+                                .addComponent(jTextFieldClient_Phone, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBoxPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonInsert)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonRemove))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
         scrollPanelLayout.setVerticalGroup(
             scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,13 +351,22 @@ public class RegisterClient extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jRadioButtonSuspended))
                 .addGap(18, 18, 18)
                 .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldLatitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldLongitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButtonSuspended))
-                .addContainerGap(461, Short.MAX_VALUE))
+                    .addComponent(jTextFieldLongitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addComponent(jComboBoxType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldClient_Phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxPlan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonInsert)
+                    .addComponent(jButtonRemove))
+                .addGap(61, 61, 61)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(227, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(scrollPanel);
@@ -321,6 +401,23 @@ public class RegisterClient extends javax.swing.JFrame {
     private void jTextFieldPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPhoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPhoneActionPerformed
+
+    private void jTextFieldClient_PhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldClient_PhoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldClient_PhoneActionPerformed
+
+    private void jComboBoxPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPlanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxPlanActionPerformed
+
+    private void jButtonInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertActionPerformed
+        clientControl.insertTable(this);
+    }//GEN-LAST:event_jButtonInsertActionPerformed
+
+    private void jButtonRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveActionPerformed
+        clientControl.removePhone(this);
+
+    }//GEN-LAST:event_jButtonRemoveActionPerformed
     
     
     /**
@@ -367,13 +464,19 @@ public class RegisterClient extends javax.swing.JFrame {
     private javax.swing.JButton crearUsuario;
     private javax.swing.JLabel fastMobileWhite;
     private javax.swing.JLabel ingreseDatos;
+    private javax.swing.JButton jButtonInsert;
+    private javax.swing.JButton jButtonRemove;
+    private javax.swing.JComboBox<String> jComboBoxPlan;
     private javax.swing.JComboBox<String> jComboBoxType;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton jRadioButtonSuspended;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable;
     private javax.swing.JTextField jTextFieldAddress;
     private javax.swing.JTextField jTextFieldApellido;
     private javax.swing.JTextField jTextFieldCedula;
+    private javax.swing.JTextField jTextFieldClient_Phone;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldLatitud;
     private javax.swing.JTextField jTextFieldLongitud;
