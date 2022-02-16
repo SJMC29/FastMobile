@@ -76,7 +76,6 @@ public class Tests {
         }*/
         
         //personControl.destroyPerson("19831237833");
-        
         //clientControl.destroyClient(1);
         
         /*
@@ -85,13 +84,14 @@ public class Tests {
         }
         personControl.destroyPerson("19831237833");*/
         
-        for(Client_Phone p: phoneControl.getClient_Phones()){
-            System.out.println(p);
-        }
+        //for(Client_Phone p: phoneControl.getClient_Phones()){
+        //    System.out.println(p);
+        //}
         
-        for(Client c: clientControl.getClients()){
-            System.out.println(c);
-        }
+        //for(Client c: clientControl.getClients()){
+        //    System.out.println(c);
+        //}
+        
     }
     
     

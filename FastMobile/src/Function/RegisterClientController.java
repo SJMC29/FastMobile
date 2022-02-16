@@ -121,11 +121,11 @@ public class RegisterClientController {
         for(int i = 0; i < tabla.getRowCount(); i++){
             //System.out.println(plans);
             //System.out.print(i);
-            System.out.println(tabla.getModel().getValueAt(i, 0));            
+            //System.out.println(tabla.getModel().getValueAt(i, 0));            
             //Convertir en string,luego en int y luego lo busca en plans
-            System.out.println(plans.get(Integer.parseInt(tabla.getModel().getValueAt(i, 2).toString())).getName());
+            //System.out.println(plans.get(Integer.parseInt(tabla.getModel().getValueAt(i, 2).toString())).getName());
             
-            phone = tabla.getModel().getValueAt(i, 1).toString();
+            phone = tabla.getModel().getValueAt(i, 0).toString();
             selected_plan = plans.get(Integer.parseInt(tabla.getModel().getValueAt(i, 2).toString()));
             
             selected_client_phone = new Client_Phone(client, phone, selected_plan);
