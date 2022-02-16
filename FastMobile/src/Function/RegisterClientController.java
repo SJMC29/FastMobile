@@ -36,6 +36,10 @@ public class RegisterClientController {
     List<Client_Type> types;
     List<Plan> plans;
     
+    public Client_Type tipoSeleccionado(int i){
+        return types.get(i);
+    }
+    
     public void sendForm(RegisterClient rc){
         String nombre = rc.getjTextFieldCedula().getText();
         Date current_date = new Date();
@@ -54,7 +58,7 @@ public class RegisterClientController {
         );
         
         
-        Client_Type selected_type = types.get(rc.getjComboBoxType().getSelectedIndex());
+        Client_Type selected_type = tipoSeleccionado(rc.getjComboBoxType().getSelectedIndex());
         
         Client c = new Client(person,selected_type,suspended,current_date);
         personControl.createPerson(person);

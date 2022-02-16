@@ -5,6 +5,7 @@
 package Interface;
 
 import Function.MenuController;
+import Function.ProfileClientsController;
 import Function.RegisterClientController;
 import Models.Client;
 import java.awt.Color;
@@ -13,6 +14,10 @@ import java.awt.Image;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JRadioButton;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -20,12 +25,15 @@ import javax.swing.ImageIcon;
  */
 public class ProfileClients extends javax.swing.JFrame {
 
+    Client client;
     MenuController menu_controller = new MenuController();
     RegisterClientController controladorClient = new RegisterClientController();
+    ProfileClientsController controladorProfile = new ProfileClientsController();
     /**
      * Creates new form Menu
      */
     public ProfileClients(Client c) {
+        client = c;
         initComponents();
         scaleImage();
         seAgrego.setVisible(false);
@@ -41,8 +49,9 @@ public class ProfileClients extends javax.swing.JFrame {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");             
         String strDate = dateFormat.format(c.getLastPayment());  
         ultimoPago.setText(strDate);
-        
-        
+        controladorProfile.cargarTelefonos(tabla, c);
+        latitudT.setText(String.valueOf(c.getPerson().getLatitude()));
+        logitudT.setText(String.valueOf(c.getPerson().getLongitude()));
     }
     
     public ProfileClients() {
@@ -50,6 +59,63 @@ public class ProfileClients extends javax.swing.JFrame {
         scaleImage();
         seAgrego.setVisible(false);
     }
+
+    public JTextField getApellidosT() {
+        return apellidosT;
+    }
+
+    public JTextField getDirection() {
+        return direction;
+    }
+
+    public JTextField getEmail() {
+        return email;
+    }
+
+    public JTextField getIdentificacionT() {
+        return identificacionT;
+    }
+
+    public JTextField getLatitudT() {
+        return latitudT;
+    }
+
+    public JTextField getLogitudT() {
+        return logitudT;
+    }
+
+    public JTextField getNombresT() {
+        return nombresT;
+    }
+
+    public JRadioButton getSuspendido() {
+        return suspendido;
+    }
+
+    public JTable getTabla() {
+        return tabla;
+    }
+
+    public JTextField getTelefono() {
+        return telefono;
+    }
+
+    public JComboBox<String> getTipo() {
+        return tipo;
+    }
+
+    public JTextField getUltimoPago() {
+        return ultimoPago;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public RegisterClientController getControladorClient() {
+        return controladorClient;
+    }    
+    
 
     public void scaleImage(){
     }

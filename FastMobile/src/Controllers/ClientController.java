@@ -27,4 +27,8 @@ public class ClientController {
         return clientJPA.findClient(id);
     }
     
+    public List<Client> getClients(int cantidadAMostrar, int primerElemento){
+        return clientJPA.findClientEntities(cantidadAMostrar, primerElemento);
+    }
+    
 }
