@@ -5,9 +5,13 @@
 package Interface;
 
 import Function.MenuController;
+import Function.RegisterClientController;
+import Models.Client;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Image;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import javax.swing.ImageIcon;
 
 /**
@@ -17,9 +21,30 @@ import javax.swing.ImageIcon;
 public class ProfileClients extends javax.swing.JFrame {
 
     MenuController menu_controller = new MenuController();
+    RegisterClientController controladorClient = new RegisterClientController();
     /**
      * Creates new form Menu
      */
+    public ProfileClients(Client c) {
+        initComponents();
+        scaleImage();
+        seAgrego.setVisible(false);
+        nombresT.setText(c.getPerson().getName());
+        apellidosT.setText(c.getPerson().getLastName());
+        identificacionT.setText(c.getPerson().getId_Person());
+        email.setText(c.getPerson().geteMail());
+        telefono.setText(c.getPerson().getPhone());
+        direction.setText(c.getPerson().getAddress());
+        suspendido.setSelected(c.isSuspended());
+        controladorClient.loadTypes(tipo);
+        tipo.setSelectedIndex(c.getClien_Type().getId_type()-1);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");             
+        String strDate = dateFormat.format(c.getLastPayment());  
+        ultimoPago.setText(strDate);
+        
+        
+    }
+    
     public ProfileClients() {
         initComponents();
         scaleImage();
@@ -52,17 +77,17 @@ public class ProfileClients extends javax.swing.JFrame {
         nombresT = new javax.swing.JTextField();
         apellidosT = new javax.swing.JTextField();
         identificacionT = new javax.swing.JTextField();
-        rol = new javax.swing.JComboBox<>();
+        tipo = new javax.swing.JComboBox<>();
         latitudJ = new javax.swing.JLabel();
         longitudJ = new javax.swing.JLabel();
         latitudT = new javax.swing.JTextField();
-        logitud = new javax.swing.JTextField();
+        logitudT = new javax.swing.JTextField();
         emailJ = new javax.swing.JLabel();
         email = new javax.swing.JTextField();
         telefonoJ = new javax.swing.JLabel();
         telefono = new javax.swing.JTextField();
         direccion = new javax.swing.JLabel();
-        telefono1 = new javax.swing.JTextField();
+        direction = new javax.swing.JTextField();
         suspendido = new javax.swing.JRadioButton();
         ultimoPagoJ = new javax.swing.JLabel();
         ultimoPago = new javax.swing.JTextField();
@@ -158,7 +183,7 @@ public class ProfileClients extends javax.swing.JFrame {
 
         identificacionT.setText("Número de identificación");
 
-        rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         latitudJ.setText("Latitud:");
 
@@ -166,7 +191,7 @@ public class ProfileClients extends javax.swing.JFrame {
 
         latitudT.setText("Latitud");
 
-        logitud.setText("Longitud");
+        logitudT.setText("Longitud");
 
         emailJ.setText("Correo electrónico:");
 
@@ -178,7 +203,7 @@ public class ProfileClients extends javax.swing.JFrame {
 
         direccion.setText("Dirección de residencia:");
 
-        telefono1.setText("Dirección de residencia");
+        direction.setText("Dirección de residencia");
 
         suspendido.setText("Suspendido");
 
@@ -223,11 +248,11 @@ public class ProfileClients extends javax.swing.JFrame {
                     .addComponent(telefonosPlanJ)
                     .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(ultimoPago, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(telefono1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(direction, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(telefono, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(email, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(identificacionT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 806, Short.MAX_VALUE)
-                        .addComponent(rol, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tipo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(apellidosT, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(ultimoPagoJ, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(suspendido, javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,7 +270,7 @@ public class ProfileClients extends javax.swing.JFrame {
                             .addGap(25, 25, 25)
                             .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(longitudJ)
-                                .addComponent(logitud, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(logitudT, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(nombresT, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addContainerGap(247, Short.MAX_VALUE))
         );
@@ -263,7 +288,7 @@ public class ProfileClients extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(tipoCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(rol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(numeroIdentificacion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -279,7 +304,7 @@ public class ProfileClients extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(direccion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(telefono1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(direction, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(latitudJ)
@@ -287,7 +312,7 @@ public class ProfileClients extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(latitudT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(logitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(logitudT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(suspendido)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -438,6 +463,7 @@ public class ProfileClients extends javax.swing.JFrame {
     private javax.swing.JLabel back;
     private javax.swing.JButton crearUsuario1;
     private javax.swing.JLabel direccion;
+    private javax.swing.JTextField direction;
     private javax.swing.JTextField email;
     private javax.swing.JLabel emailJ;
     private javax.swing.JPanel formulario;
@@ -447,20 +473,19 @@ public class ProfileClients extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel latitudJ;
     private javax.swing.JTextField latitudT;
-    private javax.swing.JTextField logitud;
+    private javax.swing.JTextField logitudT;
     private javax.swing.JLabel logout;
     private javax.swing.JLabel longitudJ;
     private javax.swing.JLabel nombresL;
     private javax.swing.JTextField nombresT;
     private javax.swing.JLabel numeroIdentificacion;
-    private javax.swing.JComboBox<String> rol;
     private javax.swing.JLabel seAgrego;
     private javax.swing.JRadioButton suspendido;
     private javax.swing.JTable tabla;
     private javax.swing.JTextField telefono;
-    private javax.swing.JTextField telefono1;
     private javax.swing.JLabel telefonoJ;
     private javax.swing.JLabel telefonosPlanJ;
+    private javax.swing.JComboBox<String> tipo;
     private javax.swing.JLabel tipoCliente;
     private javax.swing.JTextField ultimoPago;
     private javax.swing.JLabel ultimoPagoJ;

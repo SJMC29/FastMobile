@@ -8,6 +8,7 @@ import Controllers.PersonController;
 import Controllers.PlanController;
 import Controllers.RolController;
 import Controllers.UserController;
+import Interface.ProfileClients;
 import Interface.RegisterUser;
 import Persistence.exceptions.IllegalOrphanException;
 import Persistence.exceptions.NonexistentEntityException;
@@ -60,9 +61,10 @@ public class Tests {
         }
         */
         User u = userControl.getUser("1193477073");
+        Client cliente = clientControl.getClient(1);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegisterUser(u).setVisible(true);
+                new ProfileClients(cliente).setVisible(true);
             }
         });
         

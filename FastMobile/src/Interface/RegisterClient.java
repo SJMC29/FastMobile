@@ -153,6 +153,7 @@ public class RegisterClient extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1024, 576));
         getContentPane().setLayout(null);
 
         TOP.setBackground(new java.awt.Color(255, 255, 255));
