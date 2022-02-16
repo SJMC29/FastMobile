@@ -25,18 +25,23 @@ public class RegisterUser extends javax.swing.JFrame {
     
     RegisterUserController userController = new RegisterUserController();
     boolean active = false;
+    boolean register = true;
     /**
      * Creates new form RegisterUser
      */
     public RegisterUser() {
         initComponents();
+        seAgrego.setVisible(false);
         scaleImage();
         userController.cargarRoles(jComboBoxRol);
         
     }
     
     public RegisterUser(User u) {
+        register = false;
         initComponents();
+        seAgrego.setVisible(false);
+        crearUsuario.setText("REGISTRAR USUSARIO");
         scaleImage();
         userController.cargarRoles(jComboBoxRol);
         jTextFieldAddress.setText(u.getPerson().getAddress());
@@ -148,7 +153,7 @@ public class RegisterUser extends javax.swing.JFrame {
         jTextFieldPassword = new javax.swing.JTextField();
         jRadioButtonActive = new javax.swing.JRadioButton();
         jComboBoxRol = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        seAgrego = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1024, 576));
@@ -202,6 +207,11 @@ public class RegisterUser extends javax.swing.JFrame {
         crearUsuario.setBackground(new java.awt.Color(255, 255, 255));
         crearUsuario.setForeground(new java.awt.Color(41, 135, 217));
         crearUsuario.setText("CREAR USUSARIO");
+        crearUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                seAgregoExitosamente(evt);
+            }
+        });
         crearUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 crearUsuarioActionPerformed(evt);
@@ -239,7 +249,7 @@ public class RegisterUser extends javax.swing.JFrame {
         jTextFieldLongitud.setText("Longitud");
         jTextFieldLongitud.setToolTipText("Cedula de Ciudadania");
 
-        jTextFieldPassword.setText("jTextField9");
+        jTextFieldPassword.setText("Contraseña");
 
         jRadioButtonActive.setText("Activo");
         jRadioButtonActive.addActionListener(new java.awt.event.ActionListener() {
@@ -319,12 +329,12 @@ public class RegisterUser extends javax.swing.JFrame {
         CENTER.add(jScrollPane1);
         jScrollPane1.setBounds(70, 50, 900, 280);
 
-        jLabel1.setBackground(new java.awt.Color(204, 255, 204));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel1.setText("Se Agrego el Usuario exitosamente");
-        CENTER.add(jLabel1);
-        jLabel1.setBounds(340, 360, 360, 30);
+        seAgrego.setBackground(new java.awt.Color(204, 255, 204));
+        seAgrego.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        seAgrego.setForeground(new java.awt.Color(0, 102, 51));
+        seAgrego.setText("Se agregó el usuario exitosamente");
+        CENTER.add(seAgrego);
+        seAgrego.setBounds(340, 360, 300, 30);
 
         getContentPane().add(CENTER);
         CENTER.setBounds(0, 110, 1030, 470);
@@ -347,6 +357,10 @@ public class RegisterUser extends javax.swing.JFrame {
     private void jTextFieldPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPhoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPhoneActionPerformed
+
+    private void seAgregoExitosamente(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seAgregoExitosamente
+        seAgrego.setVisible(true);
+    }//GEN-LAST:event_seAgregoExitosamente
 
     
     /**
@@ -393,7 +407,6 @@ public class RegisterUser extends javax.swing.JFrame {
     private javax.swing.JLabel fastMobileWhite;
     private javax.swing.JLabel ingreseDatos;
     private javax.swing.JComboBox<String> jComboBoxRol;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton jRadioButtonActive;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextFieldAddress;
@@ -407,6 +420,7 @@ public class RegisterUser extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldPhone;
     private javax.swing.JLabel menu;
     private javax.swing.JPanel scrollPanel;
+    private javax.swing.JLabel seAgrego;
     private javax.swing.JLabel userIcon;
     // End of variables declaration//GEN-END:variables
 }

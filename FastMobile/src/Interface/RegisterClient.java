@@ -297,7 +297,7 @@ public class RegisterClient extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(204, 255, 204));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel1.setText("Se Agrego al Cliente exitosamente");
+        jLabel1.setText("Se agregó al cliente exitosamente.");
         CENTER.add(jLabel1);
         jLabel1.setBounds(340, 360, 360, 30);
 

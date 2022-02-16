@@ -144,20 +144,10 @@ public class Login extends javax.swing.JFrame {
         bienvenido.setBounds(140, 50, 80, 20);
 
         passwordUsuario.setText("Contraseña");
-        passwordUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordUsuarioActionPerformed(evt);
-            }
-        });
         menuWhite.add(passwordUsuario);
         passwordUsuario.setBounds(90, 110, 180, 22);
 
         nombreUsuario.setText("Nombre de usuario");
-        nombreUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreUsuarioActionPerformed(evt);
-            }
-        });
         menuWhite.add(nombreUsuario);
         nombreUsuario.setBounds(90, 80, 180, 22);
 
@@ -170,11 +160,6 @@ public class Login extends javax.swing.JFrame {
         userPassword.setBounds(70, 110, 20, 20);
 
         rememberMe.setText("Recuérdame");
-        rememberMe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rememberMeActionPerformed(evt);
-            }
-        });
         menuWhite.add(rememberMe);
         rememberMe.setBounds(40, 180, 100, 25);
 
@@ -229,18 +214,6 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void passwordUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordUsuarioActionPerformed
-
-    private void nombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nombreUsuarioActionPerformed
-
-    private void rememberMeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rememberMeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rememberMeActionPerformed
 
     private void LOGINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOGINActionPerformed
         try {

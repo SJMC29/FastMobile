@@ -5,6 +5,7 @@
 package Interface;
 
 import Function.MenuController;
+import Models.User;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Image;
@@ -20,6 +21,13 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      */
+    public Menu(User u) {
+        initComponents();
+        scaleImage();
+        User usuario = u;
+        jLabelFullName.setText(usuario.getPerson().getName()+" "+usuario.getPerson().getLastName());
+    }
+    
     public Menu() {
         initComponents();
         scaleImage();
@@ -56,9 +64,9 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jPanelBlue = new javax.swing.JPanel();
+        jLabelProfileImage = new javax.swing.JLabel();
+        jLabelFullName = new javax.swing.JLabel();
         perfil = new javax.swing.JLabel();
         logout = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
@@ -85,27 +93,30 @@ public class Menu extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(41, 135, 217));
-        jPanel1.setPreferredSize(new java.awt.Dimension(0, 100));
-        jPanel1.setLayout(null);
+        jPanelBlue.setBackground(new java.awt.Color(41, 135, 217));
+        jPanelBlue.setPreferredSize(new java.awt.Dimension(0, 100));
+        jPanelBlue.setLayout(null);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Login/userIcon.png"))); // NOI18N
-        jLabel2.setMaximumSize(new java.awt.Dimension(65, 65));
-        jLabel2.setMinimumSize(new java.awt.Dimension(65, 65));
-        jLabel2.setPreferredSize(new java.awt.Dimension(65, 65));
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(20, 20, 65, 65);
+        jLabelProfileImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Login/userIcon.png"))); // NOI18N
+        jLabelProfileImage.setMaximumSize(new java.awt.Dimension(65, 65));
+        jLabelProfileImage.setMinimumSize(new java.awt.Dimension(65, 65));
+        jLabelProfileImage.setPreferredSize(new java.awt.Dimension(65, 65));
+        jPanelBlue.add(jLabelProfileImage);
+        jLabelProfileImage.setBounds(20, 20, 65, 65);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Eren Jaeger");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(110, 20, 173, 43);
+        jLabelFullName.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
+        jLabelFullName.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelFullName.setText("Eren Jaeger");
+        jPanelBlue.add(jLabelFullName);
+        jLabelFullName.setBounds(110, 20, 810, 43);
 
         perfil.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         perfil.setForeground(new java.awt.Color(255, 255, 255));
         perfil.setText("Perfil");
         perfil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                goToProfile(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 perfilMouseEntered(evt);
             }
@@ -113,7 +124,7 @@ public class Menu extends javax.swing.JFrame {
                 perfilMouseExited(evt);
             }
         });
-        jPanel1.add(perfil);
+        jPanelBlue.add(perfil);
         perfil.setBounds(110, 70, 30, 16);
 
         logout.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -130,7 +141,7 @@ public class Menu extends javax.swing.JFrame {
                 logoutMouseExited(evt);
             }
         });
-        jPanel1.add(logout);
+        jPanelBlue.add(logout);
         logout.setBounds(150, 70, 72, 16);
 
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Menu/Back.png"))); // NOI18N
@@ -142,11 +153,11 @@ public class Menu extends javax.swing.JFrame {
                 backMouseEntered(evt);
             }
         });
-        jPanel1.add(back);
+        jPanelBlue.add(back);
         back.setBounds(940, 30, 50, 50);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1024, 100);
+        getContentPane().add(jPanelBlue);
+        jPanelBlue.setBounds(0, 0, 1024, 100);
 
         jPanel2.setBackground(new java.awt.Color(238, 238, 238));
 
@@ -355,6 +366,10 @@ public class Menu extends javax.swing.JFrame {
         menu_controller.logOut(this);
     }//GEN-LAST:event_logoutMouseClicked
 
+    private void goToProfile(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goToProfile
+        // TODO add your handling code here:
+    }//GEN-LAST:event_goToProfile
+
     /**
      * @param args the command line arguments
      */
@@ -399,17 +414,17 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel crearCliente_img;
     private javax.swing.JPanel crearUsuario;
     private javax.swing.JLabel crearUsuario_img;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabelFullName;
+    private javax.swing.JLabel jLabelProfileImage;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanelBlue;
     private javax.swing.JLabel logout;
     private javax.swing.JLabel perfil;
     private javax.swing.JPanel registroPagos;

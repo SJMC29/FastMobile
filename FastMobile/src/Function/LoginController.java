@@ -7,6 +7,7 @@ package Function;
 import Controllers.UserController;
 import Interface.Login;
 import Interface.Menu;
+import Models.User;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -28,11 +29,12 @@ public class LoginController {
             error = 1;
             login.showError(error); 
         }else{
-            if(user_controller.getUser(login.getUser().trim()) != null){
+            User u = user_controller.getUser(login.getUser().trim());
+            if(u != null){
                 passBD = user_controller.getUser(login.getUser().trim()).getPassword();
                 passInterface = login.getPassword().trim();                
                     if (passBD.equals(passInterface)) {
-                        new Menu().setVisible(true);
+                        new Menu(u).setVisible(true);
                         login.dispose();
                         //Guardar en archivo si le dan al checkbox
                             FileWriter filereader = null;
