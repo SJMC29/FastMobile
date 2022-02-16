@@ -2,19 +2,22 @@
 package Models;
 
 import Controllers.ClientController;
+import Controllers.Client_PhoneController;
 import Controllers.Client_TypeController;
 import Controllers.PersonController;
 import Controllers.PlanController;
 import Controllers.RolController;
 import Controllers.UserController;
 import Interface.RegisterUser;
+import Persistence.exceptions.IllegalOrphanException;
 import Persistence.exceptions.NonexistentEntityException;
 
 public class Tests {
 
-    public static void main(String[] args) throws NonexistentEntityException {
+    public static void main(String[] args) throws NonexistentEntityException, IllegalOrphanException {
         // TODO code application logic here
         
+        Client_PhoneController phoneControl = new Client_PhoneController();
         ClientController clientControl = new ClientController();
         RolController rolControl = new RolController();
         Client_TypeController typeControl = new  Client_TypeController();
@@ -63,8 +66,8 @@ public class Tests {
             }
         });
         
-       // Plan pl_1 = new Plan("Plan de 15 GB",500,15,false,34990);
-        //planControl
+       // Plan pl_2 = new Plan("Plan de 25 GB",750,25,true,44990);
+       //planControl.createPlan(pl_2);
         
         /*
         for(Client_Type cl: typeControl.getClient_Types()){
@@ -72,12 +75,31 @@ public class Tests {
         }
         */
         
+        //personControl.destroyPerson("19831237833");
+        
+        /*
+        for(Client c: clientControl.getClients()){
+            System.out.println(c);
+        }*/
+        
+        //personControl.destroyPerson("19831237833");
+        //clientControl.destroyClient(1);
+        
         /*
         for(Client c: clientControl.getClients()){
             System.out.println(c);
         }
-        */
+        personControl.destroyPerson("19831237833");*/
+        
+        //for(Client_Phone p: phoneControl.getClient_Phones()){
+        //    System.out.println(p);
+        //}
+        
+        //for(Client c: clientControl.getClients()){
+        //    System.out.println(c);
+        //}
         
     }
+    
     
 }
