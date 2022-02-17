@@ -32,7 +32,13 @@ public class ProfileUsersController {
     }
     
     public void actualizarUsuario(ProfileUsers pU, User usuario){
-        User upDateUser = pU.getUserPerfil();
+        User upDateUser;
+        if(pU.getUserPerfil()== null){
+            upDateUser = usuario;
+        } else {
+            upDateUser = pU.getUserPerfil();
+        }
+        
         upDateUser.getPerson().setAddress(pU.getDireccionJ().getText());
         upDateUser.getPerson().setLastName(pU.getApellidosT().getText());
         upDateUser.getPerson().setLatitude(Double.parseDouble(pU.getLatitud().getText()));
