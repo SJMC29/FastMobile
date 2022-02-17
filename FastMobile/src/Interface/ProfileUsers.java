@@ -5,6 +5,8 @@
 package Interface;
 
 import Function.MenuController;
+import Function.ProfileUsersController;
+import Models.User;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Image;
@@ -17,9 +19,31 @@ import javax.swing.ImageIcon;
 public class ProfileUsers extends javax.swing.JFrame {
 
     MenuController menu_controller = new MenuController();
+    ProfileUsersController profile_user_controller = new ProfileUsersController();
+    User usuario;
+    
     /**
      * Creates new form Menu
      */
+    public ProfileUsers(User u) {
+        usuario = u;
+        initComponents();
+        scaleImage();
+        seAgrego.setVisible(false);
+        NOMBRES.setText(usuario.getPerson().getName()); 
+        APELLIDOS.setText(usuario.getPerson().getLastName());
+        User usuario = u;
+        nombresT.setText(usuario.getPerson().getName()); 
+        apellidosT.setText(usuario.getPerson().getLastName());
+        numeroIdentificacion.setText(usuario.getPerson().getId_Person());
+        email.setText(usuario.getPerson().geteMail());
+        telefono.setText(usuario.getPerson().getPhone());
+        direccion.setText(usuario.getPerson().getAddress());
+        latitud.setText(String.valueOf(usuario.getPerson().getLatitude()));
+        logitud.setText(String.valueOf(usuario.getPerson().getLongitude()));
+        contrasena.setText(usuario.getPassword());
+    }
+    
     public ProfileUsers() {
         initComponents();
         scaleImage();
@@ -45,10 +69,10 @@ public class ProfileUsers extends javax.swing.JFrame {
     private void initComponents() {
 
         Blue = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         Menu = new javax.swing.JLabel();
         logout = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
+        perfilDeUsuario1 = new javax.swing.JLabel();
         userImage = new javax.swing.JLabel();
         White = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -61,21 +85,23 @@ public class ProfileUsers extends javax.swing.JFrame {
         apellidosT = new javax.swing.JTextField();
         identificacionT = new javax.swing.JTextField();
         rol = new javax.swing.JComboBox<>();
-        numeroIdentificacion1 = new javax.swing.JLabel();
-        numeroIdentificacion2 = new javax.swing.JLabel();
-        latitudT = new javax.swing.JTextField();
+        latitudL = new javax.swing.JLabel();
+        LongitudL = new javax.swing.JLabel();
+        latitud = new javax.swing.JTextField();
         logitud = new javax.swing.JTextField();
-        numeroIdentificacion3 = new javax.swing.JLabel();
+        emailL = new javax.swing.JLabel();
         email = new javax.swing.JTextField();
-        numeroIdentificacion4 = new javax.swing.JLabel();
+        telefonoL = new javax.swing.JLabel();
         telefono = new javax.swing.JTextField();
         direccion = new javax.swing.JLabel();
-        telefono1 = new javax.swing.JTextField();
-        direccion1 = new javax.swing.JLabel();
+        direccionJ = new javax.swing.JTextField();
+        contrasenaL = new javax.swing.JLabel();
         contrasena = new javax.swing.JTextField();
         activo = new javax.swing.JRadioButton();
         crearUsuario = new javax.swing.JButton();
+        APELLIDOS = new javax.swing.JLabel();
         seAgrego = new javax.swing.JLabel();
+        NOMBRES = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -86,12 +112,6 @@ public class ProfileUsers extends javax.swing.JFrame {
         Blue.setBackground(new java.awt.Color(41, 135, 217));
         Blue.setPreferredSize(new java.awt.Dimension(0, 100));
         Blue.setLayout(null);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Perfil de usuario");
-        Blue.add(jLabel1);
-        jLabel1.setBounds(30, 20, 310, 43);
 
         Menu.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Menu.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,6 +159,12 @@ public class ProfileUsers extends javax.swing.JFrame {
         Blue.add(back);
         back.setBounds(940, 30, 50, 50);
 
+        perfilDeUsuario1.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
+        perfilDeUsuario1.setForeground(new java.awt.Color(255, 255, 255));
+        perfilDeUsuario1.setText("Perfil de usuario");
+        Blue.add(perfilDeUsuario1);
+        perfilDeUsuario1.setBounds(30, 20, 310, 43);
+
         getContentPane().add(Blue);
         Blue.setBounds(0, 0, 1024, 100);
 
@@ -150,6 +176,7 @@ public class ProfileUsers extends javax.swing.JFrame {
         userImage.setBounds(60, 150, 190, 180);
 
         White.setBackground(new java.awt.Color(255, 255, 255));
+        White.setLayout(null);
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -172,27 +199,27 @@ public class ProfileUsers extends javax.swing.JFrame {
 
         rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        numeroIdentificacion1.setText("Latitud:");
+        latitudL.setText("Latitud:");
 
-        numeroIdentificacion2.setText("Longitud:");
+        LongitudL.setText("Longitud:");
 
-        latitudT.setText("Latitud");
+        latitud.setText("Latitud");
 
         logitud.setText("Longitud");
 
-        numeroIdentificacion3.setText("Correo electrónico:");
+        emailL.setText("Correo electrónico:");
 
         email.setText("Correo electrónico");
 
-        numeroIdentificacion4.setText("Teléfono:");
+        telefonoL.setText("Teléfono:");
 
         telefono.setText("Teléfono");
 
         direccion.setText("Dirección de residencia:");
 
-        telefono1.setText("Dirección de residencia");
+        direccionJ.setText("Dirección de residencia");
 
-        direccion1.setText("Contraseña:");
+        contrasenaL.setText("Contraseña:");
 
         contrasena.setText("Contraseña");
 
@@ -207,10 +234,10 @@ public class ProfileUsers extends javax.swing.JFrame {
                 .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(activo)
                     .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(direccion1)
+                        .addComponent(contrasenaL)
                         .addComponent(direccion)
-                        .addComponent(numeroIdentificacion4)
-                        .addComponent(numeroIdentificacion3)
+                        .addComponent(telefonoL)
+                        .addComponent(emailL)
                         .addComponent(identificacionT, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
                         .addComponent(apellidosT, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
                         .addComponent(numeroIdentificacion)
@@ -221,15 +248,15 @@ public class ProfileUsers extends javax.swing.JFrame {
                         .addComponent(rol, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(formularioLayout.createSequentialGroup()
                             .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(numeroIdentificacion1)
-                                .addComponent(latitudT, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(latitudL)
+                                .addComponent(latitud, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(25, 25, 25)
                             .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(numeroIdentificacion2)
+                                .addComponent(LongitudL)
                                 .addComponent(logitud)))
                         .addComponent(email)
                         .addComponent(telefono)
-                        .addComponent(telefono1)
+                        .addComponent(direccionJ)
                         .addComponent(contrasena)))
                 .addContainerGap(166, Short.MAX_VALUE))
         );
@@ -253,27 +280,27 @@ public class ProfileUsers extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(identificacionT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(numeroIdentificacion3)
+                .addComponent(emailL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(numeroIdentificacion4)
+                .addComponent(telefonoL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(direccion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(telefono1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(direccionJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(numeroIdentificacion1)
-                    .addComponent(numeroIdentificacion2))
+                    .addComponent(latitudL)
+                    .addComponent(LongitudL))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(latitudT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(latitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(logitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(direccion1)
+                .addComponent(contrasenaL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -283,6 +310,9 @@ public class ProfileUsers extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(formulario);
 
+        White.add(jScrollPane1);
+        jScrollPane1.setBounds(312, 145, 666, 274);
+
         crearUsuario.setBackground(new java.awt.Color(255, 255, 255));
         crearUsuario.setForeground(new java.awt.Color(41, 135, 217));
         crearUsuario.setText("CREAR USUSARIO");
@@ -291,37 +321,29 @@ public class ProfileUsers extends javax.swing.JFrame {
                 seAgrego(evt);
             }
         });
+        White.add(crearUsuario);
+        crearUsuario.setBounds(312, 452, 208, 42);
+
+        APELLIDOS.setBackground(new java.awt.Color(51, 51, 51));
+        APELLIDOS.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        APELLIDOS.setForeground(new java.awt.Color(102, 102, 102));
+        APELLIDOS.setText("APELLIDOS");
+        White.add(APELLIDOS);
+        APELLIDOS.setBounds(60, 380, 200, 50);
 
         seAgrego.setBackground(new java.awt.Color(204, 255, 204));
         seAgrego.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         seAgrego.setForeground(new java.awt.Color(0, 102, 51));
         seAgrego.setText("Se actualizó al usuario exitosamente.");
+        White.add(seAgrego);
+        seAgrego.setBounds(575, 455, 360, 30);
 
-        javax.swing.GroupLayout WhiteLayout = new javax.swing.GroupLayout(White);
-        White.setLayout(WhiteLayout);
-        WhiteLayout.setHorizontalGroup(
-            WhiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, WhiteLayout.createSequentialGroup()
-                .addContainerGap(312, Short.MAX_VALUE)
-                .addGroup(WhiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(WhiteLayout.createSequentialGroup()
-                        .addComponent(crearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)
-                        .addComponent(seAgrego, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52))
-        );
-        WhiteLayout.setVerticalGroup(
-            WhiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, WhiteLayout.createSequentialGroup()
-                .addContainerGap(145, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addGroup(WhiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(crearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(seAgrego, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(86, 86, 86))
-        );
+        NOMBRES.setBackground(new java.awt.Color(51, 51, 51));
+        NOMBRES.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        NOMBRES.setForeground(new java.awt.Color(102, 102, 102));
+        NOMBRES.setText("NOMBRE");
+        White.add(NOMBRES);
+        NOMBRES.setBounds(60, 340, 200, 50);
 
         getContentPane().add(White);
         White.setBounds(0, 0, 1030, 580);
@@ -353,11 +375,11 @@ public class ProfileUsers extends javax.swing.JFrame {
 
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
         // TODO add your handling code here:
-        //menu_controller.logOut(this);
+        profile_user_controller.logOut(this);
     }//GEN-LAST:event_logoutMouseClicked
 
     private void goToMenu(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goToMenu
-        // TODO add your handling code here:
+        profile_user_controller.goToMenu(this, usuario);
     }//GEN-LAST:event_goToMenu
 
     private void seAgrego(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seAgrego
@@ -403,37 +425,39 @@ public class ProfileUsers extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel APELLIDOS;
     private javax.swing.JPanel Blue;
+    private javax.swing.JLabel LongitudL;
     private javax.swing.JLabel Menu;
+    private javax.swing.JLabel NOMBRES;
     private javax.swing.JPanel White;
     private javax.swing.JRadioButton activo;
     private javax.swing.JLabel apellidosL;
     private javax.swing.JTextField apellidosT;
     private javax.swing.JLabel back;
     private javax.swing.JTextField contrasena;
+    private javax.swing.JLabel contrasenaL;
     private javax.swing.JButton crearUsuario;
     private javax.swing.JLabel direccion;
-    private javax.swing.JLabel direccion1;
+    private javax.swing.JTextField direccionJ;
     private javax.swing.JTextField email;
+    private javax.swing.JLabel emailL;
     private javax.swing.JPanel formulario;
     private javax.swing.JTextField identificacionT;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField latitudT;
+    private javax.swing.JTextField latitud;
+    private javax.swing.JLabel latitudL;
     private javax.swing.JTextField logitud;
     private javax.swing.JLabel logout;
     private javax.swing.JLabel nombresL;
     private javax.swing.JTextField nombresT;
     private javax.swing.JLabel numeroIdentificacion;
-    private javax.swing.JLabel numeroIdentificacion1;
-    private javax.swing.JLabel numeroIdentificacion2;
-    private javax.swing.JLabel numeroIdentificacion3;
-    private javax.swing.JLabel numeroIdentificacion4;
+    private javax.swing.JLabel perfilDeUsuario1;
     private javax.swing.JComboBox<String> rol;
     private javax.swing.JLabel rolL;
     private javax.swing.JLabel seAgrego;
     private javax.swing.JTextField telefono;
-    private javax.swing.JTextField telefono1;
+    private javax.swing.JLabel telefonoL;
     private javax.swing.JLabel userImage;
     // End of variables declaration//GEN-END:variables
 }

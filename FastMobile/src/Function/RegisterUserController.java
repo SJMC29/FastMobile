@@ -7,6 +7,8 @@ package Function;
 import Controllers.PersonController;
 import Controllers.RolController;
 import Controllers.UserController;
+import Interface.Menu;
+import Interface.RegisterClient;
 import Interface.RegisterUser;
 import Models.Person;
 import Models.Rol;
@@ -25,6 +27,10 @@ public class RegisterUserController {
     UserController userControl = new UserController();
     List<Rol> roles;
     
+    public void goToMenu(RegisterUser registeruser, User usuario){
+            new Menu(usuario).setVisible(true);
+            registeruser.dispose();
+    }    
     
     public void sendForm(RegisterUser ru){
         Person p = new Person(ru.getjTextFieldCedula().getText(), 

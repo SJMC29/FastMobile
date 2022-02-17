@@ -31,4 +31,7 @@ public class ClientController {
         return clientJPA.findClientEntities(cantidadAMostrar, primerElemento);
     }
     
+    public int getCounterClientes(){
+        return clientJPA.getClientCount();
+    }
 }

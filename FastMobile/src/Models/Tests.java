@@ -62,11 +62,7 @@ public class Tests {
         */
         User u = userControl.getUser("1193477073");
         Client cliente = clientControl.getClient(1);
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ProfileClients(cliente).setVisible(true);
-            }
-        });
+        
         
        // Plan pl_2 = new Plan("Plan de 25 GB",750,25,true,44990);
        //planControl.createPlan(pl_2);

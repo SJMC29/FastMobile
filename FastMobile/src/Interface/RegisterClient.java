@@ -32,7 +32,27 @@ public class RegisterClient extends javax.swing.JFrame {
     PersonController personControl = new PersonController();
     UserController userControl = new UserController();
     List<Rol> roles;
+    User usuario;
     boolean active = false;
+
+    public RegisterClient(User u) {
+        usuario = u;
+        initComponents();
+        seAgrego.setVisible(false);
+        scaleImage();
+        clientControl.loadTypes(jComboBoxType);
+        clientControl.loadPlans(jComboBoxPlan);
+        clientControl.loadTable(jTable);
+    }
+    
+    public RegisterClient() {
+        initComponents();
+        seAgrego.setVisible(false);
+        scaleImage();
+        clientControl.loadTypes(jComboBoxType);
+        clientControl.loadPlans(jComboBoxPlan);
+        clientControl.loadTable(jTable);
+    }
     
     public JComboBox<String> getjComboBoxType() {
         return jComboBoxType;
@@ -89,13 +109,6 @@ public class RegisterClient extends javax.swing.JFrame {
     /**
      * Creates new form RegisterUser
      */
-    public RegisterClient() {
-        initComponents();
-        scaleImage();
-        clientControl.loadTypes(jComboBoxType);
-        clientControl.loadPlans(jComboBoxPlan);
-        clientControl.loadTable(jTable);
-    }
     
     public void scaleImage(){
         
@@ -130,7 +143,7 @@ public class RegisterClient extends javax.swing.JFrame {
         Separador = new javax.swing.JPanel();
         CENTER = new javax.swing.JPanel();
         centroAdmin = new javax.swing.JLabel();
-        crearUsuario = new javax.swing.JButton();
+        crearCliente = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         scrollPanel = new javax.swing.JPanel();
         ingreseDatos = new javax.swing.JLabel();
@@ -150,7 +163,7 @@ public class RegisterClient extends javax.swing.JFrame {
         jTable = new javax.swing.JTable();
         jButtonInsert = new javax.swing.JButton();
         jButtonRemove = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        seAgrego = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1024, 576));
@@ -171,6 +184,11 @@ public class RegisterClient extends javax.swing.JFrame {
         menu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menu.setForeground(new java.awt.Color(41, 135, 217));
         menu.setText("Menú");
+        menu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuMouseClicked(evt);
+            }
+        });
         TOP.add(menu);
         menu.setBounds(850, 40, 50, 20);
 
@@ -201,18 +219,19 @@ public class RegisterClient extends javax.swing.JFrame {
         CENTER.add(centroAdmin);
         centroAdmin.setBounds(100, 20, 287, 19);
 
-        crearUsuario.setBackground(new java.awt.Color(255, 255, 255));
-        crearUsuario.setForeground(new java.awt.Color(41, 135, 217));
-        crearUsuario.setText("CREAR USUSARIO");
-        crearUsuario.addActionListener(new java.awt.event.ActionListener() {
+        crearCliente.setBackground(new java.awt.Color(255, 255, 255));
+        crearCliente.setForeground(new java.awt.Color(41, 135, 217));
+        crearCliente.setText("CREAR CLIENTE");
+        crearCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                crearUsuarioActionPerformed(evt);
+                crearClienteActionPerformed(evt);
             }
         });
-        CENTER.add(crearUsuario);
-        crearUsuario.setBounds(70, 350, 208, 42);
+        CENTER.add(crearCliente);
+        crearCliente.setBounds(70, 350, 208, 42);
 
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         ingreseDatos.setText("Por favor, ingrese los datos.");
 
@@ -367,7 +386,7 @@ public class RegisterClient extends javax.swing.JFrame {
                     .addComponent(jButtonRemove))
                 .addGap(61, 61, 61)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(scrollPanel);
@@ -375,12 +394,12 @@ public class RegisterClient extends javax.swing.JFrame {
         CENTER.add(jScrollPane1);
         jScrollPane1.setBounds(70, 50, 900, 280);
 
-        jLabel1.setBackground(new java.awt.Color(204, 255, 204));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel1.setText("Se agregó al cliente exitosamente.");
-        CENTER.add(jLabel1);
-        jLabel1.setBounds(340, 360, 360, 30);
+        seAgrego.setBackground(new java.awt.Color(204, 255, 204));
+        seAgrego.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        seAgrego.setForeground(new java.awt.Color(0, 102, 51));
+        seAgrego.setText("Se agregó al cliente exitosamente.");
+        CENTER.add(seAgrego);
+        seAgrego.setBounds(340, 360, 360, 30);
 
         getContentPane().add(CENTER);
         CENTER.setBounds(0, 110, 1030, 470);
@@ -388,10 +407,11 @@ public class RegisterClient extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void crearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearUsuarioActionPerformed
+    private void crearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearClienteActionPerformed
         // TODO add your handling code here:
-       clientControl.sendForm(this);
-    }//GEN-LAST:event_crearUsuarioActionPerformed
+        seAgrego.setVisible(true);
+        clientControl.sendForm(this);
+    }//GEN-LAST:event_crearClienteActionPerformed
 
     private void jRadioButtonSuspendedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSuspendedActionPerformed
         // TODO add your handling code here:
@@ -419,6 +439,10 @@ public class RegisterClient extends javax.swing.JFrame {
         clientControl.removePhone(this);
 
     }//GEN-LAST:event_jButtonRemoveActionPerformed
+
+    private void menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseClicked
+        clientControl.goToMenu(this, usuario);
+    }//GEN-LAST:event_menuMouseClicked
     
     
     /**
@@ -462,14 +486,13 @@ public class RegisterClient extends javax.swing.JFrame {
     private javax.swing.JPanel Separador;
     private javax.swing.JPanel TOP;
     private javax.swing.JLabel centroAdmin;
-    private javax.swing.JButton crearUsuario;
+    private javax.swing.JButton crearCliente;
     private javax.swing.JLabel fastMobileWhite;
     private javax.swing.JLabel ingreseDatos;
     private javax.swing.JButton jButtonInsert;
     private javax.swing.JButton jButtonRemove;
     private javax.swing.JComboBox<String> jComboBoxPlan;
     private javax.swing.JComboBox<String> jComboBoxType;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton jRadioButtonSuspended;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -485,6 +508,7 @@ public class RegisterClient extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldPhone;
     private javax.swing.JLabel menu;
     private javax.swing.JPanel scrollPanel;
+    private javax.swing.JLabel seAgrego;
     private javax.swing.JLabel userIcon;
     // End of variables declaration//GEN-END:variables
 }

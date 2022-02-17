@@ -51,22 +51,6 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="32" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Perfil de usuario"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="30" y="20" width="310" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
         <Component class="javax.swing.JLabel" name="Menu">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -133,6 +117,22 @@
             </Constraint>
           </Constraints>
         </Component>
+        <Component class="javax.swing.JLabel" name="perfilDeUsuario1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="32" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Perfil de usuario"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="30" y="20" width="310" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JLabel" name="userImage">
@@ -168,43 +168,19 @@
         </Constraint>
       </Constraints>
 
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="312" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="crearUsuario" min="-2" pref="208" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                          <Component id="seAgrego" min="-2" pref="360" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="jScrollPane1" min="-2" pref="666" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="145" max="32767" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="274" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="crearUsuario" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                      <Component id="seAgrego" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
       <SubComponents>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <Properties>
             <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
           </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="312" y="145" width="666" height="274"/>
+            </Constraint>
+          </Constraints>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
@@ -224,10 +200,10 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="activo" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="direccion1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="contrasenaL" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="direccion" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="numeroIdentificacion4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="numeroIdentificacion3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="telefonoL" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="emailL" min="-2" max="-2" attributes="0"/>
                                   <Component id="identificacionT" pref="582" max="32767" attributes="0"/>
                                   <Component id="apellidosT" pref="582" max="32767" attributes="0"/>
                                   <Component id="numeroIdentificacion" min="-2" max="-2" attributes="0"/>
@@ -238,18 +214,18 @@
                                   <Component id="rol" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="numeroIdentificacion1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="latitudT" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
+                                          <Component id="latitudL" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="latitud" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="numeroIdentificacion2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="LongitudL" min="-2" max="-2" attributes="0"/>
                                           <Component id="logitud" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="email" alignment="0" max="32767" attributes="0"/>
                                   <Component id="telefono" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="telefono1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="direccionJ" alignment="0" max="32767" attributes="0"/>
                                   <Component id="contrasena" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -277,29 +253,29 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="identificacionT" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="numeroIdentificacion3" min="-2" max="-2" attributes="0"/>
+                          <Component id="emailL" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="email" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="numeroIdentificacion4" min="-2" max="-2" attributes="0"/>
+                          <Component id="telefonoL" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="telefono" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="direccion" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="telefono1" min="-2" max="-2" attributes="0"/>
+                          <Component id="direccionJ" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="numeroIdentificacion1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="numeroIdentificacion2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="latitudL" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="LongitudL" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="latitudT" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="latitud" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="logitud" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="direccion1" min="-2" max="-2" attributes="0"/>
+                          <Component id="contrasenaL" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="contrasena" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -360,17 +336,17 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="numeroIdentificacion1">
+                <Component class="javax.swing.JLabel" name="latitudL">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Latitud:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="numeroIdentificacion2">
+                <Component class="javax.swing.JLabel" name="LongitudL">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Longitud:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="latitudT">
+                <Component class="javax.swing.JTextField" name="latitud">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Latitud"/>
                   </Properties>
@@ -380,7 +356,7 @@
                     <Property name="text" type="java.lang.String" value="Longitud"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="numeroIdentificacion3">
+                <Component class="javax.swing.JLabel" name="emailL">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Correo electr&#xf3;nico:"/>
                   </Properties>
@@ -390,7 +366,7 @@
                     <Property name="text" type="java.lang.String" value="Correo electr&#xf3;nico"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="numeroIdentificacion4">
+                <Component class="javax.swing.JLabel" name="telefonoL">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Tel&#xe9;fono:"/>
                   </Properties>
@@ -405,12 +381,12 @@
                     <Property name="text" type="java.lang.String" value="Direcci&#xf3;n de residencia:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="telefono1">
+                <Component class="javax.swing.JTextField" name="direccionJ">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Direcci&#xf3;n de residencia"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="direccion1">
+                <Component class="javax.swing.JLabel" name="contrasenaL">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
                   </Properties>
@@ -442,6 +418,30 @@
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="seAgrego"/>
           </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="312" y="452" width="208" height="42"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="APELLIDOS">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="66" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="APELLIDOS"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="60" y="380" width="200" height="50"/>
+            </Constraint>
+          </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="seAgrego">
           <Properties>
@@ -456,6 +456,30 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Se actualiz&#xf3; al usuario exitosamente."/>
           </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="575" y="455" width="360" height="30"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="NOMBRES">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="66" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="NOMBRE"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="60" y="340" width="200" height="50"/>
+            </Constraint>
+          </Constraints>
         </Component>
       </SubComponents>
     </Container>

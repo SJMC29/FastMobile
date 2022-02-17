@@ -9,12 +9,15 @@ import Controllers.ClientController;
 import Controllers.Client_PhoneController;
 import Controllers.PersonController;
 import Controllers.PlanController;
+import Interface.Menu;
+import Interface.ProfileUsers;
 import Interface.RegisterClient;
 import Models.Client_Type;
 import Models.Client_Phone;
 import Models.Person;
 import Models.Client;
 import Models.Plan;
+import Models.User;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JComboBox;
@@ -38,6 +41,11 @@ public class RegisterClientController {
     
     public Client_Type tipoSeleccionado(int i){
         return types.get(i);
+    }
+    
+    public void goToMenu(RegisterClient registerClient, User usuario){
+            new Menu(usuario).setVisible(true);
+            registerClient.dispose();
     }
     
     public void sendForm(RegisterClient rc){

@@ -18,13 +18,14 @@ import javax.swing.ImageIcon;
 public class Menu extends javax.swing.JFrame {
 
     MenuController menu_controller = new MenuController();
+    User usuario;
     /**
      * Creates new form Menu
      */
     public Menu(User u) {
         initComponents();
         scaleImage();
-        User usuario = u;
+        usuario = u;
         jLabelFullName.setText(usuario.getPerson().getName()+" "+usuario.getPerson().getLastName());
     }
     
@@ -73,19 +74,23 @@ public class Menu extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         crearUsuario = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        CrearUsuario_click = new javax.swing.JLabel();
+        CrearUsuario = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         crearUsuario_img = new javax.swing.JLabel();
         crearCliente = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        CrearCliente_click = new javax.swing.JLabel();
+        CrearCliente = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         crearCliente_img = new javax.swing.JLabel();
         registroPagos = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        RegistroPagos_click = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        ListaDeClientes = new javax.swing.JLabel();
         registroPagos_img = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        ListaDeClientes2 = new javax.swing.JLabel();
+        registroPagos_img2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -168,33 +173,36 @@ public class Menu extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(null);
 
-        CrearUsuario_click.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        CrearUsuario_click.setText("Crear Usuario");
-        CrearUsuario_click.addMouseListener(new java.awt.event.MouseAdapter() {
+        CrearUsuario.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        CrearUsuario.setText("Crear Usuario");
+        CrearUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CrearUsuarioMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                CrearUsuario_clickMouseEntered(evt);
+                CrearUsuarioMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                CrearUsuario_clickMouseExited(evt);
+                CrearUsuarioMouseExited(evt);
             }
         });
-        jPanel4.add(CrearUsuario_click);
-        CrearUsuario_click.setBounds(20, 10, 120, 30);
+        jPanel4.add(CrearUsuario);
+        CrearUsuario.setBounds(20, 10, 120, 30);
 
         jLabel3.setText("<html>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut libero nec magna</html>");
         jLabel3.setPreferredSize(new java.awt.Dimension(180, 16));
         jPanel4.add(jLabel3);
-        jLabel3.setBounds(20, 40, 180, 45);
+        jLabel3.setBounds(20, 40, 180, 20);
 
         crearUsuario.add(jPanel4);
-        jPanel4.setBounds(0, 90, 220, 110);
+        jPanel4.setBounds(0, 90, 220, 90);
 
         crearUsuario_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Menu/CrearUsuario.jpg"))); // NOI18N
         crearUsuario_img.setMaximumSize(new java.awt.Dimension(65, 65));
         crearUsuario_img.setMinimumSize(new java.awt.Dimension(65, 65));
         crearUsuario_img.setPreferredSize(new java.awt.Dimension(65, 65));
         crearUsuario.add(crearUsuario_img);
-        crearUsuario_img.setBounds(0, 0, 216, 140);
+        crearUsuario_img.setBounds(0, -10, 216, 140);
 
         crearCliente.setBackground(new java.awt.Color(255, 255, 255));
         crearCliente.setForeground(new java.awt.Color(255, 255, 255));
@@ -203,26 +211,29 @@ public class Menu extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(null);
 
-        CrearCliente_click.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        CrearCliente_click.setText("Crear Cliente");
-        CrearCliente_click.addMouseListener(new java.awt.event.MouseAdapter() {
+        CrearCliente.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        CrearCliente.setText("Crear Cliente");
+        CrearCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CrearClienteMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                CrearCliente_clickMouseEntered(evt);
+                CrearClienteMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                CrearCliente_clickMouseExited(evt);
+                CrearClienteMouseExited(evt);
             }
         });
-        jPanel5.add(CrearCliente_click);
-        CrearCliente_click.setBounds(20, 10, 120, 30);
+        jPanel5.add(CrearCliente);
+        CrearCliente.setBounds(20, 10, 120, 30);
 
         jLabel4.setText("<html>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut libero nec magna</html>");
         jLabel4.setPreferredSize(new java.awt.Dimension(180, 16));
         jPanel5.add(jLabel4);
-        jLabel4.setBounds(20, 40, 180, 45);
+        jLabel4.setBounds(20, 40, 180, 16);
 
         crearCliente.add(jPanel5);
-        jPanel5.setBounds(0, 90, 220, 110);
+        jPanel5.setBounds(0, 90, 220, 70);
 
         crearCliente_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Menu/CrearUsuario.jpg"))); // NOI18N
         crearCliente_img.setMaximumSize(new java.awt.Dimension(65, 65));
@@ -238,26 +249,29 @@ public class Menu extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(null);
 
-        RegistroPagos_click.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        RegistroPagos_click.setText("Registro de Pagos");
-        RegistroPagos_click.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                RegistroPagos_clickMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                RegistroPagos_clickMouseExited(evt);
-            }
-        });
-        jPanel6.add(RegistroPagos_click);
-        RegistroPagos_click.setBounds(20, 10, 120, 30);
-
         jLabel5.setText("<html>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut libero nec magna</html>");
         jLabel5.setPreferredSize(new java.awt.Dimension(180, 16));
         jPanel6.add(jLabel5);
         jLabel5.setBounds(20, 40, 180, 45);
 
+        ListaDeClientes.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        ListaDeClientes.setText("Lista de clientes");
+        ListaDeClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ListaDeClientesMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ListaDeClientesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ListaDeClientesMouseExited(evt);
+            }
+        });
+        jPanel6.add(ListaDeClientes);
+        ListaDeClientes.setBounds(20, 10, 120, 30);
+
         registroPagos.add(jPanel6);
-        jPanel6.setBounds(0, 90, 220, 110);
+        jPanel6.setBounds(0, 90, 220, 60);
 
         registroPagos_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Menu/CrearUsuario.jpg"))); // NOI18N
         registroPagos_img.setMaximumSize(new java.awt.Dimension(65, 65));
@@ -266,28 +280,67 @@ public class Menu extends javax.swing.JFrame {
         registroPagos.add(registroPagos_img);
         registroPagos_img.setBounds(0, 0, 216, 140);
 
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setLayout(null);
+
+        jLabel8.setText("<html>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut libero nec magna</html>");
+        jLabel8.setPreferredSize(new java.awt.Dimension(180, 16));
+        jPanel9.add(jLabel8);
+        jLabel8.setBounds(20, 40, 180, 45);
+
+        ListaDeClientes2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        ListaDeClientes2.setText("Lista de usuarios");
+        ListaDeClientes2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ListaDeClientes2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ListaDeClientes2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ListaDeClientes2MouseExited(evt);
+            }
+        });
+        jPanel9.add(ListaDeClientes2);
+        ListaDeClientes2.setBounds(20, 10, 120, 30);
+
+        registroPagos_img2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Menu/CrearUsuario.jpg"))); // NOI18N
+        registroPagos_img2.setMaximumSize(new java.awt.Dimension(65, 65));
+        registroPagos_img2.setMinimumSize(new java.awt.Dimension(65, 65));
+        registroPagos_img2.setPreferredSize(new java.awt.Dimension(65, 65));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(crearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(crearCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(registroPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registroPagos_img2, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(crearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(crearCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(registroPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(crearCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                    .addComponent(registroPagos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(crearUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(registroPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(crearCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(crearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(580, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registroPagos_img2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(424, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2);
@@ -330,36 +383,27 @@ public class Menu extends javax.swing.JFrame {
         logout.setForeground(Color.white);
     }//GEN-LAST:event_logoutMouseExited
 
-    private void CrearUsuario_clickMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearUsuario_clickMouseEntered
-        CrearUsuario_click.setForeground(new Color(41,135,217));
-        CrearUsuario_click.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_CrearUsuario_clickMouseEntered
+    private void CrearUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearUsuarioMouseEntered
+        CrearUsuario.setForeground(new Color(41,135,217));
+        CrearUsuario.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_CrearUsuarioMouseEntered
 
-    private void CrearUsuario_clickMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearUsuario_clickMouseExited
-        CrearUsuario_click.setForeground(Color.black);
-    }//GEN-LAST:event_CrearUsuario_clickMouseExited
+    private void CrearUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearUsuarioMouseExited
+        CrearUsuario.setForeground(Color.black);
+    }//GEN-LAST:event_CrearUsuarioMouseExited
 
     private void backMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseEntered
         back.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_backMouseEntered
 
-    private void CrearCliente_clickMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearCliente_clickMouseEntered
-        CrearCliente_click.setForeground(new Color(41,135,217));
-        CrearCliente_click.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_CrearCliente_clickMouseEntered
+    private void CrearClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearClienteMouseEntered
+        CrearCliente.setForeground(new Color(41,135,217));
+        CrearCliente.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_CrearClienteMouseEntered
 
-    private void CrearCliente_clickMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearCliente_clickMouseExited
-        CrearCliente_click.setForeground(Color.black);
-    }//GEN-LAST:event_CrearCliente_clickMouseExited
-
-    private void RegistroPagos_clickMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistroPagos_clickMouseEntered
-        RegistroPagos_click.setForeground(new Color(41,135,217));
-        RegistroPagos_click.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_RegistroPagos_clickMouseEntered
-
-    private void RegistroPagos_clickMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistroPagos_clickMouseExited
-        RegistroPagos_click.setForeground(Color.black);
-    }//GEN-LAST:event_RegistroPagos_clickMouseExited
+    private void CrearClienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearClienteMouseExited
+        CrearCliente.setForeground(Color.black);
+    }//GEN-LAST:event_CrearClienteMouseExited
 
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
         // TODO add your handling code here:
@@ -368,7 +412,41 @@ public class Menu extends javax.swing.JFrame {
 
     private void goToProfile(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goToProfile
         // TODO add your handling code here:
+        menu_controller.goToProfile(this, usuario);
     }//GEN-LAST:event_goToProfile
+
+    private void CrearUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearUsuarioMouseClicked
+        menu_controller.goToRegisterUser(this, usuario);
+    }//GEN-LAST:event_CrearUsuarioMouseClicked
+
+    private void CrearClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearClienteMouseClicked
+        menu_controller.goToRegisterClient(this, usuario);
+    }//GEN-LAST:event_CrearClienteMouseClicked
+
+    private void ListaDeClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaDeClientesMouseClicked
+        menu_controller.goToListClients(this, usuario);
+    }//GEN-LAST:event_ListaDeClientesMouseClicked
+
+    private void ListaDeClientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaDeClientesMouseEntered
+        ListaDeClientes.setForeground(new Color(41,135,217));
+        ListaDeClientes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_ListaDeClientesMouseEntered
+
+    private void ListaDeClientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaDeClientesMouseExited
+        ListaDeClientes.setForeground(Color.black);
+    }//GEN-LAST:event_ListaDeClientesMouseExited
+
+    private void ListaDeClientes2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaDeClientes2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ListaDeClientes2MouseClicked
+
+    private void ListaDeClientes2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaDeClientes2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ListaDeClientes2MouseEntered
+
+    private void ListaDeClientes2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaDeClientes2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ListaDeClientes2MouseExited
 
     /**
      * @param args the command line arguments
@@ -406,9 +484,10 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel CrearCliente_click;
-    private javax.swing.JLabel CrearUsuario_click;
-    private javax.swing.JLabel RegistroPagos_click;
+    private javax.swing.JLabel CrearCliente;
+    private javax.swing.JLabel CrearUsuario;
+    private javax.swing.JLabel ListaDeClientes;
+    private javax.swing.JLabel ListaDeClientes2;
     private javax.swing.JLabel back;
     private javax.swing.JPanel crearCliente;
     private javax.swing.JLabel crearCliente_img;
@@ -417,6 +496,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabelFullName;
     private javax.swing.JLabel jLabelProfileImage;
     private javax.swing.JPanel jPanel2;
@@ -424,10 +504,12 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelBlue;
     private javax.swing.JLabel logout;
     private javax.swing.JLabel perfil;
     private javax.swing.JPanel registroPagos;
     private javax.swing.JLabel registroPagos_img;
+    private javax.swing.JLabel registroPagos_img2;
     // End of variables declaration//GEN-END:variables
 }

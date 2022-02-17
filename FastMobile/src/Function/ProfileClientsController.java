@@ -5,9 +5,13 @@
 package Function;
 
 import Controllers.Client_PhoneController;
+import Interface.Login;
+import Interface.Menu;
 import Interface.ProfileClients;
+import Interface.ProfileUsers;
 import Models.Client;
 import Models.Client_Phone;
+import Models.User;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JTable;
@@ -49,5 +53,15 @@ public class ProfileClientsController {
         clienteAct.setSuspended(pC.getSuspendido().isSelected());
         clienteAct.setLastPayment(new Date(pC.getUltimoPago().getText()));
         clienteAct.setClien_Type(pC.getControladorClient().tipoSeleccionado(pC.getTipo().getSelectedIndex()));
+    }
+    
+    public void logOut(ProfileClients profileClient){
+            new Login().setVisible(true);
+            profileClient.dispose();
+    }     
+    
+    public void goToMenu(ProfileClients profileClient, User usuario){
+            new Menu(usuario).setVisible(true);
+            profileClient.dispose();
     }
 }

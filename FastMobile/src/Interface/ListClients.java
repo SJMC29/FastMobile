@@ -4,20 +4,15 @@
  */
 package Interface;
 
+import Function.ListClientsController;
 import Function.MenuController;
 import Function.ProfileClientsController;
 import Function.RegisterClientController;
 import Models.Client;
+import Models.User;
 import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.Image;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import javax.swing.ImageIcon;
-import javax.swing.JComboBox;
-import javax.swing.JRadioButton;
-import javax.swing.JTable;
-import javax.swing.JTextField;
+
 
 /**
  *
@@ -25,32 +20,24 @@ import javax.swing.JTextField;
  */
 public class ListClients extends javax.swing.JFrame {
 
-    Client client;
+    User usuario;
     MenuController menu_controller = new MenuController();
-    RegisterClientController controladorClient = new RegisterClientController();
-    ProfileClientsController controladorProfile = new ProfileClientsController();
+    ListClientsController controladorListClients = new ListClientsController();
     /**
      * Creates new form Menu
      */
-    public ListClients(Client c) {
-        client = c;
+    public ListClients(User u) {
+        usuario = u;
         initComponents();
         scaleImage();
-            }
+        controladorListClients.nextPage(tablaClientes);
+    }
     
     public ListClients() {
         initComponents();
         scaleImage();
+        controladorListClients.nextPage(tablaClientes);
     }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public RegisterClientController getControladorClient() {
-        return controladorClient;
-    }    
-    
 
     public void scaleImage(){
     }
@@ -71,10 +58,11 @@ public class ListClients extends javax.swing.JFrame {
         White = new javax.swing.JPanel();
         crearUsuario1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaClientes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1024, 576));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -151,7 +139,7 @@ public class ListClients extends javax.swing.JFrame {
         White.add(crearUsuario1);
         crearUsuario1.setBounds(60, 446, 150, 42);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -182,16 +170,21 @@ public class ListClients extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(5).setResizable(false);
-            jTable1.getColumnModel().getColumn(6).setResizable(false);
+        tablaClientes.getTableHeader().setReorderingAllowed(false);
+        tablaClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaClientesMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tablaClientes);
+        if (tablaClientes.getColumnModel().getColumnCount() > 0) {
+            tablaClientes.getColumnModel().getColumn(0).setResizable(false);
+            tablaClientes.getColumnModel().getColumn(1).setResizable(false);
+            tablaClientes.getColumnModel().getColumn(2).setResizable(false);
+            tablaClientes.getColumnModel().getColumn(3).setResizable(false);
+            tablaClientes.getColumnModel().getColumn(4).setResizable(false);
+            tablaClientes.getColumnModel().getColumn(5).setResizable(false);
+            tablaClientes.getColumnModel().getColumn(6).setResizable(false);
         }
 
         White.add(jScrollPane1);
@@ -226,17 +219,20 @@ public class ListClients extends javax.swing.JFrame {
     }//GEN-LAST:event_backMouseEntered
 
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-        // TODO add your handling code here:
-        //menu_controller.logOut(this);
+        controladorListClients.logOut(this);
     }//GEN-LAST:event_logoutMouseClicked
 
     private void goToMenu(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goToMenu
-        // TODO add your handling code here:
+        controladorListClients.goToMenu(this, usuario);
     }//GEN-LAST:event_goToMenu
 
     private void nextPage(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextPage
-        //seAgrego.setVisible(true);
+       controladorListClients.nextPage(tablaClientes);
     }//GEN-LAST:event_nextPage
+
+    private void tablaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaClientesMouseClicked
+        controladorListClients.goToClientProfile(this, tablaClientes.getSelectedRow(),usuario);
+    }//GEN-LAST:event_tablaClientesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -296,7 +292,7 @@ public class ListClients extends javax.swing.JFrame {
     private javax.swing.JButton crearUsuario1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel logout;
+    private javax.swing.JTable tablaClientes;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,6 +8,7 @@ import Function.MenuController;
 import Function.ProfileClientsController;
 import Function.RegisterClientController;
 import Models.Client;
+import Models.User;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Image;
@@ -29,10 +30,12 @@ public class ProfileClients extends javax.swing.JFrame {
     MenuController menu_controller = new MenuController();
     RegisterClientController controladorClient = new RegisterClientController();
     ProfileClientsController controladorProfile = new ProfileClientsController();
+    User usuario;
     /**
      * Creates new form Menu
      */
-    public ProfileClients(Client c) {
+    public ProfileClients(Client c, User u) {
+        usuario = u;
         client = c;
         initComponents();
         scaleImage();
@@ -218,6 +221,9 @@ public class ProfileClients extends javax.swing.JFrame {
         back.setMinimumSize(new java.awt.Dimension(65, 65));
         back.setPreferredSize(new java.awt.Dimension(65, 65));
         back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 backMouseEntered(evt);
             }
@@ -229,6 +235,7 @@ public class ProfileClients extends javax.swing.JFrame {
         Blue.setBounds(0, 0, 1024, 100);
 
         White.setBackground(new java.awt.Color(255, 255, 255));
+        White.setLayout(null);
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -394,10 +401,15 @@ public class ProfileClients extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(formulario);
 
+        White.add(jScrollPane1);
+        jScrollPane1.setBounds(65, 145, 913, 271);
+
         seAgrego.setBackground(new java.awt.Color(204, 255, 204));
         seAgrego.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         seAgrego.setForeground(new java.awt.Color(0, 102, 51));
         seAgrego.setText("Se actualizó al cliente exitosamente.");
+        White.add(seAgrego);
+        seAgrego.setBounds(393, 452, 309, 25);
 
         crearUsuario1.setBackground(new java.awt.Color(255, 255, 255));
         crearUsuario1.setForeground(new java.awt.Color(41, 135, 217));
@@ -407,35 +419,8 @@ public class ProfileClients extends javax.swing.JFrame {
                 seAgrego(evt);
             }
         });
-
-        javax.swing.GroupLayout WhiteLayout = new javax.swing.GroupLayout(White);
-        White.setLayout(WhiteLayout);
-        WhiteLayout.setHorizontalGroup(
-            WhiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, WhiteLayout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
-                .addGroup(WhiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(WhiteLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(crearUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(119, 119, 119)
-                        .addComponent(seAgrego)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, WhiteLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 913, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52))))
-        );
-        WhiteLayout.setVerticalGroup(
-            WhiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, WhiteLayout.createSequentialGroup()
-                .addContainerGap(145, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(WhiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(seAgrego)
-                    .addComponent(crearUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(92, 92, 92))
-        );
+        White.add(crearUsuario1);
+        crearUsuario1.setBounds(66, 446, 208, 42);
 
         getContentPane().add(White);
         White.setBounds(0, 0, 1030, 580);
@@ -466,17 +451,20 @@ public class ProfileClients extends javax.swing.JFrame {
     }//GEN-LAST:event_backMouseEntered
 
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-        // TODO add your handling code here:
-        //menu_controller.logOut(this);
+        controladorProfile.logOut(this);
     }//GEN-LAST:event_logoutMouseClicked
 
     private void goToMenu(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goToMenu
-        // TODO add your handling code here:
+         controladorProfile.goToMenu(this, usuario);
     }//GEN-LAST:event_goToMenu
 
     private void seAgrego(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seAgrego
         seAgrego.setVisible(true);
     }//GEN-LAST:event_seAgrego
+
+    private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backMouseClicked
 
     /**
      * @param args the command line arguments

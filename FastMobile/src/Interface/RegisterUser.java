@@ -24,10 +24,20 @@ import javax.swing.JTextField;
 public class RegisterUser extends javax.swing.JFrame {
     
     RegisterUserController userController = new RegisterUserController();
+    User usuario;
     boolean active = false;
     /**
      * Creates new form RegisterUser
      */
+    public RegisterUser(User u) {
+        usuario = u;
+        initComponents();
+        seAgrego.setVisible(false);
+        scaleImage();
+        userController.cargarRoles(jComboBoxRol);
+        
+    }
+    
     public RegisterUser() {
         initComponents();
         seAgrego.setVisible(false);
@@ -152,6 +162,11 @@ public class RegisterUser extends javax.swing.JFrame {
         menu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menu.setForeground(new java.awt.Color(41, 135, 217));
         menu.setText("Menú");
+        menu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuMouseClicked(evt);
+            }
+        });
         TOP.add(menu);
         menu.setBounds(850, 40, 50, 20);
 
@@ -299,7 +314,7 @@ public class RegisterUser extends javax.swing.JFrame {
                 .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jRadioButtonActive))
-                .addContainerGap(418, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(scrollPanel);
@@ -339,6 +354,10 @@ public class RegisterUser extends javax.swing.JFrame {
     private void seAgregoExitosamente(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seAgregoExitosamente
         seAgrego.setVisible(true);
     }//GEN-LAST:event_seAgregoExitosamente
+
+    private void menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseClicked
+       userController.goToMenu(this, usuario);
+    }//GEN-LAST:event_menuMouseClicked
 
     
     /**
