@@ -32,6 +32,10 @@ public class RegisterUserController {
             registeruser.dispose();
     }    
     
+    public Rol rolSeleccionado(int i){
+        return roles.get(i);
+    }
+    
     public void sendForm(RegisterUser ru){
         Person p = new Person(ru.getjTextFieldCedula().getText(), 
                                 ru.getjTextFieldNombre().getText(), 
@@ -42,7 +46,7 @@ public class RegisterUserController {
                                 Double.parseDouble(ru.getjTextFieldLatitud().getText()),
                                 Double.parseDouble(ru.getjTextFieldLongitud().getText()));
         // System.out.println("p = " + p);
-        Rol r = roles.get(ru.getjComboBoxRol().getSelectedIndex());
+        Rol r = rolSeleccionado(ru.getjComboBoxRol().getSelectedIndex());
         User u = new User(p, ru.getjTextFieldPassword().getText(), ru.isActive(), r);
         personControl.createPerson(p);
         userControl.createUser(u);

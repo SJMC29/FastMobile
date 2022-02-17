@@ -89,7 +89,7 @@ public class Menu extends javax.swing.JFrame {
         registroPagos_img = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        ListaDeClientes2 = new javax.swing.JLabel();
+        ListaDeUsusarios = new javax.swing.JLabel();
         registroPagos_img2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
 
@@ -288,21 +288,21 @@ public class Menu extends javax.swing.JFrame {
         jPanel9.add(jLabel8);
         jLabel8.setBounds(20, 40, 180, 45);
 
-        ListaDeClientes2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        ListaDeClientes2.setText("Lista de usuarios");
-        ListaDeClientes2.addMouseListener(new java.awt.event.MouseAdapter() {
+        ListaDeUsusarios.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        ListaDeUsusarios.setText("Lista de usuarios");
+        ListaDeUsusarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ListaDeClientes2MouseClicked(evt);
+                ListaDeUsusariosMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ListaDeClientes2MouseEntered(evt);
+                ListaDeUsusariosMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                ListaDeClientes2MouseExited(evt);
+                ListaDeUsusariosMouseExited(evt);
             }
         });
-        jPanel9.add(ListaDeClientes2);
-        ListaDeClientes2.setBounds(20, 10, 120, 30);
+        jPanel9.add(ListaDeUsusarios);
+        ListaDeUsusarios.setBounds(20, 10, 120, 30);
 
         registroPagos_img2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Menu/CrearUsuario.jpg"))); // NOI18N
         registroPagos_img2.setMaximumSize(new java.awt.Dimension(65, 65));
@@ -436,17 +436,18 @@ public class Menu extends javax.swing.JFrame {
         ListaDeClientes.setForeground(Color.black);
     }//GEN-LAST:event_ListaDeClientesMouseExited
 
-    private void ListaDeClientes2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaDeClientes2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ListaDeClientes2MouseClicked
+    private void ListaDeUsusariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaDeUsusariosMouseClicked
+        menu_controller.goToListUsers(this, usuario);
+    }//GEN-LAST:event_ListaDeUsusariosMouseClicked
 
-    private void ListaDeClientes2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaDeClientes2MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ListaDeClientes2MouseEntered
+    private void ListaDeUsusariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaDeUsusariosMouseEntered
+        ListaDeUsusarios.setForeground(new Color(41,135,217));
+        ListaDeUsusarios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_ListaDeUsusariosMouseEntered
 
-    private void ListaDeClientes2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaDeClientes2MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ListaDeClientes2MouseExited
+    private void ListaDeUsusariosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaDeUsusariosMouseExited
+        ListaDeUsusarios.setForeground(Color.black);
+    }//GEN-LAST:event_ListaDeUsusariosMouseExited
 
     /**
      * @param args the command line arguments
@@ -487,7 +488,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel CrearCliente;
     private javax.swing.JLabel CrearUsuario;
     private javax.swing.JLabel ListaDeClientes;
-    private javax.swing.JLabel ListaDeClientes2;
+    private javax.swing.JLabel ListaDeUsusarios;
     private javax.swing.JLabel back;
     private javax.swing.JPanel crearCliente;
     private javax.swing.JLabel crearCliente_img;
