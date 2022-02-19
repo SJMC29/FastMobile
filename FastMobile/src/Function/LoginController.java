@@ -18,6 +18,8 @@ import java.io.PrintWriter;
  */
 public class LoginController {
     UserController user_controller = new UserController();
+    
+    
     public void letIngreso(Login login) throws IOException{
         //System.out.println(user_controller.getUser(login.getUser()).getPassword());
         String passBD = "";
@@ -32,7 +34,10 @@ public class LoginController {
             User u = user_controller.getUser(login.getUser().trim());
             if(u != null){
                 passBD = user_controller.getUser(login.getUser().trim()).getPassword();
-                passInterface = login.getPassword().trim();                
+                passInterface = login.getPassword().trim();  
+                boolean isActive = user_controller.getUser(login.getUser().trim()).isActive();
+                
+                if (isActive){
                     if (passBD.equals(passInterface)) {
                         new Menu(u).setVisible(true);
                         login.dispose();
@@ -66,9 +71,16 @@ public class LoginController {
                         error = 2;
                         login.showError(error); 
                     }
-                }  else {
-                    error = 3;
-                    login.showError(error); 
+                }
+                else {
+                        error = 4;
+                        login.showError(error); 
+                }
+                    
+            }  
+            else {
+                error = 3;
+                login.showError(error); 
             }
         }             
     }

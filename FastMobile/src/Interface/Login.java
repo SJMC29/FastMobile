@@ -62,6 +62,9 @@ public class Login extends javax.swing.JFrame {
            case 3 :
               invalidData.setText("Usuario no ha sido encontrado");
               break;
+           case 4 :
+              invalidData.setText("El usuario está inactivo");
+              break;   
            default : 
               invalidData.setText("Mis programadores no me saben programar");
         }
