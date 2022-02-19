@@ -60,58 +60,8 @@ public class RegisterClientController {
         String longitude = rc.getjTextFieldLongitud().getText();
         
         Date current_date = new Date();
-        
-        //Validacion XD        
-        Integer error = 0;      
-        
-        if(cedula.equals("")){
-            error = 1;
-            rc.getjTextFieldCedula().setBackground(new Color(255,200,200));
-            System.out.println("error cedula");
-        }
-        if(nombre.equals("")){
-            error = 1;
-            rc.getjTextFieldNombre().setBackground(new Color(255,200,200));
-            System.out.println("error nombre");
-        }
-        if(apellido.equals("")){
-            error = 1;
-            rc.getjTextFieldApellido().setBackground(new Color(255,200,200));
-            System.out.println("error apellido");
-        }
-        if(mail.equals("")){
-            error = 1;
-            rc.getjTextFieldEmail().setBackground(new Color(255,200,200));
-            System.out.println("error mail");
-        }
-        if(phone.equals("")){
-            error = 1;
-            rc.getjTextFieldPhone().setBackground(new Color(255,200,200));
-            System.out.println("error phone");
-        }
-        if(address.equals("")){
-            error = 1;
-            rc.getjTextFieldAddress().setBackground(new Color(255,200,200));
-            System.out.println("error address");
-        }
-        if(latitude.equals("") || !isNumeric(latitude)){
-            error = 1;
-            rc.getjTextFieldLatitud().setBackground(new Color(255,200,200));
-            System.out.println("error latitude");
-        }
-        if(longitude.equals("") || !isNumeric(longitude)){
-            error = 1;
-            rc.getjTextFieldLongitud().setBackground(new Color(255,200,200));
-            System.out.println("error longitude");
-        }
-        if(rc.getjTable().getRowCount()==0){
-            error = 1;
-            rc.getjLabelErrorLinea().setVisible(true);
-            System.out.println("error tabla");
-        }
-        
-        
-        if(error == 0){//Si no hay error enviar
+        reset_bg(rc);
+        if(validation(rc) == 0){//Si no hay error enviar
             //TODOOOOO
             boolean suspended = rc.getjRadioButtonSuspended();
             Person person = new Person(
@@ -134,6 +84,7 @@ public class RegisterClientController {
             //personControl.createPerson(person);
             //clientControl.createClient(c);   
             //addClient_Phones(c, rc.getjTable());
+            reset_text(rc);
         }        
     }
     
@@ -210,7 +161,7 @@ public class RegisterClientController {
     
     //AUX
     
-    public static boolean isNumeric(String strNum) {
+    public boolean isNumeric(String strNum) {
         if (strNum == null) {
             return false;
         }
@@ -220,5 +171,84 @@ public class RegisterClientController {
             return false;
         }
         return true;
+    }
+    
+    public Integer validation(RegisterClient rc){
+        Integer error = 0;      
+        
+        if(rc.getjTextFieldCedula().getText().equals("")){
+            error = 1;
+            rc.getjTextFieldCedula().setBackground(new Color(255,200,200));
+            System.out.println("error cedula");
+        }
+        if(rc.getjTextFieldNombre().getText().equals("")){
+            error = 1;
+            rc.getjTextFieldNombre().setBackground(new Color(255,200,200));
+            System.out.println("error nombre");
+        }
+        if(rc.getjTextFieldApellido().getText().equals("")){
+            error = 1;
+            rc.getjTextFieldApellido().setBackground(new Color(255,200,200));
+            System.out.println("error apellido");
+        }
+        if(rc.getjTextFieldEmail().getText().equals("")){
+            error = 1;
+            rc.getjTextFieldEmail().setBackground(new Color(255,200,200));
+            System.out.println("error mail");
+        }
+        if(rc.getjTextFieldPhone().getText().equals("")){
+            error = 1;
+            rc.getjTextFieldPhone().setBackground(new Color(255,200,200));
+            System.out.println("error phone");
+        }
+        if(rc.getjTextFieldAddress().getText().equals("")){
+            error = 1;
+            rc.getjTextFieldAddress().setBackground(new Color(255,200,200));
+            System.out.println("error address");
+        }
+        if(rc.getjTextFieldLatitud().getText().equals("") || !isNumeric(rc.getjTextFieldLatitud().getText())){
+            error = 1;
+            rc.getjTextFieldLatitud().setBackground(new Color(255,200,200));
+            System.out.println("error latitude");
+        }
+        if(rc.getjTextFieldLongitud().getText().equals("") || !isNumeric(rc.getjTextFieldLongitud().getText())){
+            error = 1;
+            rc.getjTextFieldLongitud().setBackground(new Color(255,200,200));
+            System.out.println("error longitude");
+        }
+        if(rc.getjTable().getRowCount()==0){
+            error = 1;
+            rc.getjLabelErrorLinea().setVisible(true);
+            System.out.println("error tabla");
+        }
+        return error;
+    }
+    
+    public void reset_bg(RegisterClient rc){
+        rc.getjTextFieldCedula().setBackground(new Color(255,255,255));
+        rc.getjTextFieldNombre().setBackground(new Color(255,255,255));
+        rc.getjTextFieldApellido().setBackground(new Color(255,255,255));
+        rc.getjTextFieldEmail().setBackground(new Color(255,255,255));
+        rc.getjTextFieldPhone().setBackground(new Color(255,255,255));
+        rc.getjTextFieldAddress().setBackground(new Color(255,255,255));
+        rc.getjTextFieldLatitud().setBackground(new Color(255,255,255));
+        rc.getjTextFieldLongitud().setBackground(new Color(255,255,255));
+        rc.getjLabelErrorLinea().setVisible(false);
+    }
+    
+    public void reset_text(RegisterClient rc){
+        rc.getjTextFieldCedula().setText("");
+        rc.getjTextFieldNombre().setText("");
+        rc.getjTextFieldApellido().setText("");
+        rc.getjTextFieldEmail().setText("");
+        rc.getjTextFieldPhone().setText("");
+        rc.getjTextFieldAddress().setText("");
+        rc.getjTextFieldLatitud().setText("");
+        rc.getjTextFieldLongitud().setText("");
+        rc.getjLabelErrorLinea().setVisible(false);
+        for(int i = rc.getjTable().getRowCount()-1;i >= 0;i--){
+            tablePlans.removeRow(i);
+        }
+        
     }
 }
