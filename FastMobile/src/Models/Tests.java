@@ -56,12 +56,13 @@ public class Tests {
         userControl.createUser(user_1);
         */
         
-        /*for(User u :userControl.getUsers()){
+        //USUARIOS
+        for(User u :userControl.getUsers()){
             System.out.println(u);            
         }
         
         User u = userControl.getUser("1193477073");
-        Client cliente = clientControl.getClient(1);*/
+        Client cliente = clientControl.getClient(1);
         
         
        // Plan pl_2 = new Plan("Plan de 25 GB",750,25,true,44990);
@@ -75,10 +76,10 @@ public class Tests {
         
         //personControl.destroyPerson("19831237833");
         
-        
+        /* //CLIENTES
         for(Client c: clientControl.getClients()){
             System.out.println(c);
-        }
+        }*/
         
         //personControl.destroyPerson("19831237833");
         //clientControl.destroyClient(1);
