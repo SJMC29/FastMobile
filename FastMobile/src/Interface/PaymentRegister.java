@@ -16,7 +16,6 @@ import java.awt.Cursor;
 import java.awt.Image;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
@@ -34,7 +33,6 @@ public class PaymentRegister extends javax.swing.JFrame {
     PaymentRegisterController controladorPaymentRegister = new PaymentRegisterController();
     ClientController clientController = new ClientController();
     User usuario;
-    Client cliente;
     /**
      * Creates new form Menu
      */
@@ -54,16 +52,9 @@ public class PaymentRegister extends javax.swing.JFrame {
         System.out.println("HOLA VACÍO");
     }
  
-    public Client identificacionClaveCliente(String idClientS){
-        int idClientINT = Integer.parseInt(idClientS);      
-        cliente = clientController.getClient(idClientINT);
-        
-        nombreCliente.setText(cliente.getPerson().getName());
-        apellidoCliente.setText(cliente.getPerson().getLastName());
-        identificacionCliente.setText(cliente.getPerson().getId_Person());
-        
-        return cliente;
-    }
+    /*public Client identificacionClaveCliente(){
+        return clientController.getClient(Integer.parseInt(identificacionClave.getText()));
+    }*/
 
     public void scaleImage(){
         
@@ -94,18 +85,12 @@ public class PaymentRegister extends javax.swing.JFrame {
         White = new javax.swing.JPanel();
         seAgrego = new javax.swing.JLabel();
         formulario = new javax.swing.JPanel();
-        idClientL = new javax.swing.JLabel();
+        nombresL = new javax.swing.JLabel();
         identificacionClave = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         lineasTelefonicas = new javax.swing.JTable();
         datosDeLaLinea = new javax.swing.JLabel();
         buscar = new javax.swing.JButton();
-        nombresL = new javax.swing.JLabel();
-        apellidosL = new javax.swing.JLabel();
-        numeroIDL = new javax.swing.JLabel();
-        nombreCliente = new javax.swing.JLabel();
-        apellidoCliente = new javax.swing.JLabel();
-        identificacionCliente = new javax.swing.JLabel();
         registrarPago = new javax.swing.JButton();
         fastMobileWhite = new javax.swing.JLabel();
         menu = new javax.swing.JLabel();
@@ -143,7 +128,7 @@ public class PaymentRegister extends javax.swing.JFrame {
         White.add(seAgrego);
         seAgrego.setBounds(393, 452, 280, 25);
 
-        idClientL.setText("Identificación del cliente:");
+        nombresL.setText("Identificación del cliente:");
 
         identificacionClave.setText("Identificación");
 
@@ -181,18 +166,6 @@ public class PaymentRegister extends javax.swing.JFrame {
             }
         });
 
-        nombresL.setText("Nombres:");
-
-        apellidosL.setText("Apellidos:");
-
-        numeroIDL.setText("N° de identificación:");
-
-        nombreCliente.setText("-");
-
-        apellidoCliente.setText("-");
-
-        identificacionCliente.setText("-");
-
         javax.swing.GroupLayout formularioLayout = new javax.swing.GroupLayout(formulario);
         formulario.setLayout(formularioLayout);
         formularioLayout.setHorizontalGroup(
@@ -200,46 +173,24 @@ public class PaymentRegister extends javax.swing.JFrame {
             .addGroup(formularioLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(formularioLayout.createSequentialGroup()
-                        .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(buscar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(datosDeLaLinea, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(36, 36, 36)
+                    .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(nombresL)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                        .addComponent(apellidosL)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(apellidoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addComponent(numeroIDL)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(identificacionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17))
-                    .addGroup(formularioLayout.createSequentialGroup()
-                        .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(idClientL)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 842, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(identificacionClave, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(identificacionClave)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE))
+                    .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(buscar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(datosDeLaLinea, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         formularioLayout.setVerticalGroup(
             formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(formularioLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(idClientL)
+                .addComponent(nombresL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(identificacionClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buscar)
-                    .addComponent(nombresL)
-                    .addComponent(apellidosL)
-                    .addComponent(numeroIDL)
-                    .addComponent(nombreCliente)
-                    .addComponent(apellidoCliente)
-                    .addComponent(identificacionCliente))
+                .addComponent(buscar)
                 .addGap(12, 12, 12)
                 .addComponent(datosDeLaLinea)
                 .addGap(10, 10, 10)
@@ -288,9 +239,8 @@ public class PaymentRegister extends javax.swing.JFrame {
 
     private void buscarCliente(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscarCliente
         System.out.println("Buscando cliente en DB.");
-        //1100288113
-        //12345678
-        controladorPaymentRegister.cargarTelefonosYFecha(lineasTelefonicas, identificacionClaveCliente(identificacionClave.getText()));
+
+        //controladorPaymentRegister.cargarTelefonosYFecha(lineasTelefonicas, identificacionClaveCliente());
         //ACTUALIZAR TABLA
     }//GEN-LAST:event_buscarCliente
 
@@ -356,21 +306,15 @@ public class PaymentRegister extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Separador;
     private javax.swing.JPanel White;
-    private javax.swing.JLabel apellidoCliente;
-    private javax.swing.JLabel apellidosL;
     private javax.swing.JButton buscar;
     private javax.swing.JLabel datosDeLaLinea;
     private javax.swing.JLabel fastMobileWhite;
     private javax.swing.JPanel formulario;
-    private javax.swing.JLabel idClientL;
     private javax.swing.JTextField identificacionClave;
-    private javax.swing.JLabel identificacionCliente;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable lineasTelefonicas;
     private javax.swing.JLabel menu;
-    private javax.swing.JLabel nombreCliente;
     private javax.swing.JLabel nombresL;
-    private javax.swing.JLabel numeroIDL;
     private javax.swing.JButton registrarPago;
     private javax.swing.JLabel seAgrego;
     private javax.swing.JLabel userIcon;

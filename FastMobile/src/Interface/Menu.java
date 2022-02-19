@@ -91,7 +91,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         ListaDeUsusarios = new javax.swing.JLabel();
         registroPagos_img2 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        panelDerecho = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1024, 576));
@@ -289,7 +289,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel8.setBounds(20, 40, 180, 45);
 
         ListaDeUsusarios.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        ListaDeUsusarios.setText("Lista de usuarios");
+        ListaDeUsusarios.setText("Registro de pagos");
         ListaDeUsusarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ListaDeUsusariosMouseClicked(evt);
@@ -346,21 +346,21 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 100, 802, 802);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        panelDerecho.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelDerechoLayout = new javax.swing.GroupLayout(panelDerecho);
+        panelDerecho.setLayout(panelDerechoLayout);
+        panelDerechoLayout.setHorizontalGroup(
+            panelDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 222, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelDerechoLayout.setVerticalGroup(
+            panelDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 801, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel3);
-        jPanel3.setBounds(802, 101, 222, 801);
+        getContentPane().add(panelDerecho);
+        panelDerecho.setBounds(802, 101, 222, 801);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -501,13 +501,13 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFullName;
     private javax.swing.JLabel jLabelProfileImage;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelBlue;
     private javax.swing.JLabel logout;
+    private javax.swing.JPanel panelDerecho;
     private javax.swing.JLabel perfil;
     private javax.swing.JPanel registroPagos;
     private javax.swing.JLabel registroPagos_img;

@@ -105,34 +105,17 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="buscar" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="datosDeLaLinea" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="nombresL" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="nombreCliente" min="-2" pref="151" max="-2" attributes="0"/>
-                              <EmptySpace pref="19" max="32767" attributes="0"/>
-                              <Component id="apellidosL" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="apellidoCliente" min="-2" pref="151" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="numeroIDL" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="identificacionCliente" min="-2" pref="151" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                              <Component id="identificacionClave" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jScrollPane3" alignment="0" pref="839" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="idClientL" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane3" min="-2" pref="842" max="-2" attributes="0"/>
-                                  <Component id="identificacionClave" alignment="0" min="-2" pref="840" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="buscar" alignment="0" max="32767" attributes="0"/>
+                              <Component id="datosDeLaLinea" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace pref="31" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -140,19 +123,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Component id="idClientL" min="-2" max="-2" attributes="0"/>
+                      <Component id="nombresL" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="identificacionClave" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="buscar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="nombresL" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="apellidosL" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="numeroIDL" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="nombreCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="apellidoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="identificacionCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="buscar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="datosDeLaLinea" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -163,7 +138,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="idClientL">
+            <Component class="javax.swing.JLabel" name="nombresL">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Identificaci&#xf3;n del cliente:"/>
               </Properties>
@@ -224,36 +199,6 @@
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buscarCliente"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="nombresL">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Nombres:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="apellidosL">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Apellidos:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="numeroIDL">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="N&#xb0; de identificaci&#xf3;n:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="nombreCliente">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="-"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="apellidoCliente">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="-"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="identificacionCliente">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="-"/>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>
