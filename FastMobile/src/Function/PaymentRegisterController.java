@@ -17,11 +17,8 @@ import javax.swing.JTable;
  * @author Sara Maradiago
  */
 public class PaymentRegisterController {
-    
-    PaymentRegister paymentRegister = new PaymentRegister();
- 
-        
-    /*public void cargarTelefonosYFecha(JTable tabla, Client client){
+            
+    public void cargarTelefonosYFecha(JTable tabla, Client client){
         List<Client_Phone> telefonos = client.getPhones();
         String matriz[][] = new String[telefonos.size()][2];
         for (int i = 0; i < telefonos.size(); i++) {
@@ -34,7 +31,7 @@ public class PaymentRegisterController {
                     "Línea", "Último pago"
                 }        
         ));
-    }*/
+    }
     
     public void goToMenu(PaymentRegister paymentRegisterM, User usuario){
             new Menu(usuario).setVisible(true);
