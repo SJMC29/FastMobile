@@ -413,7 +413,7 @@ public class ProfileClients extends javax.swing.JFrame {
 
         crearUsuario1.setBackground(new java.awt.Color(255, 255, 255));
         crearUsuario1.setForeground(new java.awt.Color(41, 135, 217));
-        crearUsuario1.setText("CREAR USUSARIO");
+        crearUsuario1.setText("ACTUALIZAR USUSARIO");
         crearUsuario1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 seAgrego(evt);
