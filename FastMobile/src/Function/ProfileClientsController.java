@@ -42,7 +42,13 @@ public class ProfileClientsController {
     
     public void actualizarDatos(ProfileClients pC){
         Client clienteAct = pC.getClient();
+        
+        System.out.println(clienteAct.getPerson().getName());
+        
         clienteAct.getPerson().setName(pC.getNombresT().getText());
+        
+        System.out.println(clienteAct.getPerson().getName());
+        
         clienteAct.getPerson().setLastName(pC.getApellidosT().getText());
         clienteAct.getPerson().setId_Person(pC.getIdentificacionT().getText());
         clienteAct.getPerson().seteMail(pC.getEmail().getText());
@@ -52,7 +58,7 @@ public class ProfileClientsController {
         clienteAct.getPerson().setLongitude(Double.parseDouble(pC.getLogitudT().getText()));
         clienteAct.setSuspended(pC.getSuspendido().isSelected());
         clienteAct.setLastPayment(new Date(pC.getUltimoPago().getText()));
-        clienteAct.setClien_Type(pC.getControladorClient().tipoSeleccionado(pC.getTipo().getSelectedIndex()));
+        clienteAct.setClien_Type(pC.getControladorClient().tipoSeleccionado(pC.getTipo().getSelectedIndex())); 
     }
     
     public void logOut(ProfileClients profileClient){

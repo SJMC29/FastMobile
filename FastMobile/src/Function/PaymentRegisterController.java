@@ -9,6 +9,7 @@ import Interface.PaymentRegister;
 import Models.Client;
 import Models.Client_Phone;
 import Models.User;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JTable;
 
@@ -31,7 +32,22 @@ public class PaymentRegisterController {
                     "Línea", "Último pago"
                 }        
         ));
-    }    
+    }
+
+    public void actualizarFecha(JTable tabla, Client client){
+        List<Client_Phone> telefonos = client.getPhones();
+        Date hoy = new Date();
+        
+        System.out.println(client.getLastPayment());
+        
+        /*for (int i = 0; i < telefonos.size(); i++) {
+            //tabla.setValueAt(hoy, i, 1);
+        }*/
+        client.setLastPayment(hoy);
+        
+        System.out.println(client.getLastPayment());
+    }
+    
     public void goToMenu(PaymentRegister paymentRegisterM, User usuario){
             new Menu(usuario).setVisible(true);
             paymentRegisterM.dispose();

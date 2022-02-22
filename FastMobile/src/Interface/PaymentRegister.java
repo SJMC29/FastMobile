@@ -290,6 +290,7 @@ public class PaymentRegister extends javax.swing.JFrame {
 
     private void registrarPago(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarPago
         // TODO add your handling code here:
+        controladorPaymentRegister.actualizarFecha(lineasTelefonicas, cliente);
         seAgrego.setVisible(true);
     }//GEN-LAST:event_registrarPago
 
