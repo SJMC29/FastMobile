@@ -9,7 +9,9 @@ import Models.User;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -416,11 +418,29 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_goToProfile
 
     private void CrearUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearUsuarioMouseClicked
-        menu_controller.goToRegisterUser(this, usuario);
+        if(usuario.getRol().getName().equals("Administrador")){
+            menu_controller.goToRegisterUser(this, usuario);
+        }else{
+            Toolkit.getDefaultToolkit().beep();
+            JOptionPane.showMessageDialog(
+                    this, 
+                    "Solo los Administradores pueden registrar nuevos usuarios",
+                    "¡¡ ACCESS DENIED !!", 
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_CrearUsuarioMouseClicked
 
     private void CrearClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearClienteMouseClicked
-        menu_controller.goToRegisterClient(this, usuario);
+        if(!usuario.getRol().getName().equals("Operador")){
+            menu_controller.goToRegisterClient(this, usuario);
+        }else{
+            Toolkit.getDefaultToolkit().beep();
+            JOptionPane.showMessageDialog(
+                    this, 
+                    "Los Operadores no pueden registrar nuevos Clienes",
+                    "¡¡ ACCESS DENIED !!", 
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_CrearClienteMouseClicked
 
     private void ListaDeClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaDeClientesMouseClicked
