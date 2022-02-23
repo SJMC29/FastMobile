@@ -73,7 +73,19 @@ public class Client_Phone implements Serializable {
     // to String
     @Override
     public String toString() {
-        return "Client_Phone{" + "id_Phone=" + id_Phone + ", client=" + client + ", phone_Number=" + phone_Number + ", plan=" + plan + '}';
+        return "Client_Phone{" + "id_Phone=" + id_Phone + ", client=" + client.getId_Client() + ", phone_Number=" + phone_Number + ", plan=" + plan + '}';
     }
     
+    @Override
+    public boolean equals(Object object)
+    {
+        boolean sameSame = false;
+
+        if (object != null && object instanceof Client_Phone)
+        {
+            sameSame = this.id_Phone == ((Client_Phone) object).id_Phone;
+        }
+
+        return sameSame;
+    }
 }

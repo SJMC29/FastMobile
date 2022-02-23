@@ -12,6 +12,8 @@ import Interface.ProfileClients;
 import Interface.RegisterUser;
 import Persistence.exceptions.IllegalOrphanException;
 import Persistence.exceptions.NonexistentEntityException;
+import java.util.Date;
+import java.util.List;
 
 public class Tests {
 
@@ -62,8 +64,30 @@ public class Tests {
         }
         
         User u = userControl.getUser("1193477073");
-        Client cliente = clientControl.getClient(1);
+        Client c1 = clientControl.getClient(1);
         
+        System.out.println("Paso 1 \n" + c1);
+        
+        Date today = new Date();
+        c1.setLastPayment(today);
+        
+        System.out.println("Paso 2 \n" + c1);
+        
+        clientControl.upDateClient(c1);
+        
+        
+        System.out.println("Paso 3 \n" + c1);
+        
+        
+        // Pruebas contains
+        /*
+        List<Client_Phone> phones = c1.getPhones();
+        List<Client_Phone> phonesOld = c1.getPhones();
+        for(Client_Phone phOld:phonesOld){
+            if(phones.contains(phOld)){
+                System.out.println("Si esta");
+            }
+        }*/
         
        // Plan pl_2 = new Plan("Plan de 25 GB",750,25,true,44990);
        //planControl.createPlan(pl_2);

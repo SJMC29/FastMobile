@@ -11,8 +11,10 @@ import Models.User;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
@@ -51,6 +53,7 @@ public class ProfileUsers extends javax.swing.JFrame {
         activo.setSelected(usuario.isActive());
         controladorUser.cargarRoles(rol);
         rol.setSelectedIndex(usuario.getRol().getId_Rol()-1);
+        disable();
     }
     
     public ProfileUsers(User uPerfil, User u) {
@@ -74,6 +77,7 @@ public class ProfileUsers extends javax.swing.JFrame {
         activo.setSelected(userPerfil.isActive());
         controladorUser.cargarRoles(rol);
         rol.setSelectedIndex(userPerfil.getRol().getId_Rol()-1);
+        disable();
     }
 
     public User getUserPerfil() {
@@ -400,7 +404,7 @@ public class ProfileUsers extends javax.swing.JFrame {
 
         upDateUsuario.setBackground(new java.awt.Color(255, 255, 255));
         upDateUsuario.setForeground(new java.awt.Color(41, 135, 217));
-        upDateUsuario.setText("CREAR USUSARIO");
+        upDateUsuario.setText("ACTUALIZAR USUSARIO");
         upDateUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 seAgrego(evt);
@@ -468,10 +472,29 @@ public class ProfileUsers extends javax.swing.JFrame {
     }//GEN-LAST:event_goToMenu
 
     private void seAgrego(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seAgrego
-        seAgrego.setVisible(true);
-        profile_user_controller.actualizarUsuario(this, usuario);
+        if(usuario.getRol().getName().equals("Administrador") || userPerfil==null){
+            seAgrego.setVisible(true);
+            profile_user_controller.actualizarUsuario(this, usuario);
+        }else{
+            Toolkit.getDefaultToolkit().beep();
+            JOptionPane.showMessageDialog(
+                    this, 
+                    "Solo los Administradores pueden actualizar la informacion de otros usuarios",
+                    "¡¡ ACCESS DENIED !!", 
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_seAgrego
 
+    
+    public void disable(){
+        if(!usuario.getRol().getName().equals("Administrador")){
+            if(!(userPerfil==null)){
+                contrasena.setVisible(false);
+            }
+            rol.setEnabled(false);
+            activo.setEnabled(false);
+        }
+    }
     /**
      * @param args the command line arguments
      */

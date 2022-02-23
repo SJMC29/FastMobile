@@ -43,13 +43,14 @@ public class ProfileClients extends javax.swing.JFrame {
         nombresT.setText(c.getPerson().getName());
         apellidosT.setText(c.getPerson().getLastName());
         identificacionT.setText(c.getPerson().getId_Person());
+        identificacionT.setEditable(false);
         email.setText(c.getPerson().geteMail());
         telefono.setText(c.getPerson().getPhone());
         direction.setText(c.getPerson().getAddress());
         suspendido.setSelected(c.isSuspended());
         controladorClient.loadTypes(tipo);
         tipo.setSelectedIndex(c.getClien_Type().getId_type()-1);
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");             
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");             
         String strDate = dateFormat.format(c.getLastPayment());  
         ultimoPago.setText(strDate);
         controladorProfile.cargarTelefonos(tabla, c);
@@ -413,7 +414,7 @@ public class ProfileClients extends javax.swing.JFrame {
 
         crearUsuario1.setBackground(new java.awt.Color(255, 255, 255));
         crearUsuario1.setForeground(new java.awt.Color(41, 135, 217));
-        crearUsuario1.setText("ACTUALIZAR USUSARIO");
+        crearUsuario1.setText("ACTUALIZAR CLIENTE");
         crearUsuario1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 seAgrego(evt);
@@ -460,6 +461,7 @@ public class ProfileClients extends javax.swing.JFrame {
 
     private void seAgrego(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seAgrego
         seAgrego.setVisible(true);
+        controladorProfile.actualizarDatos(this, usuario);
     }//GEN-LAST:event_seAgrego
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked

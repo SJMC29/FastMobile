@@ -81,6 +81,8 @@ public class ClientJpaController implements Serializable {
             List<String> illegalOrphanMessages = null;
             for (Client_Phone phonesOldClient_Phone : phonesOld) {
                 if (!phonesNew.contains(phonesOldClient_Phone)) {
+                    System.out.println("\n Nuevos \n" + phonesNew);
+                    System.out.println("\n Viejo \n" + phonesOldClient_Phone);
                     if (illegalOrphanMessages == null) {
                         illegalOrphanMessages = new ArrayList<String>();
                     }
