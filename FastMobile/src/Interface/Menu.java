@@ -91,7 +91,7 @@ public class Menu extends javax.swing.JFrame {
         listaClientes_img = new javax.swing.JLabel();
         registroPagos = new javax.swing.JPanel();
         registroPagos2 = new javax.swing.JPanel();
-        registroDePagos = new javax.swing.JLabel();
+        listarUsuarios = new javax.swing.JLabel();
         textoRegistroPagos = new javax.swing.JLabel();
         registroPagos_img = new javax.swing.JLabel();
         panelDerecho = new javax.swing.JPanel();
@@ -289,21 +289,21 @@ public class Menu extends javax.swing.JFrame {
         registroPagos2.setBackground(new java.awt.Color(255, 255, 255));
         registroPagos2.setLayout(null);
 
-        registroDePagos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        registroDePagos.setText("Registro de pagos");
-        registroDePagos.addMouseListener(new java.awt.event.MouseAdapter() {
+        listarUsuarios.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        listarUsuarios.setText("Listar Usuarios");
+        listarUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                registroDePagosMouseClicked(evt);
+                listarUsuariosMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                registroDePagosMouseEntered(evt);
+                listarUsuariosMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                registroDePagosMouseExited(evt);
+                listarUsuariosMouseExited(evt);
             }
         });
-        registroPagos2.add(registroDePagos);
-        registroDePagos.setBounds(20, 10, 120, 16);
+        registroPagos2.add(listarUsuarios);
+        listarUsuarios.setBounds(20, 10, 120, 16);
 
         textoRegistroPagos.setText("<html>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut libero nec magna</html>");
         textoRegistroPagos.setPreferredSize(new java.awt.Dimension(180, 16));
@@ -458,18 +458,18 @@ public class Menu extends javax.swing.JFrame {
         ListaDeClientes.setForeground(Color.black);
     }//GEN-LAST:event_ListaDeClientesMouseExited
 
-    private void registroDePagosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registroDePagosMouseClicked
-        //menu_controller.goToListUsers(this, usuario);
-    }//GEN-LAST:event_registroDePagosMouseClicked
+    private void listarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listarUsuariosMouseClicked
+        menu_controller.goToListUsers(this, usuario);
+    }//GEN-LAST:event_listarUsuariosMouseClicked
 
-    private void registroDePagosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registroDePagosMouseEntered
-        registroDePagos.setForeground(new Color(41,135,217));
-        registroDePagos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_registroDePagosMouseEntered
+    private void listarUsuariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listarUsuariosMouseEntered
+        listarUsuarios.setForeground(new Color(41,135,217));
+        listarUsuarios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_listarUsuariosMouseEntered
 
-    private void registroDePagosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registroDePagosMouseExited
-        registroDePagos.setForeground(Color.black);
-    }//GEN-LAST:event_registroDePagosMouseExited
+    private void listarUsuariosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listarUsuariosMouseExited
+        listarUsuarios.setForeground(Color.black);
+    }//GEN-LAST:event_listarUsuariosMouseExited
 
     /**
      * @param args the command line arguments
@@ -523,11 +523,11 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel listaClientes;
     private javax.swing.JPanel listaClientes2;
     private javax.swing.JLabel listaClientes_img;
+    private javax.swing.JLabel listarUsuarios;
     private javax.swing.JLabel logout;
     private javax.swing.JPanel panelCentro;
     private javax.swing.JPanel panelDerecho;
     private javax.swing.JLabel perfil;
-    private javax.swing.JLabel registroDePagos;
     private javax.swing.JPanel registroPagos;
     private javax.swing.JPanel registroPagos2;
     private javax.swing.JLabel registroPagos_img;

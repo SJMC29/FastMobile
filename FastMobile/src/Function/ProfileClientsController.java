@@ -15,8 +15,12 @@ import Interface.ProfileUsers;
 import Models.Client;
 import Models.Client_Phone;
 import Models.User;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTable;
 
 /**
@@ -46,13 +50,14 @@ public class ProfileClientsController {
     }
     
     public void actualizarDatos(ProfileClients pC, User u){
+         SimpleDateFormat formatter4=new SimpleDateFormat("E, MMM dd yyyy");  
         Client clienteAct = pC.getClient();
         
-        System.out.println(clienteAct.getPerson().getName());
+        //System.out.println(clienteAct.getPerson().getName());
         
         clienteAct.getPerson().setName(pC.getNombresT().getText());
         
-        System.out.println(clienteAct.getPerson().getName());
+        //System.out.println(clienteAct.getPerson().getName());
         
         clienteAct.getPerson().setLastName(pC.getApellidosT().getText());
         // clienteAct.getPerson().setId_Person(pC.getIdentificacionT().getText());
@@ -62,7 +67,11 @@ public class ProfileClientsController {
         clienteAct.getPerson().setLatitude(Double.parseDouble(pC.getLatitudT().getText()));
         clienteAct.getPerson().setLongitude(Double.parseDouble(pC.getLogitudT().getText()));
         clienteAct.setSuspended(pC.getSuspendido().isSelected());
-        clienteAct.setLastPayment(new Date(pC.getUltimoPago().getText()));
+        try {
+            clienteAct.setLastPayment(formatter4.parse(pC.getUltimoPago().getText()));
+        } catch (ParseException ex) {
+            Logger.getLogger(ProfileClientsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         clienteAct.setClien_Type(pC.getControladorClient().tipoSeleccionado(pC.getTipo().getSelectedIndex()));
         
         clientController.upDateClient(clienteAct);
