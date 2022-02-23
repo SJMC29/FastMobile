@@ -460,7 +460,7 @@ public class ProfileClients extends javax.swing.JFrame {
     }//GEN-LAST:event_goToMenu
 
     private void seAgrego(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seAgrego
-        controladorProfile.actualizarDatos(this);
+        //controladorProfile.actualizarDatos(this);
         seAgrego.setVisible(true);
         controladorProfile.actualizarDatos(this, usuario);
     }//GEN-LAST:event_seAgrego
