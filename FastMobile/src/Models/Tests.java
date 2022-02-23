@@ -59,7 +59,7 @@ public class Tests {
         */
         
         //USUARIOS
-        for(User u :userControl.getUsers()){
+        /*for(User u :userControl.getUsers()){
             System.out.println(u);            
         }
         
@@ -100,10 +100,11 @@ public class Tests {
         
         //personControl.destroyPerson("19831237833");
         
-        /* //CLIENTES
+        //CLIENTES
+        
         for(Client c: clientControl.getClients()){
             System.out.println(c);
-        }*/
+        }
         
         //personControl.destroyPerson("19831237833");
         //clientControl.destroyClient(1);

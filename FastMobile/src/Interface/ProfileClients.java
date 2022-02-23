@@ -165,7 +165,7 @@ public class ProfileClients extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         seAgrego = new javax.swing.JLabel();
-        crearUsuario1 = new javax.swing.JButton();
+        actualizarUsuario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -412,16 +412,16 @@ public class ProfileClients extends javax.swing.JFrame {
         White.add(seAgrego);
         seAgrego.setBounds(393, 452, 309, 25);
 
-        crearUsuario1.setBackground(new java.awt.Color(255, 255, 255));
-        crearUsuario1.setForeground(new java.awt.Color(41, 135, 217));
-        crearUsuario1.setText("ACTUALIZAR CLIENTE");
-        crearUsuario1.addMouseListener(new java.awt.event.MouseAdapter() {
+        actualizarUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        actualizarUsuario.setForeground(new java.awt.Color(41, 135, 217));
+        actualizarUsuario.setText("ACTUALIZAR USUSARIO");
+        actualizarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 seAgrego(evt);
             }
         });
-        White.add(crearUsuario1);
-        crearUsuario1.setBounds(66, 446, 208, 42);
+        White.add(actualizarUsuario);
+        actualizarUsuario.setBounds(66, 446, 208, 42);
 
         getContentPane().add(White);
         White.setBounds(0, 0, 1030, 580);
@@ -460,6 +460,7 @@ public class ProfileClients extends javax.swing.JFrame {
     }//GEN-LAST:event_goToMenu
 
     private void seAgrego(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seAgrego
+        controladorProfile.actualizarDatos(this);
         seAgrego.setVisible(true);
         controladorProfile.actualizarDatos(this, usuario);
     }//GEN-LAST:event_seAgrego
@@ -514,10 +515,10 @@ public class ProfileClients extends javax.swing.JFrame {
     private javax.swing.JPanel Blue;
     private javax.swing.JLabel Menu;
     private javax.swing.JPanel White;
+    private javax.swing.JButton actualizarUsuario;
     private javax.swing.JLabel apellidosL;
     private javax.swing.JTextField apellidosT;
     private javax.swing.JLabel back;
-    private javax.swing.JButton crearUsuario1;
     private javax.swing.JLabel direccion;
     private javax.swing.JTextField direction;
     private javax.swing.JTextField email;
