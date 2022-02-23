@@ -4,7 +4,10 @@
  */
 package Function;
 
+import Controllers.ClientController;
 import Controllers.Client_PhoneController;
+import Controllers.PersonController;
+import Interface.ListClients;
 import Interface.Login;
 import Interface.Menu;
 import Interface.ProfileClients;
@@ -23,6 +26,8 @@ import javax.swing.JTable;
 public class ProfileClientsController {
     
     Client_PhoneController clientPhoneController = new Client_PhoneController();
+    ClientController clientController = new ClientController();
+    PersonController personController = new PersonController();
     List<Client_Phone> telefonos;
     
     public void cargarTelefonos(JTable tabla, Client client){
@@ -40,11 +45,11 @@ public class ProfileClientsController {
         ));
     }
     
-    public void actualizarDatos(ProfileClients pC){
+    public void actualizarDatos(ProfileClients pC, User u){
         Client clienteAct = pC.getClient();
         clienteAct.getPerson().setName(pC.getNombresT().getText());
         clienteAct.getPerson().setLastName(pC.getApellidosT().getText());
-        clienteAct.getPerson().setId_Person(pC.getIdentificacionT().getText());
+        // clienteAct.getPerson().setId_Person(pC.getIdentificacionT().getText());
         clienteAct.getPerson().seteMail(pC.getEmail().getText());
         clienteAct.getPerson().setPhone(pC.getTelefono().getText());
         clienteAct.getPerson().setAddress(pC.getDirection().getText());
@@ -53,6 +58,12 @@ public class ProfileClientsController {
         clienteAct.setSuspended(pC.getSuspendido().isSelected());
         clienteAct.setLastPayment(new Date(pC.getUltimoPago().getText()));
         clienteAct.setClien_Type(pC.getControladorClient().tipoSeleccionado(pC.getTipo().getSelectedIndex()));
+        
+        clientController.upDateClient(clienteAct);
+        personController.upDatePerson(clienteAct.getPerson());
+        
+        new ListClients(u).setVisible(true);
+        pC.dispose();
     }
     
     public void logOut(ProfileClients profileClient){
