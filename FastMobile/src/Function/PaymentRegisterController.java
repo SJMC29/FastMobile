@@ -40,9 +40,9 @@ public class PaymentRegisterController {
         
         System.out.println(client.getLastPayment());
         
-        /*for (int i = 0; i < telefonos.size(); i++) {
-            //tabla.setValueAt(hoy, i, 1);
-        }*/
+        for (int i = 0; i < telefonos.size(); i++) {
+            tabla.setValueAt(hoy, i, 1);
+        }
         client.setLastPayment(hoy);
         
         System.out.println(client.getLastPayment());
