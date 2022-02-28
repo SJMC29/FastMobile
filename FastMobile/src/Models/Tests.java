@@ -37,19 +37,19 @@ public class Tests {
         rolControl.createRol(rol_3);
         */
         
-        /*// Creacion de tipos de cliente
+       /* // Creacion de tipos de cliente
         Client_Type type_1 = new Client_Type("Natural");
         Client_Type type_2 = new Client_Type("Corporativo");
         typeControl.createClient_Type(type_1);
         typeControl.createClient_Type(type_2);
-        
-       
-        }
-          */
-        /*
-        Person per_1 = new Person("1193477073", "Alejandro", "Caicedo", "alejandrocaicedo21216@gmail.com", "3153990050", "Calle 72F #5N-23", 123333.12, 94.377777);
-        personControl.createPerson(per_1);
         */
+       
+        
+          
+        
+        //Person per_1 = new Person("1193477073", "Alejandro", "Caicedo", "alejandrocaicedo21216@gmail.com", "3153990050", "Calle 72F #5N-23", 123333.12, 94.377777);
+        //personControl.createPerson(per_1);
+        
         /*
         Person per_1 = personControl.getPerson("1193477073");
         System.out.println(per_1);
@@ -102,7 +102,7 @@ public class Tests {
         
         //CLIENTES
         
-        for(Client c: clientControl.getClients()){
+        /*for(Client c: clientControl.getClients()){
             System.out.println(c);
         }
         
