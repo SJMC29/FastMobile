@@ -31,7 +31,20 @@ import javax.swing.table.DefaultTableModel;
  * @author Mateo Obando
  */
 public class RegisterClientController {         
-    DefaultTableModel tablePlans = new DefaultTableModel();
+    DefaultTableModel tablePlans = new javax.swing.table.DefaultTableModel(
+                new Object [][] {},
+                new String [] {
+                    "Teléfono", "Plan", "Plan ID"
+                }
+            ) {
+                boolean[] canEdit = new boolean [] {
+                    false, false, false
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit [columnIndex];
+                }
+            };
     PersonController personControl = new PersonController();
     ClientController clientControl = new ClientController();
     Client_PhoneController client_PhoneControl = new Client_PhoneController();
@@ -80,10 +93,13 @@ public class RegisterClientController {
             Client c = new Client(person,selected_type,suspended,current_date);
 
 
-            System.out.println(rc.getjTable().getRowCount());
-            //personControl.createPerson(person);
-            //clientControl.createClient(c);   
-            //addClient_Phones(c, rc.getjTable());
+            //System.out.println(rc.getjTable().getRowCount());
+            
+            //Crear
+            personControl.createPerson(person);
+            clientControl.createClient(c);   
+            addClient_Phones(c, rc.getjTable());
+            
             reset_text(rc);
         }        
     }
@@ -108,11 +124,7 @@ public class RegisterClientController {
     }
     
     public void loadTable(JTable tabla){
-        
-        tablePlans.addColumn("Teléfono");
-        tablePlans.addColumn("Plan");
-        tablePlans.addColumn("Plan ID");
-        tabla.setModel(tablePlans);
+        tabla.setModel(tablePlans);              
     }
     
     public void insertTable(RegisterClient rc){
@@ -248,7 +260,6 @@ public class RegisterClientController {
         rc.getjLabelErrorLinea().setVisible(false);
         for(int i = rc.getjTable().getRowCount()-1;i >= 0;i--){
             tablePlans.removeRow(i);
-        }
-        
+        }        
     }
 }

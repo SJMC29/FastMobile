@@ -15,6 +15,7 @@ import Interface.ProfileUsers;
 import Models.Client;
 import Models.Client_Phone;
 import Models.User;
+import java.awt.Color;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -50,35 +51,38 @@ public class ProfileClientsController {
     }
     
     public void actualizarDatos(ProfileClients pC, User u){
-         SimpleDateFormat formatter4=new SimpleDateFormat("E, MMM dd yyyy");  
-        Client clienteAct = pC.getClient();
-        
-        //System.out.println(clienteAct.getPerson().getName());
-        
-        clienteAct.getPerson().setName(pC.getNombresT().getText());
-        
-        //System.out.println(clienteAct.getPerson().getName());
-        
-        clienteAct.getPerson().setLastName(pC.getApellidosT().getText());
-        // clienteAct.getPerson().setId_Person(pC.getIdentificacionT().getText());
-        clienteAct.getPerson().seteMail(pC.getEmail().getText());
-        clienteAct.getPerson().setPhone(pC.getTelefono().getText());
-        clienteAct.getPerson().setAddress(pC.getDirection().getText());
-        clienteAct.getPerson().setLatitude(Double.parseDouble(pC.getLatitudT().getText()));
-        clienteAct.getPerson().setLongitude(Double.parseDouble(pC.getLogitudT().getText()));
-        clienteAct.setSuspended(pC.getSuspendido().isSelected());
-        try {
-            clienteAct.setLastPayment(formatter4.parse(pC.getUltimoPago().getText()));
-        } catch (ParseException ex) {
-            Logger.getLogger(ProfileClientsController.class.getName()).log(Level.SEVERE, null, ex);
+        reset_bg(pC);
+        if(validation(pC) == 0){
+           SimpleDateFormat formatter4=new SimpleDateFormat("E, MMM dd yyyy");  
+           Client clienteAct = pC.getClient();
+
+           //System.out.println(clienteAct.getPerson().getName());
+
+           clienteAct.getPerson().setName(pC.getNombresT().getText());
+
+           //System.out.println(clienteAct.getPerson().getName());
+
+           clienteAct.getPerson().setLastName(pC.getApellidosT().getText());
+           // clienteAct.getPerson().setId_Person(pC.getIdentificacionT().getText());
+           clienteAct.getPerson().seteMail(pC.getEmail().getText());
+           clienteAct.getPerson().setPhone(pC.getTelefono().getText());
+           clienteAct.getPerson().setAddress(pC.getDirection().getText());
+           clienteAct.getPerson().setLatitude(Double.parseDouble(pC.getLatitudT().getText()));
+           clienteAct.getPerson().setLongitude(Double.parseDouble(pC.getLogitudT().getText()));
+           clienteAct.setSuspended(pC.getSuspendido().isSelected());
+           try {
+               clienteAct.setLastPayment(formatter4.parse(pC.getUltimoPago().getText()));
+           } catch (ParseException ex) {
+               Logger.getLogger(ProfileClientsController.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           clienteAct.setClien_Type(pC.getControladorClient().tipoSeleccionado(pC.getTipo().getSelectedIndex()));
+
+           clientController.upDateClient(clienteAct);
+           personController.upDatePerson(clienteAct.getPerson());
+
+           new ListClients(u).setVisible(true);
+           pC.dispose();
         }
-        clienteAct.setClien_Type(pC.getControladorClient().tipoSeleccionado(pC.getTipo().getSelectedIndex()));
-        
-        clientController.upDateClient(clienteAct);
-        personController.upDatePerson(clienteAct.getPerson());
-        
-        new ListClients(u).setVisible(true);
-        pC.dispose();
     }
     
     public void logOut(ProfileClients profileClient){
@@ -89,5 +93,70 @@ public class ProfileClientsController {
     public void goToMenu(ProfileClients profileClient, User usuario){
             new Menu(usuario).setVisible(true);
             profileClient.dispose();
+    }
+    
+    public boolean isNumeric(String strNum) {
+        if (strNum == null) {
+            return false;
+        }
+        try {
+            double d = Double.parseDouble(strNum);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
+    }    
+    
+    public Integer validation(ProfileClients pc){
+        Integer error = 0;      
+                      
+        if(pc.getNombresT().getText().equals("")){
+            error = 1;
+            pc.getNombresT().setBackground(new Color(255,200,200));
+            System.out.println("error nombre");
+        }
+                        
+        if(pc.getApellidosT().getText().equals("")){
+            error = 1;
+            pc.getApellidosT().setBackground(new Color(255,200,200));
+            System.out.println("error apellido");
+        }
+        
+        if(pc.getEmail().getText().equals("")){
+            error = 1;
+            pc.getEmail().setBackground(new Color(255,200,200));
+            System.out.println("error mail");
+        }
+        
+        if(pc.getTelefono().getText().equals("")){
+            error = 1;
+            pc.getTelefono().setBackground(new Color(255,200,200));
+            System.out.println("error phone");
+        }
+        if(pc.getDirection().getText().equals("")){
+            error = 1;
+            pc.getDirection().setBackground(new Color(255,200,200));
+            System.out.println("error address");
+        }
+        if(pc.getLatitudT().getText().equals("") || !isNumeric(pc.getLatitudT().getText())){
+            error = 1;
+            pc.getLatitudT().setBackground(new Color(255,200,200));
+            System.out.println("error latitude");
+        }
+        if(pc.getLogitudT().getText().equals("") || !isNumeric(pc.getLogitudT().getText())){
+            error = 1;
+            pc.getLogitudT().setBackground(new Color(255,200,200));
+            System.out.println("error longitude");
+        }       
+        return error;
+    }
+    public void reset_bg(ProfileClients pc){
+        pc.getNombresT().setBackground(new Color(255,255,255));
+        pc.getApellidosT().setBackground(new Color(255,255,255));
+        pc.getEmail().setBackground(new Color(255,255,255));
+        pc.getTelefono().setBackground(new Color(255,255,255));
+        pc.getDirection().setBackground(new Color(255,255,255));
+        pc.getLatitudT().setBackground(new Color(255,255,255));
+        pc.getLogitudT().setBackground(new Color(255,255,255));     
     }
 }
