@@ -89,8 +89,8 @@ public class Tests {
             }
         }*/
         
-       // Plan pl_2 = new Plan("Plan de 25 GB",750,25,true,44990);
-       //planControl.createPlan(pl_2);
+       Plan pl_2 = new Plan("Plan Ilimitado",999999,999999,true,75990);
+       planControl.createPlan(pl_2);
         
         /*
         for(Client_Type cl: typeControl.getClient_Types()){
