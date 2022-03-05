@@ -6,6 +6,7 @@ package Function;
 
 import Controllers.UserController;
 import Interface.ListClients;
+import Interface.ListUsers;
 import Interface.Login;
 import Interface.Menu;
 import Interface.ProfileUsers;
@@ -37,6 +38,11 @@ public class MenuController {
     }
     public void goToListClients(Menu menu, User user){                       
             new ListClients(user).setVisible(true);
+            menu.dispose();    
+    }
+    
+    public void goToListUsers(Menu menu, User user){                       
+            new ListUsers(user).setVisible(true);
             menu.dispose();    
     }
 }

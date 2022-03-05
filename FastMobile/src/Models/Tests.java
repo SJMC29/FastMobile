@@ -12,6 +12,8 @@ import Interface.ProfileClients;
 import Interface.RegisterUser;
 import Persistence.exceptions.IllegalOrphanException;
 import Persistence.exceptions.NonexistentEntityException;
+import java.util.Date;
+import java.util.List;
 
 public class Tests {
 
@@ -35,19 +37,19 @@ public class Tests {
         rolControl.createRol(rol_3);
         */
         
-        /*// Creacion de tipos de cliente
+       /* // Creacion de tipos de cliente
         Client_Type type_1 = new Client_Type("Natural");
         Client_Type type_2 = new Client_Type("Corporativo");
         typeControl.createClient_Type(type_1);
         typeControl.createClient_Type(type_2);
-        
-       
-        }
-          */
-        /*
-        Person per_1 = new Person("1193477073", "Alejandro", "Caicedo", "alejandrocaicedo21216@gmail.com", "3153990050", "Calle 72F #5N-23", 123333.12, 94.377777);
-        personControl.createPerson(per_1);
         */
+       
+        
+          
+        
+        //Person per_1 = new Person("1193477073", "Alejandro", "Caicedo", "alejandrocaicedo21216@gmail.com", "3153990050", "Calle 72F #5N-23", 123333.12, 94.377777);
+        //personControl.createPerson(per_1);
+        
         /*
         Person per_1 = personControl.getPerson("1193477073");
         System.out.println(per_1);
@@ -62,8 +64,30 @@ public class Tests {
         }
         
         User u = userControl.getUser("1193477073");
-        Client cliente = clientControl.getClient(1);*/
+        Client c1 = clientControl.getClient(1);
         
+        System.out.println("Paso 1 \n" + c1);
+        
+        Date today = new Date();
+        c1.setLastPayment(today);
+        
+        System.out.println("Paso 2 \n" + c1);
+        
+        clientControl.upDateClient(c1);
+        
+        
+        System.out.println("Paso 3 \n" + c1);
+        
+        
+        // Pruebas contains
+        /*
+        List<Client_Phone> phones = c1.getPhones();
+        List<Client_Phone> phonesOld = c1.getPhones();
+        for(Client_Phone phOld:phonesOld){
+            if(phones.contains(phOld)){
+                System.out.println("Si esta");
+            }
+        }*/
         
        // Plan pl_2 = new Plan("Plan de 25 GB",750,25,true,44990);
        //planControl.createPlan(pl_2);
@@ -78,7 +102,7 @@ public class Tests {
         
         //CLIENTES
         
-        for(Client c: clientControl.getClients()){
+        /*for(Client c: clientControl.getClients()){
             System.out.println(c);
         }
         
