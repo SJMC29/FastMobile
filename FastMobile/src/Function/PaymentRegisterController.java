@@ -4,14 +4,11 @@
  */
 package Function;
 
-import Controllers.ClientController;
 import Interface.Menu;
 import Interface.PaymentRegister;
 import Models.Client;
 import Models.Client_Phone;
 import Models.User;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JTable;
@@ -21,15 +18,13 @@ import javax.swing.JTable;
  * @author Sara Maradiago
  */
 public class PaymentRegisterController {
-    SimpleDateFormat formatter4=new SimpleDateFormat("E, MMM dd yyyy");
-    ClientController clientController = new ClientController();
            
-    public void cargarTelefonosYFecha(JTable tabla, Client client){             
+    public void cargarTelefonosYFecha(JTable tabla, Client client){
         List<Client_Phone> telefonos = client.getPhones();
         String matriz[][] = new String[telefonos.size()][2];
         for (int i = 0; i < telefonos.size(); i++) {
             matriz[i][0] = telefonos.get(i).getPhone_Number();
-            matriz[i][1] = formatter4.format(client.getLastPayment());
+            matriz[i][1] = client.getLastPayment().toString();
         }    
         tabla.setModel(new javax.swing.table.DefaultTableModel (
                 matriz,
@@ -49,8 +44,8 @@ public class PaymentRegisterController {
             tabla.setValueAt(hoy, i, 1);
         }
         client.setLastPayment(hoy);
-        clientController.upDateClient(client);
-        //System.out.println(client.getLastPayment());
+        
+        System.out.println(client.getLastPayment());
     }
     
     public void goToMenu(PaymentRegister paymentRegisterM, User usuario){

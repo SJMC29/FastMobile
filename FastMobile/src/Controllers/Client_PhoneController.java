@@ -4,8 +4,6 @@ package Controllers;
 import Models.Client_Phone;
 import Persistence.Client_PhoneJpaController;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Client_PhoneController {
 
@@ -23,11 +21,4 @@ public class Client_PhoneController {
         return client_PhoneJPA.findClient_Phone(id);
     }
     
-    public void upDateClient_Phone(Client_Phone ph){
-        try {
-            client_PhoneJPA.edit(ph);
-        } catch (Exception ex) {
-            Logger.getLogger(Client_PhoneController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
 }

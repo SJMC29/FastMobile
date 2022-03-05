@@ -4,7 +4,6 @@ package Start;
 import Controllers.UserController;
 import Interface.Login;
 import Interface.Menu;
-import Models.User;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -21,13 +20,10 @@ import java.io.IOException;
 public class Check_in {
     
     UserController user_controller = new UserController();
-    User u;
-    
     public void decide(){ 
      if(remember()){
-        new Menu(u).setVisible(true);
-        }
-     else{new Login().setVisible(true);}
+        new Menu().setVisible(true);
+        }else{new Login().setVisible(true);}
     }
     
     public Boolean remember(){
@@ -45,8 +41,7 @@ public class Check_in {
                 String[] user = line.split(delim);
                 //System.out.println(user[0]);
                 if(!user[0].trim().equals("") && !user[1].trim().equals("")){
-                u = user_controller.getUser(user[0].trim());
-                passBD = u.getPassword();
+                passBD = user_controller.getUser(user[0].trim()).getPassword();
                 passInterface = user[1].trim();         
                 }       
             }            

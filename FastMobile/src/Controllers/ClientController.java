@@ -6,8 +6,6 @@ import Persistence.ClientJpaController;
 import Persistence.exceptions.IllegalOrphanException;
 import Persistence.exceptions.NonexistentEntityException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ClientController {
    
@@ -35,15 +33,5 @@ public class ClientController {
     
     public int getCounterClientes(){
         return clientJPA.getClientCount();
-    }
-    
-    public void upDateClient(Client c){
-        try {
-            clientJPA.edit(c);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(ClientController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(ClientController.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 }
