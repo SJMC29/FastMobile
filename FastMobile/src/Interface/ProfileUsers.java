@@ -315,7 +315,7 @@ public class ProfileUsers extends javax.swing.JFrame {
 
         crearUsuario.setBackground(new java.awt.Color(255, 255, 255));
         crearUsuario.setForeground(new java.awt.Color(41, 135, 217));
-        crearUsuario.setText("ACTUALIZAR USUSARIO");
+        crearUsuario.setText("CREAR USUSARIO");
         crearUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 seAgrego(evt);
