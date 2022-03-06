@@ -4,7 +4,7 @@
  */
 package Interface;
 
-import Function.PaymentLoadController;
+import Function.ConsumeLoadController;
 import Models.User;
 import java.awt.Image;
 import java.io.File;
@@ -17,9 +17,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  *
  * @author Fanfo
  */
-public class PaymentLoad extends javax.swing.JFrame {
+public class ConsumeLoad extends javax.swing.JFrame {
     
-    PaymentLoadController paymentLoadController = new PaymentLoadController();
+    ConsumeLoadController consumeLoadController = new ConsumeLoadController();
     User usuario;
     File file;
     
@@ -28,7 +28,7 @@ public class PaymentLoad extends javax.swing.JFrame {
     /**
      * Creates new form RegisterUser
      */    
-    public PaymentLoad() {
+    public ConsumeLoad() {
         initComponents();        //menuWhite.setBackground(new Color(255,255,255,150));
         //LOGIN.setBackground(new Color(255,255,255,0));
         scaleImage();
@@ -76,7 +76,6 @@ public class PaymentLoad extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1024, 576));
-        setPreferredSize(new java.awt.Dimension(1024, 576));
         getContentPane().setLayout(null);
 
         TOP.setBackground(new java.awt.Color(255, 255, 255));
@@ -212,7 +211,7 @@ public class PaymentLoad extends javax.swing.JFrame {
     }//GEN-LAST:event_seAgregoExitosamente
 
     private void menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseClicked
-       paymentLoadController.goToMenu(this, usuario);
+       consumeLoadController.goToMenu(this, usuario);
     }//GEN-LAST:event_menuMouseClicked
 
     private void cargarPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarPagosActionPerformed
@@ -242,21 +241,23 @@ public class PaymentLoad extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PaymentLoad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsumeLoad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PaymentLoad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsumeLoad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PaymentLoad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsumeLoad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PaymentLoad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsumeLoad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PaymentLoad().setVisible(true);
+                new ConsumeLoad().setVisible(true);
             }
         });
     }
