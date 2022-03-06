@@ -70,7 +70,6 @@ public class Menu extends javax.swing.JFrame {
         jLabelFullName = new javax.swing.JLabel();
         perfil = new javax.swing.JLabel();
         logout = new javax.swing.JLabel();
-        back = new javax.swing.JLabel();
         panelCentro = new javax.swing.JPanel();
         crearUsuario = new javax.swing.JPanel();
         crearUsuario2 = new javax.swing.JPanel();
@@ -149,18 +148,6 @@ public class Menu extends javax.swing.JFrame {
         });
         jPanelBlue.add(logout);
         logout.setBounds(150, 70, 72, 16);
-
-        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Menu/Back.png"))); // NOI18N
-        back.setMaximumSize(new java.awt.Dimension(65, 65));
-        back.setMinimumSize(new java.awt.Dimension(65, 65));
-        back.setPreferredSize(new java.awt.Dimension(65, 65));
-        back.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                backMouseEntered(evt);
-            }
-        });
-        jPanelBlue.add(back);
-        back.setBounds(940, 30, 50, 50);
 
         getContentPane().add(jPanelBlue);
         jPanelBlue.setBounds(0, 0, 1024, 100);
@@ -394,10 +381,6 @@ public class Menu extends javax.swing.JFrame {
         CrearUsuario.setForeground(Color.black);
     }//GEN-LAST:event_CrearUsuarioMouseExited
 
-    private void backMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseEntered
-        back.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_backMouseEntered
-
     private void CrearClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearClienteMouseEntered
         CrearCliente.setForeground(new Color(41,135,217));
         CrearCliente.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -439,7 +422,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_ListaDeClientesMouseExited
 
     private void registroDePagosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registroDePagosMouseClicked
-        //menu_controller.goToListUsers(this, usuario);
+        menu_controller.goToPaymentRegister(this, usuario);
     }//GEN-LAST:event_registroDePagosMouseClicked
 
     private void registroDePagosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registroDePagosMouseEntered
@@ -490,7 +473,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel CrearCliente;
     private javax.swing.JLabel CrearUsuario;
     private javax.swing.JLabel ListaDeClientes;
-    private javax.swing.JLabel back;
     private javax.swing.JPanel crearCliente;
     private javax.swing.JPanel crearCliente2;
     private javax.swing.JLabel crearCliente_img;

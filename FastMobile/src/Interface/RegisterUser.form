@@ -44,7 +44,7 @@
       </Constraints>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-        <Property name="useNullLayout" type="boolean" value="true"/>
+        <Property name="useNullLayout" type="boolean" value="false"/>
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JLabel" name="fastMobileWhite">
@@ -83,10 +83,25 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="menuMouseClicked"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="menuMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="menuMouseExited"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="850" y="40" width="50" height="20"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="centroAdmin">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI Black" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="CENTRO DE ADMINISTRACI&#xd3;N FAST MOBILE"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="350" y="40" width="320" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -133,19 +148,6 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="centroAdmin">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI Black" size="14" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Centro de administraci&#xf3;n Fast Mobile. "/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="100" y="20" width="287" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
         <Component class="javax.swing.JButton" name="crearUsuario">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -171,6 +173,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -185,138 +188,133 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="ingreseDatos" min="-2" pref="256" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jTextFieldEmail" alignment="0" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jTextFieldCedula" min="-2" pref="196" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jTextFieldNombre" min="-2" pref="283" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jTextFieldAddress" max="32767" attributes="0"/>
-                                  </Group>
+                                  <EmptySpace min="101" pref="101" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                          <Component id="jTextFieldApellido" min="-2" pref="269" max="-2" attributes="0"/>
-                                      </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jTextFieldLatitud" min="-2" pref="207" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                                  <Component id="jTextFieldLongitud" min="-2" pref="200" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="ingreseDatos11" min="-2" pref="207" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                                  <Component id="ingreseDatos9" min="-2" pref="200" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="ingreseDatos7" min="-2" pref="296" max="-2" attributes="0"/>
+                                                  <Component id="jTextFieldAddress" min="-2" pref="447" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                          <Component id="jRadioButtonActive" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="ingreseDatos8" min="-2" pref="207" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldPassword" min="-2" pref="450" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldEmail" min="-2" pref="449" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="84" pref="84" max="-2" attributes="0"/>
+                                  <Component id="ingreseDatos1" min="-2" pref="256" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="101" pref="101" max="-2" attributes="0"/>
+                                  <Component id="ingreseDatos2" min="-2" pref="126" max="-2" attributes="0"/>
+                                  <EmptySpace min="119" pref="119" max="-2" attributes="0"/>
+                                  <Component id="ingreseDatos3" min="-2" pref="204" max="-2" attributes="0"/>
+                                  <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
+                                  <Component id="ingreseDatos4" min="-2" pref="204" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="101" pref="101" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="ingreseDatos5" alignment="0" min="-2" pref="449" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jTextFieldCedula" min="-2" pref="204" max="-2" attributes="0"/>
+                                          <EmptySpace min="41" pref="41" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldNombre" min="-2" pref="204" max="-2" attributes="0"/>
+                                          <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jTextFieldPhone" min="-2" pref="257" max="-2" attributes="0"/>
-                                              <Component id="jComboBoxRol" min="-2" pref="257" max="-2" attributes="0"/>
+                                              <Component id="ingreseDatos6" min="-2" pref="204" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldApellido" min="-2" pref="204" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldPhone" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                                              <Component id="ingreseDatos10" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                                              <Component id="jComboBoxRol" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jTextFieldLatitud" min="-2" pref="207" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldLongitud" min="-2" pref="222" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jTextFieldPassword" min="-2" pref="251" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="jRadioButtonActive" min="-2" max="-2" attributes="0"/>
-                              </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="191" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="ingreseDatos" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldCedula" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldApellido" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
+                          <Component id="ingreseDatos1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="ingreseDatos2" min="-2" max="-2" attributes="0"/>
+                              <Component id="ingreseDatos3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ingreseDatos4" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jTextFieldCedula" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldNombre" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldApellido" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="ingreseDatos5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ingreseDatos6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jTextFieldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextFieldPhone" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldAddress" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBoxRol" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="ingreseDatos7" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldAddress" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="ingreseDatos11" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ingreseDatos9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="ingreseDatos10" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jComboBoxRol" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jTextFieldLatitud" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextFieldLongitud" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jRadioButtonActive" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="45" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <Component id="ingreseDatos8" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldPassword" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="30" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="ingreseDatos">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Por favor, ingrese los datos."/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldCedula">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Cedula"/>
-                    <Property name="toolTipText" type="java.lang.String" value="Cedula de Ciudadania"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldNombre">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Nombre"/>
-                    <Property name="toolTipText" type="java.lang.String" value="nombre"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldApellido">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Apellido"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldEmail">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Correo Electronico"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldPhone">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Phone"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldPhoneActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldAddress">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Direccion de residencia"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldLatitud">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Latitud"/>
-                    <Property name="toolTipText" type="java.lang.String" value="Cedula de Ciudadania"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldLongitud">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Longitud"/>
-                    <Property name="toolTipText" type="java.lang.String" value="Cedula de Ciudadania"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldPassword">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
@@ -345,6 +343,108 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
+                <Component class="javax.swing.JLabel" name="ingreseDatos1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Por favor, ingrese los datos."/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ingreseDatos2">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="C&#xe9;dula:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ingreseDatos3">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Nombre:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ingreseDatos4">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Apellido:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextFieldCedula">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="C&#xe9;dula"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Cedula de Ciudadania"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextFieldNombre">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Nombre"/>
+                    <Property name="toolTipText" type="java.lang.String" value="nombre"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextFieldApellido">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Apellido"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ingreseDatos5">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Correo electr&#xf3;nico:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ingreseDatos6">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tel&#xe9;fono:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextFieldEmail">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Correo electr&#xf3;nico"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextFieldPhone">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tel&#xe9;fono"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldPhoneActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ingreseDatos7">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Direcci&#xf3;n de residencia:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextFieldAddress">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Direcci&#xf3;n de residencia"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ingreseDatos8">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextFieldLatitud">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Latitud"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Cedula de Ciudadania"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ingreseDatos9">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Longitud:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextFieldLongitud">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Longitud"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Cedula de Ciudadania"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ingreseDatos10">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Rol dentro de la empresa:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ingreseDatos11">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Latitud:"/>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -365,6 +465,19 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="340" y="360" width="300" height="30"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="centroAdmin1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI Black" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Registro de usuarios. "/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="100" y="20" width="287" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

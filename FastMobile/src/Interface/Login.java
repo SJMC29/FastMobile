@@ -5,7 +5,6 @@
 package Interface;
 
 import Function.LoginController;
-import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.IOException;
@@ -60,7 +59,7 @@ public class Login extends javax.swing.JFrame {
               break;
 
            case 3 :
-              invalidData.setText("Usuario no ha sido encontrado");
+              invalidData.setText("Usuario no encontrado");
               break;
            case 4 :
               invalidData.setText("El usuario está inactivo");

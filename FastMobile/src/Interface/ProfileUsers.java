@@ -71,7 +71,6 @@ public class ProfileUsers extends javax.swing.JFrame {
         Blue = new javax.swing.JPanel();
         Menu = new javax.swing.JLabel();
         logout = new javax.swing.JLabel();
-        back = new javax.swing.JLabel();
         perfilDeUsuario1 = new javax.swing.JLabel();
         userImage = new javax.swing.JLabel();
         White = new javax.swing.JPanel();
@@ -98,7 +97,7 @@ public class ProfileUsers extends javax.swing.JFrame {
         contrasenaL = new javax.swing.JLabel();
         contrasena = new javax.swing.JTextField();
         activo = new javax.swing.JRadioButton();
-        crearUsuario = new javax.swing.JButton();
+        actualizarUsuario = new javax.swing.JButton();
         APELLIDOS = new javax.swing.JLabel();
         seAgrego = new javax.swing.JLabel();
         NOMBRES = new javax.swing.JLabel();
@@ -146,18 +145,6 @@ public class ProfileUsers extends javax.swing.JFrame {
         });
         Blue.add(logout);
         logout.setBounds(70, 70, 72, 16);
-
-        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Menu/Back.png"))); // NOI18N
-        back.setMaximumSize(new java.awt.Dimension(65, 65));
-        back.setMinimumSize(new java.awt.Dimension(65, 65));
-        back.setPreferredSize(new java.awt.Dimension(65, 65));
-        back.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                backMouseEntered(evt);
-            }
-        });
-        Blue.add(back);
-        back.setBounds(940, 30, 50, 50);
 
         perfilDeUsuario1.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
         perfilDeUsuario1.setForeground(new java.awt.Color(255, 255, 255));
@@ -313,16 +300,16 @@ public class ProfileUsers extends javax.swing.JFrame {
         White.add(jScrollPane1);
         jScrollPane1.setBounds(312, 145, 666, 274);
 
-        crearUsuario.setBackground(new java.awt.Color(255, 255, 255));
-        crearUsuario.setForeground(new java.awt.Color(41, 135, 217));
-        crearUsuario.setText("CREAR USUSARIO");
-        crearUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+        actualizarUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        actualizarUsuario.setForeground(new java.awt.Color(41, 135, 217));
+        actualizarUsuario.setText("ACTUALIZAR USUARIO");
+        actualizarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 seAgrego(evt);
             }
         });
-        White.add(crearUsuario);
-        crearUsuario.setBounds(312, 452, 208, 42);
+        White.add(actualizarUsuario);
+        actualizarUsuario.setBounds(312, 452, 208, 42);
 
         APELLIDOS.setBackground(new java.awt.Color(51, 51, 51));
         APELLIDOS.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -368,10 +355,6 @@ public class ProfileUsers extends javax.swing.JFrame {
     private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
         logout.setForeground(Color.white);
     }//GEN-LAST:event_logoutMouseExited
-
-    private void backMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseEntered
-        back.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_backMouseEntered
 
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
         // TODO add your handling code here:
@@ -432,12 +415,11 @@ public class ProfileUsers extends javax.swing.JFrame {
     private javax.swing.JLabel NOMBRES;
     private javax.swing.JPanel White;
     private javax.swing.JRadioButton activo;
+    private javax.swing.JButton actualizarUsuario;
     private javax.swing.JLabel apellidosL;
     private javax.swing.JTextField apellidosT;
-    private javax.swing.JLabel back;
     private javax.swing.JTextField contrasena;
     private javax.swing.JLabel contrasenaL;
-    private javax.swing.JButton crearUsuario;
     private javax.swing.JLabel direccion;
     private javax.swing.JTextField direccionJ;
     private javax.swing.JTextField email;

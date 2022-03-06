@@ -8,6 +8,7 @@ import Controllers.UserController;
 import Interface.ListClients;
 import Interface.Login;
 import Interface.Menu;
+import Interface.PaymentRegister;
 import Interface.ProfileUsers;
 import Interface.RegisterClient;
 import Interface.RegisterUser;
@@ -31,12 +32,16 @@ public class MenuController {
             new RegisterClient(user).setVisible(true);
             menu.dispose();
     }
+    public void goToListClients(Menu menu, User user){                       
+            new ListClients(user).setVisible(true);
+            menu.dispose();    
+    }
     public void goToRegisterUser(Menu menu, User user){                       
             new RegisterUser(user).setVisible(true);
             menu.dispose();    
     }
-    public void goToListClients(Menu menu, User user){                       
-            new ListClients(user).setVisible(true);
+    public void goToPaymentRegister(Menu menu, User user){                       
+            new PaymentRegister(user).setVisible(true);
             menu.dispose();    
     }
 }

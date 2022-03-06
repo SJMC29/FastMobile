@@ -11,6 +11,8 @@ import Function.RegisterUserController;
 import Models.Person;
 import Models.Rol;
 import Models.User;
+import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Image;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -124,25 +126,36 @@ public class RegisterUser extends javax.swing.JFrame {
         fastMobileWhite = new javax.swing.JLabel();
         userIcon = new javax.swing.JLabel();
         menu = new javax.swing.JLabel();
+        centroAdmin = new javax.swing.JLabel();
         Separador = new javax.swing.JPanel();
         CENTER = new javax.swing.JPanel();
-        centroAdmin = new javax.swing.JLabel();
         crearUsuario = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         scrollPanel = new javax.swing.JPanel();
-        ingreseDatos = new javax.swing.JLabel();
-        jTextFieldCedula = new javax.swing.JTextField();
-        jTextFieldNombre = new javax.swing.JTextField();
-        jTextFieldApellido = new javax.swing.JTextField();
-        jTextFieldEmail = new javax.swing.JTextField();
-        jTextFieldPhone = new javax.swing.JTextField();
-        jTextFieldAddress = new javax.swing.JTextField();
-        jTextFieldLatitud = new javax.swing.JTextField();
-        jTextFieldLongitud = new javax.swing.JTextField();
         jTextFieldPassword = new javax.swing.JTextField();
         jRadioButtonActive = new javax.swing.JRadioButton();
         jComboBoxRol = new javax.swing.JComboBox<>();
+        ingreseDatos1 = new javax.swing.JLabel();
+        ingreseDatos2 = new javax.swing.JLabel();
+        ingreseDatos3 = new javax.swing.JLabel();
+        ingreseDatos4 = new javax.swing.JLabel();
+        jTextFieldCedula = new javax.swing.JTextField();
+        jTextFieldNombre = new javax.swing.JTextField();
+        jTextFieldApellido = new javax.swing.JTextField();
+        ingreseDatos5 = new javax.swing.JLabel();
+        ingreseDatos6 = new javax.swing.JLabel();
+        jTextFieldEmail = new javax.swing.JTextField();
+        jTextFieldPhone = new javax.swing.JTextField();
+        ingreseDatos7 = new javax.swing.JLabel();
+        jTextFieldAddress = new javax.swing.JTextField();
+        ingreseDatos8 = new javax.swing.JLabel();
+        jTextFieldLatitud = new javax.swing.JTextField();
+        ingreseDatos9 = new javax.swing.JLabel();
+        jTextFieldLongitud = new javax.swing.JTextField();
+        ingreseDatos10 = new javax.swing.JLabel();
+        ingreseDatos11 = new javax.swing.JLabel();
         seAgrego = new javax.swing.JLabel();
+        centroAdmin1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1024, 576));
@@ -150,15 +163,13 @@ public class RegisterUser extends javax.swing.JFrame {
 
         TOP.setBackground(new java.awt.Color(255, 255, 255));
         TOP.setPreferredSize(new java.awt.Dimension(1024, 100));
-        TOP.setLayout(null);
+        TOP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         fastMobileWhite.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Login/FastMobileWhite.png"))); // NOI18N
-        TOP.add(fastMobileWhite);
-        fastMobileWhite.setBounds(20, 20, 140, 60);
+        TOP.add(fastMobileWhite, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 140, 60));
 
         userIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Login/userIcon.png"))); // NOI18N
-        TOP.add(userIcon);
-        userIcon.setBounds(920, 20, 60, 60);
+        TOP.add(userIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 20, 60, 60));
 
         menu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menu.setForeground(new java.awt.Color(41, 135, 217));
@@ -167,9 +178,18 @@ public class RegisterUser extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                menuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                menuMouseExited(evt);
+            }
         });
-        TOP.add(menu);
-        menu.setBounds(850, 40, 50, 20);
+        TOP.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 40, 50, 20));
+
+        centroAdmin.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        centroAdmin.setText("CENTRO DE ADMINISTRACIÓN FAST MOBILE");
+        TOP.add(centroAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 320, -1));
 
         getContentPane().add(TOP);
         TOP.setBounds(0, 0, 1030, 100);
@@ -193,11 +213,6 @@ public class RegisterUser extends javax.swing.JFrame {
         CENTER.setBackground(new java.awt.Color(255, 255, 255));
         CENTER.setLayout(null);
 
-        centroAdmin.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        centroAdmin.setText("Centro de administración Fast Mobile. ");
-        CENTER.add(centroAdmin);
-        centroAdmin.setBounds(100, 20, 287, 19);
-
         crearUsuario.setBackground(new java.awt.Color(255, 255, 255));
         crearUsuario.setForeground(new java.awt.Color(41, 135, 217));
         crearUsuario.setText("CREAR USUSARIO");
@@ -215,33 +230,7 @@ public class RegisterUser extends javax.swing.JFrame {
         crearUsuario.setBounds(70, 350, 208, 42);
 
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
-
-        ingreseDatos.setText("Por favor, ingrese los datos.");
-
-        jTextFieldCedula.setText("Cedula");
-        jTextFieldCedula.setToolTipText("Cedula de Ciudadania");
-
-        jTextFieldNombre.setText("Nombre");
-        jTextFieldNombre.setToolTipText("nombre");
-
-        jTextFieldApellido.setText("Apellido");
-
-        jTextFieldEmail.setText("Correo Electronico");
-
-        jTextFieldPhone.setText("Phone");
-        jTextFieldPhone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPhoneActionPerformed(evt);
-            }
-        });
-
-        jTextFieldAddress.setText("Direccion de residencia");
-
-        jTextFieldLatitud.setText("Latitud");
-        jTextFieldLatitud.setToolTipText("Cedula de Ciudadania");
-
-        jTextFieldLongitud.setText("Longitud");
-        jTextFieldLongitud.setToolTipText("Cedula de Ciudadania");
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         jTextFieldPassword.setText("Contraseña");
 
@@ -254,68 +243,154 @@ public class RegisterUser extends javax.swing.JFrame {
 
         jComboBoxRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        ingreseDatos1.setText("Por favor, ingrese los datos.");
+
+        ingreseDatos2.setText("Cédula:");
+
+        ingreseDatos3.setText("Nombre:");
+
+        ingreseDatos4.setText("Apellido:");
+
+        jTextFieldCedula.setText("Cédula");
+        jTextFieldCedula.setToolTipText("Cedula de Ciudadania");
+
+        jTextFieldNombre.setText("Nombre");
+        jTextFieldNombre.setToolTipText("nombre");
+
+        jTextFieldApellido.setText("Apellido");
+
+        ingreseDatos5.setText("Correo electrónico:");
+
+        ingreseDatos6.setText("Teléfono:");
+
+        jTextFieldEmail.setText("Correo electrónico");
+
+        jTextFieldPhone.setText("Teléfono");
+        jTextFieldPhone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPhoneActionPerformed(evt);
+            }
+        });
+
+        ingreseDatos7.setText("Dirección de residencia:");
+
+        jTextFieldAddress.setText("Dirección de residencia");
+
+        ingreseDatos8.setText("Contraseña:");
+
+        jTextFieldLatitud.setText("Latitud");
+        jTextFieldLatitud.setToolTipText("Cedula de Ciudadania");
+
+        ingreseDatos9.setText("Longitud:");
+
+        jTextFieldLongitud.setText("Longitud");
+        jTextFieldLongitud.setToolTipText("Cedula de Ciudadania");
+
+        ingreseDatos10.setText("Rol dentro de la empresa:");
+
+        ingreseDatos11.setText("Latitud:");
+
         javax.swing.GroupLayout scrollPanelLayout = new javax.swing.GroupLayout(scrollPanel);
         scrollPanel.setLayout(scrollPanelLayout);
         scrollPanelLayout.setHorizontalGroup(
             scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(scrollPanelLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
                 .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ingreseDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(scrollPanelLayout.createSequentialGroup()
-                        .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scrollPanelLayout.createSequentialGroup()
-                                .addComponent(jTextFieldCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextFieldAddress))
+                        .addGap(101, 101, 101)
                         .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(scrollPanelLayout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(scrollPanelLayout.createSequentialGroup()
+                                        .addComponent(jTextFieldLatitud, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(40, 40, 40)
+                                        .addComponent(jTextFieldLongitud, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(scrollPanelLayout.createSequentialGroup()
+                                        .addComponent(ingreseDatos11, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(40, 40, 40)
+                                        .addComponent(ingreseDatos9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(ingreseDatos7, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(42, 42, 42)
+                                .addComponent(jRadioButtonActive))
+                            .addComponent(ingreseDatos8, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(scrollPanelLayout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(ingreseDatos1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(scrollPanelLayout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addComponent(ingreseDatos2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(119, 119, 119)
+                        .addComponent(ingreseDatos3, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(ingreseDatos4, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(scrollPanelLayout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ingreseDatos5, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(scrollPanelLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(41, 41, 41)
+                                .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(42, 42, 42)
                                 .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBoxRol, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(scrollPanelLayout.createSequentialGroup()
-                        .addComponent(jTextFieldLatitud, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
-                        .addComponent(jTextFieldLongitud, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(scrollPanelLayout.createSequentialGroup()
-                        .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(jRadioButtonActive)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(ingreseDatos6, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ingreseDatos10, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBoxRol, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(191, 191, 191))
         );
         scrollPanelLayout.setVerticalGroup(
             scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(scrollPanelLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(ingreseDatos)
-                .addGap(18, 18, 18)
-                .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(28, 28, 28)
+                .addComponent(ingreseDatos1)
+                .addGap(25, 25, 25)
+                .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ingreseDatos2)
+                    .addComponent(ingreseDatos3)
+                    .addComponent(ingreseDatos4))
+                .addGap(7, 7, 7)
+                .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(7, 7, 7)
+                .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ingreseDatos5)
+                    .addComponent(ingreseDatos6))
+                .addGap(7, 7, 7)
                 .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(scrollPanelLayout.createSequentialGroup()
+                        .addComponent(ingreseDatos7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
+                        .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ingreseDatos11)
+                            .addComponent(ingreseDatos9)))
+                    .addGroup(scrollPanelLayout.createSequentialGroup()
+                        .addComponent(ingreseDatos10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBoxRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldLatitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldLongitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldLongitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jRadioButtonActive))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGap(10, 10, 10)
+                .addComponent(ingreseDatos8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(scrollPanel);
@@ -330,6 +405,11 @@ public class RegisterUser extends javax.swing.JFrame {
         CENTER.add(seAgrego);
         seAgrego.setBounds(340, 360, 300, 30);
 
+        centroAdmin1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        centroAdmin1.setText("Registro de usuarios. ");
+        CENTER.add(centroAdmin1);
+        centroAdmin1.setBounds(100, 20, 287, 19);
+
         getContentPane().add(CENTER);
         CENTER.setBounds(0, 110, 1030, 470);
 
@@ -342,16 +422,6 @@ public class RegisterUser extends javax.swing.JFrame {
         
     }//GEN-LAST:event_crearUsuarioActionPerformed
 
-    private void jRadioButtonActiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonActiveActionPerformed
-        // TODO add your handling code here:
-        this.active = !this.active;
-        System.out.println(this.active);
-    }//GEN-LAST:event_jRadioButtonActiveActionPerformed
-
-    private void jTextFieldPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPhoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPhoneActionPerformed
-
     private void seAgregoExitosamente(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seAgregoExitosamente
         seAgrego.setVisible(true);
     }//GEN-LAST:event_seAgregoExitosamente
@@ -359,6 +429,25 @@ public class RegisterUser extends javax.swing.JFrame {
     private void menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseClicked
        userController.goToMenu(this, usuario);
     }//GEN-LAST:event_menuMouseClicked
+
+    private void jTextFieldPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPhoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPhoneActionPerformed
+
+    private void jRadioButtonActiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonActiveActionPerformed
+        // TODO add your handling code here:
+        this.active = !this.active;
+        System.out.println(this.active);
+    }//GEN-LAST:event_jRadioButtonActiveActionPerformed
+
+    private void menuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseEntered
+        menu.setForeground(new Color(242,229,46));
+        menu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_menuMouseEntered
+
+    private void menuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseExited
+        menu.setForeground(new Color(41,135,217));
+    }//GEN-LAST:event_menuMouseExited
 
     
     /**
@@ -401,9 +490,20 @@ public class RegisterUser extends javax.swing.JFrame {
     private javax.swing.JPanel Separador;
     private javax.swing.JPanel TOP;
     private javax.swing.JLabel centroAdmin;
+    private javax.swing.JLabel centroAdmin1;
     private javax.swing.JButton crearUsuario;
     private javax.swing.JLabel fastMobileWhite;
-    private javax.swing.JLabel ingreseDatos;
+    private javax.swing.JLabel ingreseDatos1;
+    private javax.swing.JLabel ingreseDatos10;
+    private javax.swing.JLabel ingreseDatos11;
+    private javax.swing.JLabel ingreseDatos2;
+    private javax.swing.JLabel ingreseDatos3;
+    private javax.swing.JLabel ingreseDatos4;
+    private javax.swing.JLabel ingreseDatos5;
+    private javax.swing.JLabel ingreseDatos6;
+    private javax.swing.JLabel ingreseDatos7;
+    private javax.swing.JLabel ingreseDatos8;
+    private javax.swing.JLabel ingreseDatos9;
     private javax.swing.JComboBox<String> jComboBoxRol;
     private javax.swing.JRadioButton jRadioButtonActive;
     private javax.swing.JScrollPane jScrollPane1;
