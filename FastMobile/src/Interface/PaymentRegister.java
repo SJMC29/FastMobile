@@ -14,13 +14,9 @@ import Models.User;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Image;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
+
 import javax.swing.ImageIcon;
-import javax.swing.JTable;
-import javax.swing.JTextField;
+
 
  /*
  * @author Fanfo
@@ -87,7 +83,12 @@ public class PaymentRegister extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        TOP = new javax.swing.JPanel();
+        fastMobileWhite = new javax.swing.JLabel();
+        userIcon = new javax.swing.JLabel();
+        menu = new javax.swing.JLabel();
         Separador = new javax.swing.JPanel();
+        centroAdmin = new javax.swing.JLabel();
         White = new javax.swing.JPanel();
         seAgrego = new javax.swing.JLabel();
         formulario = new javax.swing.JPanel();
@@ -104,15 +105,42 @@ public class PaymentRegister extends javax.swing.JFrame {
         apellidos = new javax.swing.JLabel();
         identificacion = new javax.swing.JLabel();
         registrarPago = new javax.swing.JButton();
-        fastMobileWhite = new javax.swing.JLabel();
-        menu = new javax.swing.JLabel();
-        userIcon = new javax.swing.JLabel();
+        centroAdmin1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1024, 576));
         setResizable(false);
         getContentPane().setLayout(null);
+
+        TOP.setBackground(new java.awt.Color(255, 255, 255));
+        TOP.setPreferredSize(new java.awt.Dimension(1024, 100));
+        TOP.setLayout(null);
+
+        fastMobileWhite.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Login/FastMobileWhite.png"))); // NOI18N
+        TOP.add(fastMobileWhite);
+        fastMobileWhite.setBounds(20, 20, 140, 60);
+
+        userIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Login/userIcon.png"))); // NOI18N
+        TOP.add(userIcon);
+        userIcon.setBounds(920, 20, 60, 60);
+
+        menu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        menu.setForeground(new java.awt.Color(41, 135, 217));
+        menu.setText("Menú");
+        menu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                menuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                menuMouseExited(evt);
+            }
+        });
+        TOP.add(menu);
+        menu.setBounds(850, 40, 50, 20);
 
         Separador.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -124,11 +152,19 @@ public class PaymentRegister extends javax.swing.JFrame {
         );
         SeparadorLayout.setVerticalGroup(
             SeparadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 10, Short.MAX_VALUE)
         );
 
-        getContentPane().add(Separador);
+        TOP.add(Separador);
         Separador.setBounds(0, 100, 1030, 10);
+
+        centroAdmin.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        centroAdmin.setText("CENTRO DE ADMINISTRACIÓN FAST MOBILE");
+        TOP.add(centroAdmin);
+        centroAdmin.setBounds(350, 40, 316, 19);
+
+        getContentPane().add(TOP);
+        TOP.setBounds(0, 0, 1030, 110);
 
         White.setBackground(new java.awt.Color(255, 255, 255));
         White.setLayout(null);
@@ -138,7 +174,7 @@ public class PaymentRegister extends javax.swing.JFrame {
         seAgrego.setForeground(new java.awt.Color(0, 102, 51));
         seAgrego.setText("Se registró el pago exitosamente.");
         White.add(seAgrego);
-        seAgrego.setBounds(393, 452, 280, 25);
+        seAgrego.setBounds(390, 350, 280, 25);
 
         nombresL.setText("Identificación del cliente:");
 
@@ -238,11 +274,11 @@ public class PaymentRegister extends javax.swing.JFrame {
                 .addComponent(datosDeLaLinea)
                 .addGap(10, 10, 10)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         White.add(formulario);
-        formulario.setBounds(70, 140, 900, 260);
+        formulario.setBounds(70, 60, 900, 250);
 
         registrarPago.setBackground(new java.awt.Color(255, 255, 255));
         registrarPago.setForeground(new java.awt.Color(41, 135, 217));
@@ -253,29 +289,15 @@ public class PaymentRegister extends javax.swing.JFrame {
             }
         });
         White.add(registrarPago);
-        registrarPago.setBounds(66, 446, 208, 42);
+        registrarPago.setBounds(70, 340, 208, 42);
 
-        fastMobileWhite.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Login/FastMobileWhite.png"))); // NOI18N
-        White.add(fastMobileWhite);
-        fastMobileWhite.setBounds(20, 20, 140, 60);
-
-        menu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        menu.setForeground(new java.awt.Color(41, 135, 217));
-        menu.setText("Menú");
-        menu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuMouseClicked(evt);
-            }
-        });
-        White.add(menu);
-        menu.setBounds(850, 40, 50, 20);
-
-        userIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Login/userIcon.png"))); // NOI18N
-        White.add(userIcon);
-        userIcon.setBounds(920, 20, 60, 60);
+        centroAdmin1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        centroAdmin1.setText("Registro de pagos.");
+        White.add(centroAdmin1);
+        centroAdmin1.setBounds(100, 20, 287, 20);
 
         getContentPane().add(White);
-        White.setBounds(0, 0, 1030, 580);
+        White.setBounds(0, 110, 1030, 470);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -297,6 +319,15 @@ public class PaymentRegister extends javax.swing.JFrame {
     private void menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseClicked
         controladorPaymentRegister.goToMenu(this, usuario);
     }//GEN-LAST:event_menuMouseClicked
+
+    private void menuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseEntered
+        menu.setForeground(new Color(242,229,46));
+        menu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_menuMouseEntered
+
+    private void menuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseExited
+        menu.setForeground(new Color(41,135,217));
+    }//GEN-LAST:event_menuMouseExited
 
     /**
      * @param args the command line arguments
@@ -350,10 +381,13 @@ public class PaymentRegister extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Separador;
+    private javax.swing.JPanel TOP;
     private javax.swing.JPanel White;
     private javax.swing.JLabel apellidoCliente;
     private javax.swing.JLabel apellidos;
     private javax.swing.JButton buscar;
+    private javax.swing.JLabel centroAdmin;
+    private javax.swing.JLabel centroAdmin1;
     private javax.swing.JLabel datosDeLaLinea;
     private javax.swing.JLabel fastMobileWhite;
     private javax.swing.JPanel formulario;

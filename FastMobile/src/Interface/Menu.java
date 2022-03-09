@@ -9,9 +9,7 @@ import Models.User;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Image;
-import java.awt.Toolkit;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -72,7 +70,6 @@ public class Menu extends javax.swing.JFrame {
         jLabelFullName = new javax.swing.JLabel();
         perfil = new javax.swing.JLabel();
         logout = new javax.swing.JLabel();
-        back = new javax.swing.JLabel();
         panelCentro = new javax.swing.JPanel();
         crearUsuario = new javax.swing.JPanel();
         crearUsuario2 = new javax.swing.JPanel();
@@ -91,7 +88,7 @@ public class Menu extends javax.swing.JFrame {
         listaClientes_img = new javax.swing.JLabel();
         registroPagos = new javax.swing.JPanel();
         registroPagos2 = new javax.swing.JPanel();
-        listarUsuarios = new javax.swing.JLabel();
+        registroDePagos = new javax.swing.JLabel();
         textoRegistroPagos = new javax.swing.JLabel();
         registroPagos_img = new javax.swing.JLabel();
         panelDerecho = new javax.swing.JPanel();
@@ -151,18 +148,6 @@ public class Menu extends javax.swing.JFrame {
         });
         jPanelBlue.add(logout);
         logout.setBounds(150, 70, 72, 16);
-
-        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Menu/Back.png"))); // NOI18N
-        back.setMaximumSize(new java.awt.Dimension(65, 65));
-        back.setMinimumSize(new java.awt.Dimension(65, 65));
-        back.setPreferredSize(new java.awt.Dimension(65, 65));
-        back.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                backMouseEntered(evt);
-            }
-        });
-        jPanelBlue.add(back);
-        back.setBounds(940, 30, 50, 50);
 
         getContentPane().add(jPanelBlue);
         jPanelBlue.setBounds(0, 0, 1024, 100);
@@ -289,21 +274,21 @@ public class Menu extends javax.swing.JFrame {
         registroPagos2.setBackground(new java.awt.Color(255, 255, 255));
         registroPagos2.setLayout(null);
 
-        listarUsuarios.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        listarUsuarios.setText("Listar Usuarios");
-        listarUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+        registroDePagos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        registroDePagos.setText("Registro de pagos");
+        registroDePagos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                listarUsuariosMouseClicked(evt);
+                registroDePagosMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                listarUsuariosMouseEntered(evt);
+                registroDePagosMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                listarUsuariosMouseExited(evt);
+                registroDePagosMouseExited(evt);
             }
         });
-        registroPagos2.add(listarUsuarios);
-        listarUsuarios.setBounds(20, 10, 120, 16);
+        registroPagos2.add(registroDePagos);
+        registroDePagos.setBounds(20, 10, 120, 16);
 
         textoRegistroPagos.setText("<html>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut libero nec magna</html>");
         textoRegistroPagos.setPreferredSize(new java.awt.Dimension(180, 16));
@@ -396,10 +381,6 @@ public class Menu extends javax.swing.JFrame {
         CrearUsuario.setForeground(Color.black);
     }//GEN-LAST:event_CrearUsuarioMouseExited
 
-    private void backMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseEntered
-        back.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_backMouseEntered
-
     private void CrearClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearClienteMouseEntered
         CrearCliente.setForeground(new Color(41,135,217));
         CrearCliente.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -420,29 +401,11 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_goToProfile
 
     private void CrearUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearUsuarioMouseClicked
-        if(usuario.getRol().getName().equals("Administrador")){
-            menu_controller.goToRegisterUser(this, usuario);
-        }else{
-            Toolkit.getDefaultToolkit().beep();
-            JOptionPane.showMessageDialog(
-                    this, 
-                    "Solo los Administradores pueden registrar nuevos usuarios",
-                    "¡¡ ACCESS DENIED !!", 
-                    JOptionPane.INFORMATION_MESSAGE);
-        }
+        menu_controller.goToRegisterUser(this, usuario);
     }//GEN-LAST:event_CrearUsuarioMouseClicked
 
     private void CrearClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearClienteMouseClicked
-        if(!usuario.getRol().getName().equals("Operador")){
-            menu_controller.goToRegisterClient(this, usuario);
-        }else{
-            Toolkit.getDefaultToolkit().beep();
-            JOptionPane.showMessageDialog(
-                    this, 
-                    "Los Operadores no pueden registrar nuevos Clienes",
-                    "¡¡ ACCESS DENIED !!", 
-                    JOptionPane.INFORMATION_MESSAGE);
-        }
+        menu_controller.goToRegisterClient(this, usuario);
     }//GEN-LAST:event_CrearClienteMouseClicked
 
     private void ListaDeClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaDeClientesMouseClicked
@@ -458,18 +421,18 @@ public class Menu extends javax.swing.JFrame {
         ListaDeClientes.setForeground(Color.black);
     }//GEN-LAST:event_ListaDeClientesMouseExited
 
-    private void listarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listarUsuariosMouseClicked
-        menu_controller.goToListUsers(this, usuario);
-    }//GEN-LAST:event_listarUsuariosMouseClicked
+    private void registroDePagosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registroDePagosMouseClicked
+        menu_controller.goToPaymentRegister(this, usuario);
+    }//GEN-LAST:event_registroDePagosMouseClicked
 
-    private void listarUsuariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listarUsuariosMouseEntered
-        listarUsuarios.setForeground(new Color(41,135,217));
-        listarUsuarios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_listarUsuariosMouseEntered
+    private void registroDePagosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registroDePagosMouseEntered
+        registroDePagos.setForeground(new Color(41,135,217));
+        registroDePagos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_registroDePagosMouseEntered
 
-    private void listarUsuariosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listarUsuariosMouseExited
-        listarUsuarios.setForeground(Color.black);
-    }//GEN-LAST:event_listarUsuariosMouseExited
+    private void registroDePagosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registroDePagosMouseExited
+        registroDePagos.setForeground(Color.black);
+    }//GEN-LAST:event_registroDePagosMouseExited
 
     /**
      * @param args the command line arguments
@@ -510,7 +473,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel CrearCliente;
     private javax.swing.JLabel CrearUsuario;
     private javax.swing.JLabel ListaDeClientes;
-    private javax.swing.JLabel back;
     private javax.swing.JPanel crearCliente;
     private javax.swing.JPanel crearCliente2;
     private javax.swing.JLabel crearCliente_img;
@@ -523,11 +485,11 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel listaClientes;
     private javax.swing.JPanel listaClientes2;
     private javax.swing.JLabel listaClientes_img;
-    private javax.swing.JLabel listarUsuarios;
     private javax.swing.JLabel logout;
     private javax.swing.JPanel panelCentro;
     private javax.swing.JPanel panelDerecho;
     private javax.swing.JLabel perfil;
+    private javax.swing.JLabel registroDePagos;
     private javax.swing.JPanel registroPagos;
     private javax.swing.JPanel registroPagos2;
     private javax.swing.JLabel registroPagos_img;

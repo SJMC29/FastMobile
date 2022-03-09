@@ -43,17 +43,15 @@ public class ProfileClients extends javax.swing.JFrame {
         nombresT.setText(c.getPerson().getName());
         apellidosT.setText(c.getPerson().getLastName());
         identificacionT.setText(c.getPerson().getId_Person());
-        identificacionT.setEditable(false);
         email.setText(c.getPerson().geteMail());
         telefono.setText(c.getPerson().getPhone());
         direction.setText(c.getPerson().getAddress());
         suspendido.setSelected(c.isSuspended());
         controladorClient.loadTypes(tipo);
         tipo.setSelectedIndex(c.getClien_Type().getId_type()-1);
-        SimpleDateFormat formatter4=new SimpleDateFormat("E, MMM dd yyyy");             
-        String strDate = formatter4.format(c.getLastPayment());  
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");             
+        String strDate = dateFormat.format(c.getLastPayment());  
         ultimoPago.setText(strDate);
-        ultimoPago.setEditable(false);
         controladorProfile.cargarTelefonos(tabla, c);
         latitudT.setText(String.valueOf(c.getPerson().getLatitude()));
         logitudT.setText(String.valueOf(c.getPerson().getLongitude()));
@@ -123,6 +121,12 @@ public class ProfileClients extends javax.swing.JFrame {
     
 
     public void scaleImage(){
+        ImageIcon icon = new ImageIcon("src\\Images\\Login\\FastMobileWhite.png");
+        //Escalando para que se acomoden
+        Image img = icon.getImage();
+        Image imgScale = img.getScaledInstance(fastMobileWhite.getWidth(),fastMobileWhite.getHeight(),Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        fastMobileWhite.setIcon(scaledIcon);   
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -133,12 +137,14 @@ public class ProfileClients extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Blue = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        Menu = new javax.swing.JLabel();
-        logout = new javax.swing.JLabel();
-        back = new javax.swing.JLabel();
+        TOP = new javax.swing.JPanel();
+        fastMobileWhite = new javax.swing.JLabel();
+        userIcon = new javax.swing.JLabel();
+        menu = new javax.swing.JLabel();
+        centroAdmin2 = new javax.swing.JLabel();
+        Separador = new javax.swing.JPanel();
         White = new javax.swing.JPanel();
+        seAgrego = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         formulario = new javax.swing.JPanel();
         nombresL = new javax.swing.JLabel();
@@ -165,8 +171,8 @@ public class ProfileClients extends javax.swing.JFrame {
         telefonosPlanJ = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
-        seAgrego = new javax.swing.JLabel();
-        actualizarUsuario = new javax.swing.JButton();
+        actualizarCliente = new javax.swing.JButton();
+        centroAdmin1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -174,70 +180,68 @@ public class ProfileClients extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        Blue.setBackground(new java.awt.Color(41, 135, 217));
-        Blue.setPreferredSize(new java.awt.Dimension(0, 100));
-        Blue.setLayout(null);
+        TOP.setBackground(new java.awt.Color(255, 255, 255));
+        TOP.setPreferredSize(new java.awt.Dimension(1024, 100));
+        TOP.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Perfil de cliente");
-        Blue.add(jLabel1);
-        jLabel1.setBounds(30, 20, 310, 43);
+        fastMobileWhite.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Login/FastMobileWhite.png"))); // NOI18N
+        TOP.add(fastMobileWhite);
+        fastMobileWhite.setBounds(20, 20, 140, 60);
 
-        Menu.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        Menu.setForeground(new java.awt.Color(255, 255, 255));
-        Menu.setText("Menú");
-        Menu.addMouseListener(new java.awt.event.MouseAdapter() {
+        userIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Login/userIcon.png"))); // NOI18N
+        TOP.add(userIcon);
+        userIcon.setBounds(920, 20, 60, 60);
+
+        menu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        menu.setForeground(new java.awt.Color(41, 135, 217));
+        menu.setText("Menú");
+        menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                goToMenu(evt);
+                menuMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                MenuMouseEntered(evt);
+                menuMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                MenuMouseExited(evt);
+                menuMouseExited(evt);
             }
         });
-        Blue.add(Menu);
-        Menu.setBounds(30, 70, 60, 16);
+        TOP.add(menu);
+        menu.setBounds(850, 40, 50, 20);
 
-        logout.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        logout.setForeground(new java.awt.Color(255, 255, 255));
-        logout.setText("Cerrar sesión");
-        logout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                logoutMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                logoutMouseExited(evt);
-            }
-        });
-        Blue.add(logout);
-        logout.setBounds(70, 70, 72, 16);
+        centroAdmin2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        centroAdmin2.setText("CENTRO DE ADMINISTRACIÓN FAST MOBILE");
+        TOP.add(centroAdmin2);
+        centroAdmin2.setBounds(350, 40, 316, 19);
 
-        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Menu/Back.png"))); // NOI18N
-        back.setMaximumSize(new java.awt.Dimension(65, 65));
-        back.setMinimumSize(new java.awt.Dimension(65, 65));
-        back.setPreferredSize(new java.awt.Dimension(65, 65));
-        back.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                backMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                backMouseEntered(evt);
-            }
-        });
-        Blue.add(back);
-        back.setBounds(940, 30, 50, 50);
+        getContentPane().add(TOP);
+        TOP.setBounds(0, 0, 1030, 100);
 
-        getContentPane().add(Blue);
-        Blue.setBounds(0, 0, 1024, 100);
+        Separador.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout SeparadorLayout = new javax.swing.GroupLayout(Separador);
+        Separador.setLayout(SeparadorLayout);
+        SeparadorLayout.setHorizontalGroup(
+            SeparadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1030, Short.MAX_VALUE)
+        );
+        SeparadorLayout.setVerticalGroup(
+            SeparadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(Separador);
+        Separador.setBounds(0, 100, 1030, 10);
 
         White.setBackground(new java.awt.Color(255, 255, 255));
         White.setLayout(null);
+
+        seAgrego.setBackground(new java.awt.Color(204, 255, 204));
+        seAgrego.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        seAgrego.setForeground(new java.awt.Color(0, 102, 51));
+        seAgrego.setText("Se actualizó al cliente exitosamente.");
+        White.add(seAgrego);
+        seAgrego.setBounds(393, 452, 309, 25);
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -404,25 +408,23 @@ public class ProfileClients extends javax.swing.JFrame {
         jScrollPane1.setViewportView(formulario);
 
         White.add(jScrollPane1);
-        jScrollPane1.setBounds(65, 145, 913, 271);
+        jScrollPane1.setBounds(68, 166, 910, 250);
 
-        seAgrego.setBackground(new java.awt.Color(204, 255, 204));
-        seAgrego.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        seAgrego.setForeground(new java.awt.Color(0, 102, 51));
-        seAgrego.setText("Se actualizó al cliente exitosamente.");
-        White.add(seAgrego);
-        seAgrego.setBounds(393, 452, 309, 25);
-
-        actualizarUsuario.setBackground(new java.awt.Color(255, 255, 255));
-        actualizarUsuario.setForeground(new java.awt.Color(41, 135, 217));
-        actualizarUsuario.setText("ACTUALIZAR CLIENTE");
-        actualizarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+        actualizarCliente.setBackground(new java.awt.Color(255, 255, 255));
+        actualizarCliente.setForeground(new java.awt.Color(41, 135, 217));
+        actualizarCliente.setText("ACTUALIZAR CLIENTE");
+        actualizarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 seAgrego(evt);
             }
         });
-        White.add(actualizarUsuario);
-        actualizarUsuario.setBounds(66, 446, 208, 42);
+        White.add(actualizarCliente);
+        actualizarCliente.setBounds(66, 446, 208, 42);
+
+        centroAdmin1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        centroAdmin1.setText("Actualización de clientes.");
+        White.add(centroAdmin1);
+        centroAdmin1.setBounds(100, 130, 287, 19);
 
         getContentPane().add(White);
         White.setBounds(0, 0, 1030, 580);
@@ -430,45 +432,23 @@ public class ProfileClients extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMouseEntered
-        Menu.setForeground(new Color(242,229,46));
-        Menu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_MenuMouseEntered
-
-    private void MenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMouseExited
-        Menu.setForeground(Color.white);
-    }//GEN-LAST:event_MenuMouseExited
-
-    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
-        logout.setForeground(new Color(242,229,46));
-        logout.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_logoutMouseEntered
-
-    private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
-        logout.setForeground(Color.white);
-    }//GEN-LAST:event_logoutMouseExited
-
-    private void backMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseEntered
-        back.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_backMouseEntered
-
-    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-        controladorProfile.logOut(this);
-    }//GEN-LAST:event_logoutMouseClicked
-
-    private void goToMenu(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goToMenu
-         controladorProfile.goToMenu(this, usuario);
-    }//GEN-LAST:event_goToMenu
-
     private void seAgrego(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seAgrego
-        //controladorProfile.actualizarDatos(this);
+        controladorProfile.actualizarDatos(this);
         seAgrego.setVisible(true);
-        controladorProfile.actualizarDatos(this, usuario);
     }//GEN-LAST:event_seAgrego
 
-    private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_backMouseClicked
+    private void menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseClicked
+        controladorProfile.goToMenu(this, usuario);
+    }//GEN-LAST:event_menuMouseClicked
+
+    private void menuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseEntered
+        menu.setForeground(new Color(242,229,46));
+        menu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_menuMouseEntered
+
+    private void menuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseExited
+        menu.setForeground(new Color(41,135,217));
+    }//GEN-LAST:event_menuMouseExited
 
     /**
      * @param args the command line arguments
@@ -513,27 +493,28 @@ public class ProfileClients extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Blue;
-    private javax.swing.JLabel Menu;
+    private javax.swing.JPanel Separador;
+    private javax.swing.JPanel TOP;
     private javax.swing.JPanel White;
-    private javax.swing.JButton actualizarUsuario;
+    private javax.swing.JButton actualizarCliente;
     private javax.swing.JLabel apellidosL;
     private javax.swing.JTextField apellidosT;
-    private javax.swing.JLabel back;
+    private javax.swing.JLabel centroAdmin1;
+    private javax.swing.JLabel centroAdmin2;
     private javax.swing.JLabel direccion;
     private javax.swing.JTextField direction;
     private javax.swing.JTextField email;
     private javax.swing.JLabel emailJ;
+    private javax.swing.JLabel fastMobileWhite;
     private javax.swing.JPanel formulario;
     private javax.swing.JTextField identificacionT;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel latitudJ;
     private javax.swing.JTextField latitudT;
     private javax.swing.JTextField logitudT;
-    private javax.swing.JLabel logout;
     private javax.swing.JLabel longitudJ;
+    private javax.swing.JLabel menu;
     private javax.swing.JLabel nombresL;
     private javax.swing.JTextField nombresT;
     private javax.swing.JLabel numeroIdentificacion;
@@ -547,5 +528,6 @@ public class ProfileClients extends javax.swing.JFrame {
     private javax.swing.JLabel tipoCliente;
     private javax.swing.JTextField ultimoPago;
     private javax.swing.JLabel ultimoPagoJ;
+    private javax.swing.JLabel userIcon;
     // End of variables declaration//GEN-END:variables
 }

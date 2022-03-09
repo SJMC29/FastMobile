@@ -27,19 +27,4 @@ public class UserController {
         return userJPA.findUser(id);
     }
     
-    public List<User> getUsers(int cantidadAMostrar, int primerElemento){
-        return userJPA.findUserEntities(cantidadAMostrar, primerElemento);
-    }
-    
-    public int getCounterUsers(){
-        return userJPA.getUserCount();
-    }
-    
-    public void upDateUser(User u ){
-        try {
-            userJPA.edit(u);
-        } catch (Exception ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
 }
