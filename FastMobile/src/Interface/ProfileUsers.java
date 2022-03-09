@@ -6,11 +6,17 @@ package Interface;
 
 import Function.MenuController;
 import Function.ProfileUsersController;
+import Function.RegisterUserController;
 import Models.User;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 
 /**
  *
@@ -20,7 +26,9 @@ public class ProfileUsers extends javax.swing.JFrame {
 
     MenuController menu_controller = new MenuController();
     ProfileUsersController profile_user_controller = new ProfileUsersController();
+    RegisterUserController controladorUser = new RegisterUserController();
     User usuario;
+    User userPerfil = null;
     
     /**
      * Creates new form Menu
@@ -32,17 +40,98 @@ public class ProfileUsers extends javax.swing.JFrame {
         seAgrego.setVisible(false);
         NOMBRES.setText(usuario.getPerson().getName()); 
         APELLIDOS.setText(usuario.getPerson().getLastName());
-        User usuario = u;
         nombresT.setText(usuario.getPerson().getName()); 
         apellidosT.setText(usuario.getPerson().getLastName());
-        numeroIdentificacion.setText(usuario.getPerson().getId_Person());
+        identificacionT.setText(usuario.getPerson().getId_Person());
+        identificacionT.setEditable(false);
         email.setText(usuario.getPerson().geteMail());
         telefono.setText(usuario.getPerson().getPhone());
-        direccion.setText(usuario.getPerson().getAddress());
+        direccionJ.setText(usuario.getPerson().getAddress());
         latitud.setText(String.valueOf(usuario.getPerson().getLatitude()));
         logitud.setText(String.valueOf(usuario.getPerson().getLongitude()));
         contrasena.setText(usuario.getPassword());
+        activo.setSelected(usuario.isActive());
+        controladorUser.cargarRoles(rol);
+        rol.setSelectedIndex(usuario.getRol().getId_Rol()-1);
+        disable();
     }
+    
+    public ProfileUsers(User uPerfil, User u) {
+        usuario = u;
+        userPerfil = uPerfil;
+        initComponents();
+        scaleImage();
+        seAgrego.setVisible(false);
+        NOMBRES.setText(userPerfil.getPerson().getName()); 
+        APELLIDOS.setText(userPerfil.getPerson().getLastName());
+        nombresT.setText(userPerfil.getPerson().getName()); 
+        apellidosT.setText(userPerfil.getPerson().getLastName());
+        identificacionT.setText(userPerfil.getPerson().getId_Person());
+        identificacionT.setEditable(false);
+        email.setText(userPerfil.getPerson().geteMail());
+        telefono.setText(userPerfil.getPerson().getPhone());
+        direccionJ.setText(userPerfil.getPerson().getAddress());
+        latitud.setText(String.valueOf(userPerfil.getPerson().getLatitude()));
+        logitud.setText(String.valueOf(userPerfil.getPerson().getLongitude()));
+        contrasena.setText(userPerfil.getPassword());
+        activo.setSelected(userPerfil.isActive());
+        controladorUser.cargarRoles(rol);
+        rol.setSelectedIndex(userPerfil.getRol().getId_Rol()-1);
+        disable();
+    }
+
+    public User getUserPerfil() {
+        return userPerfil;
+    }
+
+    public JRadioButton getActivo() {
+        return activo;
+    }
+
+    public JTextField getApellidosT() {
+        return apellidosT;
+    }
+
+    public JTextField getContrasena() {
+        return contrasena;
+    }
+
+    public JTextField getDireccionJ() {
+        return direccionJ;
+    }
+
+    public JTextField getEmail() {
+        return email;
+    }
+
+    public JTextField getIdentificacionT() {
+        return identificacionT;
+    }
+
+    public JTextField getLatitud() {
+        return latitud;
+    }
+
+    public JTextField getLogitud() {
+        return logitud;
+    }
+
+    public JTextField getNombresT() {
+        return nombresT;
+    }
+
+    public JComboBox<String> getRol() {
+        return rol;
+    }
+
+    public JTextField getTelefono() {
+        return telefono;
+    }
+
+    public RegisterUserController getControladorUser() {
+        return controladorUser;
+    }
+    
     
     public ProfileUsers() {
         initComponents();
@@ -71,6 +160,7 @@ public class ProfileUsers extends javax.swing.JFrame {
         Blue = new javax.swing.JPanel();
         Menu = new javax.swing.JLabel();
         logout = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
         perfilDeUsuario1 = new javax.swing.JLabel();
         userImage = new javax.swing.JLabel();
         White = new javax.swing.JPanel();
@@ -97,7 +187,7 @@ public class ProfileUsers extends javax.swing.JFrame {
         contrasenaL = new javax.swing.JLabel();
         contrasena = new javax.swing.JTextField();
         activo = new javax.swing.JRadioButton();
-        actualizarUsuario = new javax.swing.JButton();
+        upDateUsuario = new javax.swing.JButton();
         APELLIDOS = new javax.swing.JLabel();
         seAgrego = new javax.swing.JLabel();
         NOMBRES = new javax.swing.JLabel();
@@ -145,6 +235,18 @@ public class ProfileUsers extends javax.swing.JFrame {
         });
         Blue.add(logout);
         logout.setBounds(70, 70, 72, 16);
+
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Menu/Back.png"))); // NOI18N
+        back.setMaximumSize(new java.awt.Dimension(65, 65));
+        back.setMinimumSize(new java.awt.Dimension(65, 65));
+        back.setPreferredSize(new java.awt.Dimension(65, 65));
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                backMouseEntered(evt);
+            }
+        });
+        Blue.add(back);
+        back.setBounds(940, 30, 50, 50);
 
         perfilDeUsuario1.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
         perfilDeUsuario1.setForeground(new java.awt.Color(255, 255, 255));
@@ -300,16 +402,16 @@ public class ProfileUsers extends javax.swing.JFrame {
         White.add(jScrollPane1);
         jScrollPane1.setBounds(312, 145, 666, 274);
 
-        actualizarUsuario.setBackground(new java.awt.Color(255, 255, 255));
-        actualizarUsuario.setForeground(new java.awt.Color(41, 135, 217));
-        actualizarUsuario.setText("ACTUALIZAR USUARIO");
-        actualizarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+        upDateUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        upDateUsuario.setForeground(new java.awt.Color(41, 135, 217));
+        upDateUsuario.setText("ACTUALIZAR USUSARIO");
+        upDateUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 seAgrego(evt);
             }
         });
-        White.add(actualizarUsuario);
-        actualizarUsuario.setBounds(312, 452, 208, 42);
+        White.add(upDateUsuario);
+        upDateUsuario.setBounds(312, 452, 208, 42);
 
         APELLIDOS.setBackground(new java.awt.Color(51, 51, 51));
         APELLIDOS.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -356,6 +458,10 @@ public class ProfileUsers extends javax.swing.JFrame {
         logout.setForeground(Color.white);
     }//GEN-LAST:event_logoutMouseExited
 
+    private void backMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseEntered
+        back.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_backMouseEntered
+
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
         // TODO add your handling code here:
         profile_user_controller.logOut(this);
@@ -366,9 +472,29 @@ public class ProfileUsers extends javax.swing.JFrame {
     }//GEN-LAST:event_goToMenu
 
     private void seAgrego(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seAgrego
-        seAgrego.setVisible(true);
+        if(usuario.getRol().getName().equals("Administrador") || userPerfil==null){
+            seAgrego.setVisible(true);
+            profile_user_controller.actualizarUsuario(this, usuario);
+        }else{
+            Toolkit.getDefaultToolkit().beep();
+            JOptionPane.showMessageDialog(
+                    this, 
+                    "Solo los Administradores pueden actualizar la informacion de otros usuarios",
+                    "¡¡ ACCESS DENIED !!", 
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_seAgrego
 
+    
+    public void disable(){
+        if(!usuario.getRol().getName().equals("Administrador")){
+            if(!(userPerfil==null)){
+                contrasena.setVisible(false);
+            }
+            rol.setEnabled(false);
+            activo.setEnabled(false);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -415,9 +541,9 @@ public class ProfileUsers extends javax.swing.JFrame {
     private javax.swing.JLabel NOMBRES;
     private javax.swing.JPanel White;
     private javax.swing.JRadioButton activo;
-    private javax.swing.JButton actualizarUsuario;
     private javax.swing.JLabel apellidosL;
     private javax.swing.JTextField apellidosT;
+    private javax.swing.JLabel back;
     private javax.swing.JTextField contrasena;
     private javax.swing.JLabel contrasenaL;
     private javax.swing.JLabel direccion;
@@ -440,6 +566,7 @@ public class ProfileUsers extends javax.swing.JFrame {
     private javax.swing.JLabel seAgrego;
     private javax.swing.JTextField telefono;
     private javax.swing.JLabel telefonoL;
+    private javax.swing.JButton upDateUsuario;
     private javax.swing.JLabel userImage;
     // End of variables declaration//GEN-END:variables
 }
