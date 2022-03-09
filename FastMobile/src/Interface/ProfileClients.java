@@ -43,15 +43,17 @@ public class ProfileClients extends javax.swing.JFrame {
         nombresT.setText(c.getPerson().getName());
         apellidosT.setText(c.getPerson().getLastName());
         identificacionT.setText(c.getPerson().getId_Person());
+        identificacionT.setEditable(false);
         email.setText(c.getPerson().geteMail());
         telefono.setText(c.getPerson().getPhone());
         direction.setText(c.getPerson().getAddress());
         suspendido.setSelected(c.isSuspended());
         controladorClient.loadTypes(tipo);
         tipo.setSelectedIndex(c.getClien_Type().getId_type()-1);
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");             
-        String strDate = dateFormat.format(c.getLastPayment());  
+        SimpleDateFormat formatter4=new SimpleDateFormat("E, MMM dd yyyy");             
+        String strDate = formatter4.format(c.getLastPayment());  
         ultimoPago.setText(strDate);
+        ultimoPago.setEditable(false);
         controladorProfile.cargarTelefonos(tabla, c);
         latitudT.setText(String.valueOf(c.getPerson().getLatitude()));
         logitudT.setText(String.valueOf(c.getPerson().getLongitude()));
@@ -433,7 +435,7 @@ public class ProfileClients extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void seAgrego(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seAgrego
-        controladorProfile.actualizarDatos(this);
+        controladorProfile.actualizarDatos(this, usuario);
         seAgrego.setVisible(true);
     }//GEN-LAST:event_seAgrego
 
