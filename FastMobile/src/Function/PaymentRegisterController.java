@@ -9,6 +9,7 @@ import Interface.PaymentRegister;
 import Models.Client;
 import Models.Client_Phone;
 import Models.User;
+import com.itextpdf.text.Document;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JTable;
@@ -18,6 +19,8 @@ import javax.swing.JTable;
  * @author Sara Maradiago
  */
 public class PaymentRegisterController {
+    
+    Document doc = new Document();
            
     public void cargarTelefonosYFecha(JTable tabla, Client client){
         List<Client_Phone> telefonos = client.getPhones();
