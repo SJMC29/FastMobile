@@ -10,8 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity(name="client_phones")
+@NamedQueries({
+        @NamedQuery(name = "Phone_Number", 
+                    query = "SELECT ph FROM client_phones ph WHERE ph.phone_Number = :number")
+})
 public class Client_Phone implements Serializable {
     
     // Atributos

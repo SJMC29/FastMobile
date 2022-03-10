@@ -169,4 +169,15 @@ public class Client_PhoneJpaController implements Serializable {
         }
     }
     
+    public Client_Phone fineClient_PhoneByNumber(String number){
+        EntityManager em = getEntityManager();
+        try {
+            return (Client_Phone) em.createNamedQuery("Phone_Number")
+                    .setParameter("number", number)
+                    .getSingleResult();
+        } finally {
+            em.close();
+        } 
+    }
+    
 }
