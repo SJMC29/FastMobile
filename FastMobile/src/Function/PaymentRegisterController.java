@@ -5,10 +5,12 @@
 package Function;
 
 import Controllers.ClientController;
+import Controllers.PaymentConroller;
 import Interface.Menu;
 import Interface.PaymentRegister;
 import Models.Client;
 import Models.Client_Phone;
+import Models.Payment;
 import Models.User;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -23,6 +25,7 @@ import javax.swing.JTable;
 public class PaymentRegisterController {
     SimpleDateFormat formatter4=new SimpleDateFormat("E, MMM dd yyyy");
     ClientController clientController = new ClientController();
+    PaymentConroller paymentController = new PaymentConroller();
            
     public void cargarTelefonosYFecha(JTable tabla, Client client){             
         List<Client_Phone> telefonos = client.getPhones();
@@ -42,15 +45,20 @@ public class PaymentRegisterController {
     public void actualizarFecha(JTable tabla, Client client){
         List<Client_Phone> telefonos = client.getPhones();
         Date hoy = new Date();
-        
+        int amount = 0;
         System.out.println(client.getLastPayment());
         
         for (int i = 0; i < telefonos.size(); i++) {
             tabla.setValueAt(hoy, i, 1);
+            amount += telefonos.get(i).getPlan().getPrice();
         }
+        //System.out.println(amount);
         client.setLastPayment(hoy);
         clientController.upDateClient(client);
+        Payment payment = new Payment(client, amount, hoy);
+        paymentController.createPayment(payment);
         //System.out.println(client.getLastPayment());
+        
     }
     
     public void goToMenu(PaymentRegister paymentRegisterM, User usuario){
