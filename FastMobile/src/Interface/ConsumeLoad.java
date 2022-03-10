@@ -8,6 +8,9 @@ import Function.ConsumeLoadController;
 import Models.User;
 import java.awt.Image;
 import java.io.File;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -31,6 +34,15 @@ public class ConsumeLoad extends javax.swing.JFrame {
     public ConsumeLoad() {
         initComponents();        //menuWhite.setBackground(new Color(255,255,255,150));
         //LOGIN.setBackground(new Color(255,255,255,0));
+        scaleImage();
+        pathRead.setVisible(false);
+
+    }
+    
+    public ConsumeLoad(User u) {
+        initComponents();        //menuWhite.setBackground(new Color(255,255,255,150));
+        //LOGIN.setBackground(new Color(255,255,255,0));
+        usuario = u;
         scaleImage();
         pathRead.setVisible(false);
 
@@ -220,6 +232,11 @@ public class ConsumeLoad extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Por favor seleccione un archivo válido");
         }else{
             System.out.println("enviar a Consume Load Controller");
+            try {
+                consumeLoadController.loadConsumes(file);
+            } catch (ParseException ex) {
+                Logger.getLogger(ConsumeLoad.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_cargarConsumosActionPerformed
 

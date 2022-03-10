@@ -103,6 +103,12 @@ public class Tests {
         
         //Client_Phone phone1 = phoneControl.getClient_PhoneByNumber("Telefono");
         //System.out.println("phone1 = " + phone1);
+        
+        /* // Parse to Date
+        String time = "Sun Jul 15 2012 12:22:00 GMT+03:00 (FLE Daylight Time)";
+        SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd yyyy HH:mm:ss zzz");
+        Date date = sdf.parse(time);
+        */
     }
     
     
