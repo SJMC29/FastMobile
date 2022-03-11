@@ -126,8 +126,8 @@ public class Menu extends javax.swing.JFrame {
         panelDerecho = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1024, 576));
-        setPreferredSize(new java.awt.Dimension(1024, 586));
+        setMinimumSize(new java.awt.Dimension(1024, 620));
+        setPreferredSize(new java.awt.Dimension(1024, 620));
         setResizable(false);
         getContentPane().setLayout(null);
 
