@@ -38,6 +38,9 @@ import java.awt.Font;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.Calendar;
 
 
 /**
@@ -51,15 +54,16 @@ public class GenerateReceiptController {
            
     public void cargarTelefonosYFecha(JTable tabla, Client client){             
         List<Client_Phone> telefonos = client.getPhones();
-        String matriz[][] = new String[telefonos.size()][2];
+        String matriz[][] = new String[telefonos.size()][4];
         for (int i = 0; i < telefonos.size(); i++) {
             matriz[i][0] = telefonos.get(i).getPhone_Number();
             matriz[i][1] = formatter4.format(client.getLastPayment());
+            matriz[i][2] = "a";
         }    
         tabla.setModel(new javax.swing.table.DefaultTableModel (
                 matriz,
                 new String[]{
-                    "Línea", "Último pago"
+                    "Número de línea", "Consumo Minutos","Consumo Datos", "Último registro"
                 }        
         ));
     }
@@ -179,6 +183,21 @@ public class GenerateReceiptController {
         
         documento.close();
         
+    }
+    
+    public String[] Month(){
+        //Getting the current date value
+        String[] lastDay = {"31","28","31","30","31","30","31","31","30","31","30","31"};
+        java.util.Date date = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        int month = cal.get(Calendar.MONTH);
+        int year = cal.get(Calendar.YEAR);
+        
+        String[] dates = {year+"-"+(month+1)+"-01",year+"-"+(month+1)+"-"+lastDay[month]};
+        //System.out.println(month);
+        System.out.println(dates[0]+" "+dates[1]);
+        return dates;
     }
     
     public void goToMenu(GenerateReceipt generateReceiptM, User usuario){

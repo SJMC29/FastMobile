@@ -139,4 +139,20 @@ public class ConsumeJpaController implements Serializable {
         }
     }
     
+    public List<Consume> findMonthlyConsumes(String[] dates){
+        String startDate = dates[0];
+        String endDate = dates[1];
+        
+        EntityManager em = getEntityManager();
+        try{
+            return (List<Consume>) em.createNamedQuery("Monthly_Consumes")
+                    .setParameter("startDate", startDate)
+                    .setParameter("endDate", endDate)
+                    .getResultList();
+        } finally {
+            em.close();
+        }
+        
+    }
+    
 }

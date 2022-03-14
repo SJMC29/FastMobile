@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -21,6 +23,13 @@ import javax.persistence.TemporalType;
  * @author EDITH
  */
 @Entity(name="Consumes")
+@NamedQueries({
+        @NamedQuery(name = "Monthly_Consumes", 
+                    query = "select c from consumes c where c.consumedate BETWEEN CAST (:startDate AS DATE) AND CAST (:endDate AS DATE);"),
+        //@NamedQuery(name = "UsersRol",
+                    //query = "SELECT u FROM users u WHERE u.rol = :rol")
+    })
+
 public class Consume implements Serializable {
     
     // Atributos

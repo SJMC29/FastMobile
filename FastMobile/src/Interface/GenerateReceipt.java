@@ -52,13 +52,13 @@ public class GenerateReceipt extends javax.swing.JFrame {
         System.out.println("HOLA VACÍO");
     }
  
-     public Client identificacionClaveCliente(String idClientS){
-        int idClientINT = Integer.parseInt(idClientS);      
-        cliente = clientController.getClient(idClientINT);
+    public Client identificacionClaveCliente(String idClientS){
+        // int idClientINT = Integer.parseInt(idClientS);      
+        cliente = clientController.getClienteByPerson(idClientS);
         
         nombreCliente.setText(cliente.getPerson().getName());
         apellidoCliente.setText(cliente.getPerson().getLastName());
-        identificacionCliente.setText(cliente.getPerson().getId_Person());
+        identificacionCliente.setText(idClientS);
         
         return cliente;
     }
@@ -115,7 +115,6 @@ public class GenerateReceipt extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(1024, 576));
-        setPreferredSize(new java.awt.Dimension(1024, 576));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -188,16 +187,16 @@ public class GenerateReceipt extends javax.swing.JFrame {
 
         lineasTelefonicas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Número de línea", "Último pago registrado"
+                "Número de línea", "Consumo Minutos", "Consumo Datos", "Último registro"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -208,6 +207,8 @@ public class GenerateReceipt extends javax.swing.JFrame {
         if (lineasTelefonicas.getColumnModel().getColumnCount() > 0) {
             lineasTelefonicas.getColumnModel().getColumn(0).setResizable(false);
             lineasTelefonicas.getColumnModel().getColumn(1).setResizable(false);
+            lineasTelefonicas.getColumnModel().getColumn(2).setResizable(false);
+            lineasTelefonicas.getColumnModel().getColumn(3).setResizable(false);
         }
 
         datosDeLaLinea.setText("Datos de la línea:");
@@ -280,7 +281,7 @@ public class GenerateReceipt extends javax.swing.JFrame {
                 .addComponent(datosDeLaLinea)
                 .addGap(10, 10, 10)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         White.add(formulario);
@@ -312,6 +313,7 @@ public class GenerateReceipt extends javax.swing.JFrame {
         System.out.println("Buscando cliente en DB.");
         //1100288113
         //12345678
+        controladorGenerateReceipt.Month();
         controladorGenerateReceipt.cargarTelefonosYFecha(lineasTelefonicas, identificacionClaveCliente(identificacionClave.getText()));
         //ACTUALIZAR TABLA
     }//GEN-LAST:event_buscarCliente
