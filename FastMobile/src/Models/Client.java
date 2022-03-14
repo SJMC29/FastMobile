@@ -12,12 +12,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity(name="clients")
+@NamedQueries({
+        @NamedQuery(name = "Client_Person", 
+                    query = "SELECT c FROM clients c WHERE c.person = :person"),
+        //@NamedQuery(name = "UsersRol",
+                    //query = "SELECT u FROM users u WHERE u.rol = :rol")
+    })
 public class Client implements Serializable {
     
     // Atributos

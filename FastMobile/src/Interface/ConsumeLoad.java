@@ -8,6 +8,9 @@ import Function.ConsumeLoadController;
 import Models.User;
 import java.awt.Image;
 import java.io.File;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -31,6 +34,15 @@ public class ConsumeLoad extends javax.swing.JFrame {
     public ConsumeLoad() {
         initComponents();        //menuWhite.setBackground(new Color(255,255,255,150));
         //LOGIN.setBackground(new Color(255,255,255,0));
+        scaleImage();
+        pathRead.setVisible(false);
+
+    }
+    
+    public ConsumeLoad(User u) {
+        initComponents();        //menuWhite.setBackground(new Color(255,255,255,150));
+        //LOGIN.setBackground(new Color(255,255,255,0));
+        usuario = u;
         scaleImage();
         pathRead.setVisible(false);
 
@@ -69,7 +81,7 @@ public class ConsumeLoad extends javax.swing.JFrame {
         Separador = new javax.swing.JPanel();
         CENTER = new javax.swing.JPanel();
         centroAdmin = new javax.swing.JLabel();
-        cargarPagos = new javax.swing.JButton();
+        cargarConsumos = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         selectFile = new javax.swing.JButton();
         pathRead = new javax.swing.JTextField();
@@ -124,20 +136,20 @@ public class ConsumeLoad extends javax.swing.JFrame {
         CENTER.setLayout(null);
 
         centroAdmin.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        centroAdmin.setText("Carga masiva de pagos realizados por los clientes.");
+        centroAdmin.setText("Carga masiva de consumos por teléfono");
         CENTER.add(centroAdmin);
         centroAdmin.setBounds(80, 40, 470, 26);
 
-        cargarPagos.setBackground(new java.awt.Color(255, 255, 255));
-        cargarPagos.setForeground(new java.awt.Color(41, 135, 217));
-        cargarPagos.setText("CARGAR PAGOS");
-        cargarPagos.addActionListener(new java.awt.event.ActionListener() {
+        cargarConsumos.setBackground(new java.awt.Color(255, 255, 255));
+        cargarConsumos.setForeground(new java.awt.Color(41, 135, 217));
+        cargarConsumos.setText("CARGAR CONSUMOS");
+        cargarConsumos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cargarPagosActionPerformed(evt);
+                cargarConsumosActionPerformed(evt);
             }
         });
-        CENTER.add(cargarPagos);
-        cargarPagos.setBounds(90, 370, 208, 42);
+        CENTER.add(cargarConsumos);
+        cargarConsumos.setBounds(90, 370, 208, 42);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -214,14 +226,19 @@ public class ConsumeLoad extends javax.swing.JFrame {
        consumeLoadController.goToMenu(this, usuario);
     }//GEN-LAST:event_menuMouseClicked
 
-    private void cargarPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarPagosActionPerformed
+    private void cargarConsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarConsumosActionPerformed
         // TODO enviar file a PaymentLoadController
         if(file == null){
             JOptionPane.showMessageDialog(null,"Por favor seleccione un archivo válido");
         }else{
-            System.out.println("enviar a Payment Load Controller");
+            System.out.println("enviar a Consume Load Controller");
+            try {
+                consumeLoadController.loadConsumes(file);
+            } catch (ParseException ex) {
+                Logger.getLogger(ConsumeLoad.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-    }//GEN-LAST:event_cargarPagosActionPerformed
+    }//GEN-LAST:event_cargarConsumosActionPerformed
 
     
     /**
@@ -266,7 +283,7 @@ public class ConsumeLoad extends javax.swing.JFrame {
     private javax.swing.JPanel CENTER;
     private javax.swing.JPanel Separador;
     private javax.swing.JPanel TOP;
-    private javax.swing.JButton cargarPagos;
+    private javax.swing.JButton cargarConsumos;
     private javax.swing.JLabel centroAdmin;
     private javax.swing.JLabel fastMobileWhite;
     private javax.swing.JPanel jPanel1;

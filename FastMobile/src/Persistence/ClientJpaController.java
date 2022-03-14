@@ -4,6 +4,7 @@
  */
 package Persistence;
 
+import Controllers.PersonController;
 import Models.Client;
 import java.io.Serializable;
 import javax.persistence.Query;
@@ -11,6 +12,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import Models.Client_Phone;
+import Models.Person;
 import Persistence.exceptions.IllegalOrphanException;
 import Persistence.exceptions.NonexistentEntityException;
 import java.util.ArrayList;
@@ -208,4 +210,18 @@ public class ClientJpaController implements Serializable {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
+    // Nuestras Query
+    public Client findClientByPerson(String id_person){
+        EntityManager em = getEntityManager();
+        PersonController personControl = new PersonController();
+        Person p = personControl.getPerson(id_person);
+        try{
+            return (Client) em.createNamedQuery("Client_Person")
+                .setParameter("person", p)
+                .getSingleResult();
+        } finally {
+            em.close();
+        }
+        
+    }
 }

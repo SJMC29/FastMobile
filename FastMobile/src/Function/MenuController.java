@@ -5,6 +5,7 @@
 package Function;
 
 import Controllers.UserController;
+import Interface.ConsumeLoad;
 import Interface.ListClients;
 import Interface.ListUsers;
 import Interface.Login;
@@ -49,5 +50,10 @@ public class MenuController {
     public void goToListUsers(Menu menu, User user){                        
             new ListUsers(user).setVisible(true); 
             menu.dispose();     
+    }
+    
+    public void goToConsumeLoad(Menu menu, User user){
+        new ConsumeLoad(user).setVisible(true); 
+            menu.dispose(); 
     }
 }

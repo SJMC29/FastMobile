@@ -15,6 +15,7 @@ import Persistence.exceptions.NonexistentEntityException;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 
 /**
@@ -167,6 +168,19 @@ public class Client_PhoneJpaController implements Serializable {
         } finally {
             em.close();
         }
+    }
+    
+    public Client_Phone fineClient_PhoneByNumber(String number){
+        EntityManager em = getEntityManager();
+        try {
+            return (Client_Phone) em.createNamedQuery("Phone_Number")
+                    .setParameter("number", number)
+                    .getSingleResult();
+        } catch (NoResultException enfe){
+            return null;
+        } finally {
+            em.close();
+        } 
     }
     
 }

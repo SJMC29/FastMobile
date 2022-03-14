@@ -2,6 +2,7 @@
 package Controllers;
 
 import Models.Client;
+import Models.Person;
 import Persistence.ClientJpaController;
 import Persistence.exceptions.IllegalOrphanException;
 import Persistence.exceptions.NonexistentEntityException;
@@ -45,5 +46,9 @@ public class ClientController {
         } catch (Exception ex) {
             Logger.getLogger(ClientController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public Client getClienteByPerson(String id_Person){
+        return clientJPA.findClientByPerson(id_Person);
     }
 }
