@@ -167,7 +167,7 @@ public class GenerateReceiptController {
                 
         documento.add(new Phrase("\n"));
         Barcode128 barcode128 = new Barcode128();
-        barcode128.setCode("(415)7707247180153(8021)0001006106500(3902)000000058000(96)20220310");//(415)7707247180153(8021)ID(3902)VALOR(96)PERIODO
+        barcode128.setCode("hola");//(415)7707247180153(8021)ID(3902)VALOR(96)PERIODO
         barcode128.setCodeType(Barcode128.CODE128);
         PdfContentByte pdfContentByte = pdfWriter.getDirectContent();
         Image code128Image = barcode128.createImageWithBarcode(pdfContentByte, null, null);
