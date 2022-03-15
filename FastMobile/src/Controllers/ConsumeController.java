@@ -7,8 +7,11 @@ package Controllers;
 import Models.Client_Phone;
 import Models.Consume;
 import Persistence.ConsumeJpaController;
+import Persistence.exceptions.NonexistentEntityException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -40,5 +43,12 @@ public class ConsumeController {
         return results;
     }  
     
+    public void deleteConsume(Integer i){
+        try {
+            consumeJPA.destroy(i);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ConsumeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }

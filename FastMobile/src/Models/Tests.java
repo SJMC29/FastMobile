@@ -111,13 +111,16 @@ public class Tests {
         Date date = sdf.parse(time);
         */
 
-        Client_Phone tel = phoneControl.getClient_Phone(2);
-        String[] dates = {"2022-3-1","2022-3-31"};
+        //Client_Phone tel = phoneControl.getClient_Phone(2);
+        //String[] dates = {"2022-3-1","2022-3-31"};
         
         
         ConsumeController cons = new ConsumeController();
         
-        System.out.println(cons.getMonthlyConsumes(dates, tel));
+        //System.out.println(cons.getMonthlyConsumes(dates, tel));
+        
+        personControl.destroyPerson("1052661846");
+        System.out.println("Fin del Test");
     }
     
     
