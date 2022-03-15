@@ -10,6 +10,7 @@ import Interface.ListClients;
 import Interface.ListUsers;
 import Interface.Login;
 import Interface.Menu;
+import Interface.PaymentLoad;
 import Interface.PaymentRegister;
 import Interface.ProfileUsers;
 import Interface.RegisterClient;
@@ -55,5 +56,10 @@ public class MenuController {
     public void goToConsumeLoad(Menu menu, User user){
         new ConsumeLoad(user).setVisible(true); 
             menu.dispose(); 
+    }
+
+    public void goToPaymentsLoad(Menu menu, User usuario) {
+        new PaymentLoad(usuario).setVisible(true);
+        menu.dispose();
     }
 }

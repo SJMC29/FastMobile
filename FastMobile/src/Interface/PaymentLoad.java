@@ -8,6 +8,9 @@ import Function.PaymentLoadController;
 import Models.User;
 import java.awt.Image;
 import java.io.File;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -34,6 +37,14 @@ public class PaymentLoad extends javax.swing.JFrame {
         scaleImage();
         pathRead.setVisible(false);
 
+    }
+    
+    public PaymentLoad(User u) {
+        initComponents();        //menuWhite.setBackground(new Color(255,255,255,150));
+        //LOGIN.setBackground(new Color(255,255,255,0));
+        scaleImage();
+        pathRead.setVisible(false);
+        usuario = u;
     }
     
     public void scaleImage(){
@@ -221,6 +232,11 @@ public class PaymentLoad extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Por favor seleccione un archivo válido");
         }else{
             System.out.println("enviar a Payment Load Controller");
+            try {
+                paymentLoadController.loadPayments(this,file,usuario);
+            } catch (ParseException ex) {
+                Logger.getLogger(PaymentLoad.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_cargarPagosActionPerformed
 

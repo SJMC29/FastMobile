@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 
 /**
@@ -219,6 +220,8 @@ public class ClientJpaController implements Serializable {
             return (Client) em.createNamedQuery("Client_Person")
                 .setParameter("person", p)
                 .getSingleResult();
+        } catch (NoResultException enfe){
+            return null; 
         } finally {
             em.close();
         }

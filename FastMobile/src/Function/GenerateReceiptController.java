@@ -228,15 +228,15 @@ public class GenerateReceiptController {
          dat_extra.addCell(t.getPhone_Number());
          dat_extra.addCell("$"+t.getPlan().getPrice()/2);
          
-         float datosExtra = Integer.parseInt(matriz[i][2]) - t.getPlan().getInternet();
+         float datosExtra = Integer.parseInt(matriz[i][2])/1024 - t.getPlan().getInternet();
          float finale;
-         if(datosExtra < 0){//si se gasto datos extra
+         if(datosExtra > 0){//si se gasto datos extra
              finale = t.getPlan().getPrice() + t.getPlan().getPrice()/2;
-             datosExtra = 0;
          }else{
-             finale = t.getPlan().getPrice();
+             datosExtra = 0;
+             finale = 0;
          }
-         dat_extra.addCell(""+datosExtra);
+         dat_extra.addCell(""+datosExtra+" GB");
          dat_extra.addCell("$"+finale);
          total += finale;
          i++;

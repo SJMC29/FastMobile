@@ -640,14 +640,18 @@ public class Menu extends javax.swing.JFrame {
 
     private void CargarPagosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CargarPagosMouseClicked
         // TODO add your handling code here:
+        menu_controller.goToPaymentsLoad(this, usuario);
     }//GEN-LAST:event_CargarPagosMouseClicked
 
     private void CargarPagosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CargarPagosMouseEntered
         // TODO add your handling code here:
+        CargarPagos.setForeground(new Color(41,135,217)); 
+        CargarPagos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_CargarPagosMouseEntered
 
     private void CargarPagosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CargarPagosMouseExited
         // TODO add your handling code here:
+        CargarPagos.setForeground(Color.black);
     }//GEN-LAST:event_CargarPagosMouseExited
 
     private void CargarConsumosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CargarConsumosMouseClicked
