@@ -167,7 +167,7 @@ public class GenerateReceiptController {
          basics.addCell(t.getPlan().getName());
          basics.addCell(t.getPlan().getMinutes()+"");
          basics.addCell(t.getPlan().getInternet()+" GB");
-         basics.addCell("$"+t.getPlan().getPrice()+",00");   
+         basics.addCell(parseToColombian(t.getPlan().getPrice()));   
          total += t.getPlan().getPrice();
         }         
         
@@ -196,13 +196,13 @@ public class GenerateReceiptController {
          }else{
              valorMinExtra = t.getPlan().getPrice() / t.getPlan().getMinutes();
          }
-         min_extra.addCell("$"+valorMinExtra);
+         min_extra.addCell(parseToColombian(Math.round(valorMinExtra)));
          float minExtra = Integer.parseInt(matriz[i][1]) - t.getPlan().getMinutes();
          if(minExtra < 0){
             minExtra = 0;
          }
          min_extra.addCell(""+minExtra);
-         min_extra.addCell(""+minExtra*valorMinExtra);
+         min_extra.addCell(parseToColombian(Math.round(minExtra*valorMinExtra)));
          total += minExtra*valorMinExtra;
          i++;
         }
@@ -226,7 +226,7 @@ public class GenerateReceiptController {
         i = 0;
         for(Client_Phone t: telefonos){
          dat_extra.addCell(t.getPhone_Number());
-         dat_extra.addCell("$"+t.getPlan().getPrice()/2);
+         dat_extra.addCell(parseToColombian(Math.round(t.getPlan().getPrice()/2)));
          
          float datosExtra = Integer.parseInt(matriz[i][2])/1024 - t.getPlan().getInternet();
          float finale;
@@ -237,7 +237,7 @@ public class GenerateReceiptController {
              finale = 0;
          }
          dat_extra.addCell(""+datosExtra+" GB");
-         dat_extra.addCell("$"+finale);
+         dat_extra.addCell(parseToColombian(Math.round(finale)));
          total += finale;
          i++;
         }
@@ -255,7 +255,7 @@ public class GenerateReceiptController {
         tabla.addCell(actualMonth[1]);
         cell.setPhrase(new Phrase ("Total a pagar",FontFactory.getFont("arial",11,Font.BOLD)));
         tabla.addCell(cell);
-        tabla.addCell("$"+total);
+        tabla.addCell(parseToColombian(Math.round(total)));
         
         documento.add(new Phrase("\n"));
         documento.add(tabla);
@@ -297,6 +297,26 @@ public class GenerateReceiptController {
         //System.out.println(month);
         System.out.println(dates[0]+" "+dates[1]);
         return dates;
+    }
+    
+    public String parseToColombian(int num){
+        String full = String.valueOf(num);
+        String colombian = "";
+        int size = full.length();
+        
+        int punto = 0;
+        for(int i = size-1; i>=0;i--){
+            punto++;
+            if(punto % 3 == 1 && punto != 1){
+                colombian = full.charAt(i) + "." + colombian;
+            }else{
+                colombian = full.charAt(i) + colombian;
+            }
+            
+        }
+        colombian = "$"+colombian;
+        
+        return colombian;
     }
     
     public void goToMenu(GenerateReceipt generateReceiptM, User usuario){

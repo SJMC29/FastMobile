@@ -9,6 +9,7 @@ import Controllers.PersonController;
 import Controllers.PlanController;
 import Controllers.RolController;
 import Controllers.UserController;
+import Function.GenerateReceiptController;
 import Interface.ProfileClients;
 import Interface.RegisterUser;
 import Persistence.exceptions.IllegalOrphanException;
@@ -111,14 +112,17 @@ public class Tests {
         Date date = sdf.parse(time);
         */
 
-        Client_Phone tel = phoneControl.getClient_Phone(2);
-        String[] dates = {"2022-3-1","2022-3-31"};
         
         
-        ConsumeController cons = new ConsumeController();
+        //Client_Phone tel = phoneControl.getClient_Phone(2);
+        //String[] dates = {"2022-3-1","2022-3-31"};
         
-        System.out.println(cons.getMonthlyConsumes(dates, tel));
+        
+        //ConsumeController cons = new ConsumeController();
+        
+        //System.out.println(cons.getMonthlyConsumes(dates, tel));
+        GenerateReceiptController zzJava = new GenerateReceiptController();
+        System.out.println(zzJava.parseToColombian(1000000));
     }
-    
     
 }
