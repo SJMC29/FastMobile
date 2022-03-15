@@ -233,7 +233,7 @@ public class ConsumeLoad extends javax.swing.JFrame {
         }else{
             System.out.println("enviar a Consume Load Controller");
             try {
-                consumeLoadController.loadConsumes(file);
+                consumeLoadController.loadConsumes(this,file,usuario);
             } catch (ParseException ex) {
                 Logger.getLogger(ConsumeLoad.class.getName()).log(Level.SEVERE, null, ex);
             }
