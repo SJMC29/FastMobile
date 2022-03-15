@@ -4,6 +4,7 @@ package Models;
 import Controllers.ClientController;
 import Controllers.Client_PhoneController;
 import Controllers.Client_TypeController;
+import Controllers.ConsumeController;
 import Controllers.PersonController;
 import Controllers.PlanController;
 import Controllers.RolController;
@@ -109,6 +110,14 @@ public class Tests {
         SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd yyyy HH:mm:ss zzz");
         Date date = sdf.parse(time);
         */
+
+        Client_Phone tel = phoneControl.getClient_Phone(2);
+        String[] dates = {"2022-3-1","2022-3-31"};
+        
+        
+        ConsumeController cons = new ConsumeController();
+        
+        System.out.println(cons.getMonthlyConsumes(dates, tel));
     }
     
     

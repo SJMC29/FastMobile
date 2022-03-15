@@ -5,6 +5,7 @@
 package Function;
 
 import Controllers.ClientController;
+import Controllers.ConsumeController;
 import Controllers.PaymentConroller;
 import Interface.GenerateReceipt;
 import Interface.Menu;
@@ -40,6 +41,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 
@@ -51,19 +53,28 @@ public class GenerateReceiptController {
     SimpleDateFormat formatter4=new SimpleDateFormat("E, MMM dd yyyy");
     ClientController clientController = new ClientController();
     PaymentConroller paymentController = new PaymentConroller();
+    ConsumeController cons = new ConsumeController();
+    Client global_client;
+    
+    
+    List<Client_Phone> telefonos = new ArrayList<Client_Phone>();
+    String matriz[][];
            
-    public void cargarTelefonosYFecha(JTable tabla, Client client){             
-        List<Client_Phone> telefonos = client.getPhones();
-        String matriz[][] = new String[telefonos.size()][4];
+    public void cargarTelefonosYFecha(JTable tabla, Client client){      
+        global_client = client;
+        telefonos = client.getPhones();
+        matriz = new String[telefonos.size()][4];
         for (int i = 0; i < telefonos.size(); i++) {
             matriz[i][0] = telefonos.get(i).getPhone_Number();
-            matriz[i][1] = formatter4.format(client.getLastPayment());
-            matriz[i][2] = "a";
+            
+            List<String> consumes = cons.getMonthlyConsumes(Month(), telefonos.get(i));
+            matriz[i][1] = consumes.get(0);
+            matriz[i][2] = consumes.get(1);
         }    
         tabla.setModel(new javax.swing.table.DefaultTableModel (
                 matriz,
                 new String[]{
-                    "Número de línea", "Consumo Minutos","Consumo Datos", "Último registro"
+                    "Número de línea", "Consumo Minutos","Consumo Datos"
                 }        
         ));
     }
@@ -89,8 +100,9 @@ public class GenerateReceiptController {
     
     public void createPdf() throws FileNotFoundException, DocumentException, BadElementException, IOException{
         //Image logo = "src\\Images\\Login\\FastMobileWhite.png";
+        
         Document documento = new Document();
-        FileOutputStream ficheroPDF = new FileOutputStream("src\\Pdf\\hello_world.pdf");
+        FileOutputStream ficheroPDF = new FileOutputStream("src\\Pdf\\"+global_client.getPerson().getId_Person()+".pdf");
         PdfWriter pdfWriter = PdfWriter.getInstance(documento, ficheroPDF);
         documento.open();
         
@@ -106,72 +118,159 @@ public class GenerateReceiptController {
         documento.add(titulo);
         
         documento.add(new Phrase("\nCliente ",FontFactory.getFont("arial",11,Font.BOLD)));
-        documento.add(new Phrase("-----"));
+        documento.add(new Phrase(global_client.getPerson().getName()+" "+global_client.getPerson().getLastName()));
         documento.add(new Phrase("\nDirección ",FontFactory.getFont("arial",11,Font.BOLD)));
-        documento.add(new Phrase("-----"));
+        documento.add(new Phrase(global_client.getPerson().getAddress()));
         documento.add(new Phrase("\nCédula ",FontFactory.getFont("arial",11,Font.BOLD)));
-        documento.add(new Phrase("-----"));
+        documento.add(new Phrase(global_client.getPerson().getId_Person()));
         documento.add(new Phrase("\nTeléfono ",FontFactory.getFont("arial",11,Font.BOLD)));
-        documento.add(new Phrase("-----"));
+        documento.add(new Phrase(global_client.getPerson().getPhone()));
         documento.add(new Phrase("\nFecha de expedición ",FontFactory.getFont("arial",11,Font.BOLD)));
-        documento.add(new Phrase("-----"));
+        java.util.Date date = new Date();
+        documento.add(new Phrase(formatter4.format(date)));
         documento.add(new Phrase("\nFactura de venta No ",FontFactory.getFont("arial",11,Font.BOLD)));
         documento.add(new Phrase("-----"));
         
-        PdfPTable tabla = new PdfPTable(2);
-        PdfPCell cell = new PdfPCell(new Phrase ("Periodo de facturación",FontFactory.getFont("arial",11,Font.BOLD)));
-        cell.setBackgroundColor(new BaseColor(41, 135, 217));
-        cell.setPaddingBottom(5);
-        tabla.addCell(cell);
-        tabla.addCell("-----");
-        cell.setPhrase(new Phrase ("Fecha límite de pago",FontFactory.getFont("arial",11,Font.BOLD)));
-        tabla.addCell(cell);
-        tabla.addCell("-----");
-        cell.setPhrase(new Phrase ("Total a pagar",FontFactory.getFont("arial",11,Font.BOLD)));
-        tabla.addCell(cell);
-        tabla.addCell("-----");
-        documento.add(tabla);
+        float total = 0;
         
-        documento.add(new Phrase(" "));
-        tabla = new PdfPTable(1);
-        //cell.setPhrase(new Phrase ("Estimado cliente, pague oportunamente y evite la suspensión del servicio, cobro de reconexión por producto e intereses de mora: El incumplimiento en los pagos genera reportes a Centrales de Riesgo. Si ya realizó el pago, haga caso omiso.",FontFactory.getFont("arial",12,Font.BOLD)));
+        PdfPCell cell = new PdfPCell(new Phrase ("Periodo de facturación",FontFactory.getFont("arial",11,Font.BOLD)));
+                
+        PdfPTable warning = new PdfPTable(1);
         cell.setPhrase(new Phrase ("Estimado cliente, pague oportunamente y evite la suspensión del servicio, cobro de reconexión por producto e intereses de mora: El incumplimiento en los pagos genera reportes a Centrales de Riesgo como moroso. Si ya realizó el pago, haga caso omiso.",FontFactory.getFont("arial",11)));
         cell.setPaddingBottom(20);
         cell.setPaddingLeft(10);
         cell.setPaddingRight(10);
         cell.setPaddingTop(10);
         cell.setBackgroundColor(new BaseColor(242, 229, 46));
-        tabla.addCell(cell);
-        documento.add(tabla);
-
-        documento.add(new Phrase(" "));
-        tabla = new PdfPTable(3);  
-        cell.setPhrase(new Phrase ("LINEA ASOCIADA",FontFactory.getFont("arial",11,Font.BOLD)));
+        warning.addCell(cell);
+        
+        //warning
+        PdfPTable basics = new PdfPTable(5);
+        cell.setPhrase(new Phrase ("Teléfono",FontFactory.getFont("arial",11,Font.BOLD)));
         cell.setPaddingBottom(5);
         cell.setPaddingLeft(5);
         cell.setPaddingRight(5);
         cell.setPaddingTop(5);
         cell.setBackgroundColor(new BaseColor(41, 135, 217));
-        tabla.addCell(cell);
-        cell.setPhrase(new Phrase ("PLAN",FontFactory.getFont("arial",11,Font.BOLD)));
-        tabla.addCell(cell);
-        cell.setPhrase(new Phrase ("MINUTOS",FontFactory.getFont("arial",11,Font.BOLD)));
-        tabla.addCell(cell);
+        basics.addCell(cell);
+        cell.setPhrase(new Phrase ("Plan",FontFactory.getFont("arial",11,Font.BOLD)));
+        basics.addCell(cell);
+        cell.setPhrase(new Phrase ("Minutos",FontFactory.getFont("arial",11,Font.BOLD)));
+        basics.addCell(cell);
+        cell.setPhrase(new Phrase ("Datos",FontFactory.getFont("arial",11,Font.BOLD)));
+        basics.addCell(cell);
+        cell.setPhrase(new Phrase ("Precio (sin recargo)",FontFactory.getFont("arial",11,Font.BOLD)));
+        basics.addCell(cell);
         //Espacio para el for    
-        tabla.addCell("31454312");
-        tabla.addCell("Ilimitado");
-        tabla.addCell("72");
-        tabla.addCell("31454312");
-        tabla.addCell("Ilimitado");
-        tabla.addCell("72");
-        tabla.addCell("31454312");
-        tabla.addCell("Ilimitado");
-        tabla.addCell("72");
+        for(Client_Phone t: telefonos){
+         basics.addCell(t.getPhone_Number());
+         basics.addCell(t.getPlan().getName());
+         basics.addCell(t.getPlan().getMinutes()+"");
+         basics.addCell(t.getPlan().getInternet()+" GB");
+         basics.addCell("$"+t.getPlan().getPrice()+",00");   
+         total += t.getPlan().getPrice();
+        }         
+        
+        //basics
+        PdfPTable min_extra = new PdfPTable(4);
+        cell.setPhrase(new Phrase ("Teléfono",FontFactory.getFont("arial",11,Font.BOLD)));
+        cell.setPaddingBottom(5);
+        cell.setPaddingLeft(5);
+        cell.setPaddingRight(5);
+        cell.setPaddingTop(5);
+        cell.setBackgroundColor(new BaseColor(41, 135, 217));
+        min_extra.addCell(cell);
+        cell.setPhrase(new Phrase ("Valor minuto extra",FontFactory.getFont("arial",11,Font.BOLD)));
+        min_extra.addCell(cell);
+        cell.setPhrase(new Phrase ("Minutos extra",FontFactory.getFont("arial",11,Font.BOLD)));
+        min_extra.addCell(cell);
+        cell.setPhrase(new Phrase ("Cobro",FontFactory.getFont("arial",11,Font.BOLD)));
+        min_extra.addCell(cell);
+        //Espacio para el for    
+        int i = 0;
+        for(Client_Phone t: telefonos){
+         min_extra.addCell(t.getPhone_Number());
+         float valorMinExtra;
+         if(t.getPlan().getMinutes()>1000){
+            valorMinExtra = 0;
+         }else{
+             valorMinExtra = t.getPlan().getPrice() / t.getPlan().getMinutes();
+         }
+         min_extra.addCell("$"+valorMinExtra);
+         float minExtra = Integer.parseInt(matriz[i][1]) - t.getPlan().getMinutes();
+         if(minExtra < 0){
+            minExtra = 0;
+         }
+         min_extra.addCell(""+minExtra);
+         min_extra.addCell(""+minExtra*valorMinExtra);
+         total += minExtra*valorMinExtra;
+         i++;
+        }
+        
+        //dat extra
+        PdfPTable dat_extra = new PdfPTable(4);
+        cell.setPhrase(new Phrase ("Teléfono",FontFactory.getFont("arial",11,Font.BOLD)));
+        cell.setPaddingBottom(5);
+        cell.setPaddingLeft(5);
+        cell.setPaddingRight(5);
+        cell.setPaddingTop(5);
+        cell.setBackgroundColor(new BaseColor(41, 135, 217));
+        dat_extra.addCell(cell);
+        cell.setPhrase(new Phrase ("Valor recargo",FontFactory.getFont("arial",11,Font.BOLD)));
+        dat_extra.addCell(cell);
+        cell.setPhrase(new Phrase ("Datos extra",FontFactory.getFont("arial",11,Font.BOLD)));
+        dat_extra.addCell(cell);
+        cell.setPhrase(new Phrase ("Cobro",FontFactory.getFont("arial",11,Font.BOLD)));
+        dat_extra.addCell(cell);
+        //Espacio para el for    
+        i = 0;
+        for(Client_Phone t: telefonos){
+         dat_extra.addCell(t.getPhone_Number());
+         dat_extra.addCell("$"+t.getPlan().getPrice()/2);
+         
+         float datosExtra = Integer.parseInt(matriz[i][2]) - t.getPlan().getInternet();
+         float finale;
+         if(datosExtra < 0){//si se gasto datos extra
+             finale = t.getPlan().getPrice() + t.getPlan().getPrice()/2;
+             datosExtra = 0;
+         }else{
+             finale = t.getPlan().getPrice();
+         }
+         dat_extra.addCell(""+datosExtra);
+         dat_extra.addCell("$"+finale);
+         total += finale;
+         i++;
+        }
+        
+        //total
+        PdfPTable tabla = new PdfPTable(2);        
+        cell.setPhrase(new Phrase ("Periodo de facturación",FontFactory.getFont("arial",11,Font.BOLD)));
+        cell.setBackgroundColor(new BaseColor(41, 135, 217));
+        cell.setPaddingBottom(5);
+        tabla.addCell(cell);
+        String[] actualMonth = Month();
+        tabla.addCell(actualMonth[0]+" hasta "+actualMonth[1]);
+        cell.setPhrase(new Phrase ("Fecha límite de pago",FontFactory.getFont("arial",11,Font.BOLD)));
+        tabla.addCell(cell);
+        tabla.addCell(actualMonth[1]);
+        cell.setPhrase(new Phrase ("Total a pagar",FontFactory.getFont("arial",11,Font.BOLD)));
+        tabla.addCell(cell);
+        tabla.addCell("$"+total);
+        
+        documento.add(new Phrase("\n"));
         documento.add(tabla);
-                
+        documento.add(new Phrase("\n"));
+        documento.add(warning);
+        documento.add(new Phrase("\n"));
+        documento.add(basics);        
+        documento.add(new Phrase("\n"));
+        documento.add(min_extra);
+        documento.add(new Phrase("\n"));
+        documento.add(dat_extra);
+        
         documento.add(new Phrase("\n"));
         Barcode128 barcode128 = new Barcode128();
-        barcode128.setCode("hola");//(415)7707247180153(8021)ID(3902)VALOR(96)PERIODO
+        barcode128.setCode("(415)"+"valorfactura"+"(8021)"+global_client.getPerson().getId_Person()+"(3902)"+total+"(96)"+actualMonth[1]);//(415)7707247180153(8021)ID(3902)VALOR(96)PERIODO
         barcode128.setCodeType(Barcode128.CODE128);
         PdfContentByte pdfContentByte = pdfWriter.getDirectContent();
         Image code128Image = barcode128.createImageWithBarcode(pdfContentByte, null, null);

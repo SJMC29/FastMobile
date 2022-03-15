@@ -4,11 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Fanfo/Documents/NetBeansProjects/FastMobile/FastMobile/src/Function/GenerateReceiptController.java</file>
+            <file>file:/C:/Users/Fanfo/Documents/NetBeansProjects/FastMobile/FastMobile/src/Persistence/ClientJpaController.java</file>
             <file>file:/C:/Users/Fanfo/Documents/NetBeansProjects/FastMobile/FastMobile/src/Persistence/PersonJpaController.java</file>
             <file>file:/C:/Users/Fanfo/Documents/NetBeansProjects/FastMobile/FastMobile/src/Interface/PaymentLoad.java</file>
-            <file>file:/C:/Users/Fanfo/Documents/NetBeansProjects/FastMobile/FastMobile/src/Interface/ConsumeLoad.java</file>
             <file>file:/C:/Users/Fanfo/Documents/NetBeansProjects/FastMobile/FastMobile/src/Interface/PaymentRegister.java</file>
             <file>file:/C:/Users/Fanfo/Documents/NetBeansProjects/FastMobile/FastMobile/src/Controllers/ConsumeController.java</file>
+            <file>file:/C:/Users/Fanfo/Documents/NetBeansProjects/FastMobile/FastMobile/src/Models/Client.java</file>
             <file>file:/C:/Users/Fanfo/Documents/NetBeansProjects/FastMobile/FastMobile/src/Function/PaymentRegisterController.java</file>
             <file>file:/C:/Users/Fanfo/Documents/NetBeansProjects/FastMobile/FastMobile/src/Persistence/PlanJpaController.java</file>
             <file>file:/C:/Users/Fanfo/Documents/NetBeansProjects/FastMobile/FastMobile/src/Interface/GenerateReceipt.java</file>

@@ -4,8 +4,10 @@
  */
 package Controllers;
 
+import Models.Client_Phone;
 import Models.Consume;
 import Persistence.ConsumeJpaController;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,4 +25,20 @@ public class ConsumeController {
     public List<Consume> getConumes(){
         return consumeJPA.findConsumeEntities();
     }
+    
+    public List<String> getMonthlyConsumes (String[] dates, Client_Phone ph){
+        List<Consume> list = consumeJPA.findMonthlyConsumes(dates, ph);
+        int minutes = 0;
+        int megas = 0;
+        for (Consume c: list) {
+            minutes+=c.getMinutesConsume();
+            megas+=c.getInternetConsume();
+        }
+        List<String> results = new ArrayList<String>();
+        results.add(Integer.toString(minutes));
+        results.add(Integer.toString(megas));
+        return results;
+    }  
+    
+    
 }

@@ -16,11 +16,13 @@ import com.itextpdf.text.DocumentException;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 
  /*
@@ -109,7 +111,7 @@ public class GenerateReceipt extends javax.swing.JFrame {
         nombres = new javax.swing.JLabel();
         apellidos = new javax.swing.JLabel();
         identificacion = new javax.swing.JLabel();
-        registrarPago = new javax.swing.JButton();
+        generarFactura = new javax.swing.JButton();
         centroAdmin1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -187,16 +189,16 @@ public class GenerateReceipt extends javax.swing.JFrame {
 
         lineasTelefonicas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Número de línea", "Consumo Minutos", "Consumo Datos", "Último registro"
+                "Número de línea", "Consumo Minutos", "Consumo Datos"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -208,7 +210,6 @@ public class GenerateReceipt extends javax.swing.JFrame {
             lineasTelefonicas.getColumnModel().getColumn(0).setResizable(false);
             lineasTelefonicas.getColumnModel().getColumn(1).setResizable(false);
             lineasTelefonicas.getColumnModel().getColumn(2).setResizable(false);
-            lineasTelefonicas.getColumnModel().getColumn(3).setResizable(false);
         }
 
         datosDeLaLinea.setText("Datos de la línea:");
@@ -287,16 +288,16 @@ public class GenerateReceipt extends javax.swing.JFrame {
         White.add(formulario);
         formulario.setBounds(70, 60, 900, 250);
 
-        registrarPago.setBackground(new java.awt.Color(255, 255, 255));
-        registrarPago.setForeground(new java.awt.Color(41, 135, 217));
-        registrarPago.setText("REGISTRAR PAGO");
-        registrarPago.addMouseListener(new java.awt.event.MouseAdapter() {
+        generarFactura.setBackground(new java.awt.Color(255, 255, 255));
+        generarFactura.setForeground(new java.awt.Color(41, 135, 217));
+        generarFactura.setText("GENERAR FACTURA");
+        generarFactura.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                registrarPago(evt);
+                generarFactura(evt);
             }
         });
-        White.add(registrarPago);
-        registrarPago.setBounds(70, 340, 208, 42);
+        White.add(generarFactura);
+        generarFactura.setBounds(70, 340, 208, 42);
 
         centroAdmin1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         centroAdmin1.setText("Registro de pagos.");
@@ -318,18 +319,25 @@ public class GenerateReceipt extends javax.swing.JFrame {
         //ACTUALIZAR TABLA
     }//GEN-LAST:event_buscarCliente
 
-    private void registrarPago(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarPago
+    private void generarFactura(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generarFactura
         try {
-            // TODO add your handling code here:
-            //controladorGenerateReceipt.actualizarFecha(lineasTelefonicas, cliente);
-            //seAgrego.setVisible(true);
+            if(!identificacionCliente.getText().equals("-")){ 
             controladorGenerateReceipt.createPdf();
+        }else{ 
+            Toolkit.getDefaultToolkit().beep(); 
+            JOptionPane.showMessageDialog( 
+                    this,  
+                    "Por favor, ingrese un cliente válido.", 
+                    "Fallo en la generación de la factura.",  
+                    JOptionPane.INFORMATION_MESSAGE); 
+        }           
+            
         } catch (DocumentException ex) {
             Logger.getLogger(GenerateReceipt.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(GenerateReceipt.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_registrarPago
+    }//GEN-LAST:event_generarFactura
 
     private void menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseClicked
         controladorGenerateReceipt.goToMenu(this, usuario);
@@ -368,6 +376,7 @@ public class GenerateReceipt extends javax.swing.JFrame {
     private javax.swing.JLabel datosDeLaLinea;
     private javax.swing.JLabel fastMobileWhite;
     private javax.swing.JPanel formulario;
+    private javax.swing.JButton generarFactura;
     private javax.swing.JLabel identificacion;
     private javax.swing.JTextField identificacionClave;
     private javax.swing.JLabel identificacionCliente;
@@ -377,7 +386,6 @@ public class GenerateReceipt extends javax.swing.JFrame {
     private javax.swing.JLabel nombreCliente;
     private javax.swing.JLabel nombres;
     private javax.swing.JLabel nombresL;
-    private javax.swing.JButton registrarPago;
     private javax.swing.JLabel seAgrego;
     private javax.swing.JLabel userIcon;
     // End of variables declaration//GEN-END:variables

@@ -25,7 +25,7 @@ import javax.persistence.TemporalType;
 @Entity(name="Consumes")
 @NamedQueries({
         @NamedQuery(name = "Monthly_Consumes", 
-                    query = "select c from consumes c where c.consumedate BETWEEN CAST (:startDate AS DATE) AND CAST (:endDate AS DATE);"),
+                    query = "select c from Consumes c where c.consumeDate BETWEEN CAST (:startDate AS DATE) AND CAST (:endDate AS DATE) AND c.phone=:phone"),
         //@NamedQuery(name = "UsersRol",
                     //query = "SELECT u FROM users u WHERE u.rol = :rol")
     })

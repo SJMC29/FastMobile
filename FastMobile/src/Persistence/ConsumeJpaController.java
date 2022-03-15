@@ -4,6 +4,7 @@
  */
 package Persistence;
 
+import Models.Client_Phone;
 import Models.Consume;
 import Persistence.exceptions.NonexistentEntityException;
 import java.io.Serializable;
@@ -18,7 +19,7 @@ import javax.persistence.criteria.Root;
 
 /**
  *
- * @author EDITH
+ * @author Fanfo
  */
 public class ConsumeJpaController implements Serializable {
 
@@ -29,6 +30,7 @@ public class ConsumeJpaController implements Serializable {
 
     public ConsumeJpaController(){
         emf = Persistence.createEntityManagerFactory("FastMobile_PU");
+
     }
     
     public EntityManager getEntityManager() {
@@ -139,7 +141,7 @@ public class ConsumeJpaController implements Serializable {
         }
     }
     
-    public List<Consume> findMonthlyConsumes(String[] dates){
+    public List<Consume> findMonthlyConsumes(String[] dates, Client_Phone ph){
         String startDate = dates[0];
         String endDate = dates[1];
         
@@ -148,6 +150,7 @@ public class ConsumeJpaController implements Serializable {
             return (List<Consume>) em.createNamedQuery("Monthly_Consumes")
                     .setParameter("startDate", startDate)
                     .setParameter("endDate", endDate)
+                    .setParameter("phone", ph)
                     .getResultList();
         } finally {
             em.close();
