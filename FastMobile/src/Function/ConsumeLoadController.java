@@ -35,7 +35,7 @@ public class ConsumeLoadController {
         consumeLoad.dispose();
     }
     
-    public void loadConsumes(File file) throws ParseException{
+    public void loadConsumes(ConsumeLoad pL, File file, User u) throws ParseException{
         
         try {
             Scanner scan = new Scanner(file);
@@ -51,6 +51,8 @@ public class ConsumeLoadController {
                 }
             }
             scan.close();
+            new Menu(u).setVisible(true);
+            pL.dispose();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ConsumeLoadController.class.getName()).log(Level.SEVERE, null, ex);
         }
