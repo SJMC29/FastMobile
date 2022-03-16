@@ -766,7 +766,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_VerDashboardMouseExited
 
     private void generarRecibosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generarRecibosMouseClicked
-        menu_controller.goToConsumeLoad(this, usuario);
+        menu_controller.goToGenerateReceipt(this, usuario);
     }//GEN-LAST:event_generarRecibosMouseClicked
 
     private void generarRecibosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generarRecibosMouseEntered
