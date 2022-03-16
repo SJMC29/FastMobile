@@ -43,15 +43,13 @@ public class GenerateReceipt extends javax.swing.JFrame {
         usuario = u;
         initComponents();
         scaleImage();
-        seAgrego.setVisible(false);
-        System.out.println("HOLA USUARIO");
+        seGenero.setVisible(false);
     }
        
     public GenerateReceipt() {
         initComponents();
         scaleImage();
-        seAgrego.setVisible(false);
-        System.out.println("HOLA VACÍO");
+        seGenero.setVisible(false);
     }
  
     public Client identificacionClaveCliente(String idClientS){
@@ -97,7 +95,7 @@ public class GenerateReceipt extends javax.swing.JFrame {
         Separador = new javax.swing.JPanel();
         centroAdmin = new javax.swing.JLabel();
         White = new javax.swing.JPanel();
-        seAgrego = new javax.swing.JLabel();
+        seGenero = new javax.swing.JLabel();
         formulario = new javax.swing.JPanel();
         nombresL = new javax.swing.JLabel();
         identificacionClave = new javax.swing.JTextField();
@@ -176,12 +174,12 @@ public class GenerateReceipt extends javax.swing.JFrame {
         White.setBackground(new java.awt.Color(255, 255, 255));
         White.setLayout(null);
 
-        seAgrego.setBackground(new java.awt.Color(204, 255, 204));
-        seAgrego.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        seAgrego.setForeground(new java.awt.Color(0, 102, 51));
-        seAgrego.setText("Se registró el pago exitosamente.");
-        White.add(seAgrego);
-        seAgrego.setBounds(390, 350, 280, 25);
+        seGenero.setBackground(new java.awt.Color(204, 255, 204));
+        seGenero.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        seGenero.setForeground(new java.awt.Color(0, 102, 51));
+        seGenero.setText("Se generó la factura exitosamente.");
+        White.add(seGenero);
+        seGenero.setBounds(390, 350, 320, 25);
 
         nombresL.setText("Identificación del cliente:");
 
@@ -323,6 +321,7 @@ public class GenerateReceipt extends javax.swing.JFrame {
         try {
             if(!identificacionCliente.getText().equals("-")){ 
             controladorGenerateReceipt.createPdf();
+            seGenero.setVisible(true);
         }else{ 
             Toolkit.getDefaultToolkit().beep(); 
             JOptionPane.showMessageDialog( 
@@ -386,7 +385,7 @@ public class GenerateReceipt extends javax.swing.JFrame {
     private javax.swing.JLabel nombreCliente;
     private javax.swing.JLabel nombres;
     private javax.swing.JLabel nombresL;
-    private javax.swing.JLabel seAgrego;
+    private javax.swing.JLabel seGenero;
     private javax.swing.JLabel userIcon;
     // End of variables declaration//GEN-END:variables
 }

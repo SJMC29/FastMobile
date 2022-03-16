@@ -32,12 +32,4 @@ public class PersonController {
         return personJPA.findPerson(id);
     }
     
-    public void upDatePerson(Person p){
-        try {
-            personJPA.edit(p);
-        } catch (Exception ex) {
-            Logger.getLogger(PersonController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
 }

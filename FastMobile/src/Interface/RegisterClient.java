@@ -107,10 +107,6 @@ public class RegisterClient extends javax.swing.JFrame {
     public JTable getjTable() {
         return jTable;
     }
-    
-    //public JLabel getjLabelErrorLinea() {
-        //return jLabelErrorLinea;
-    //}
        
     /**
      * Creates new form RegisterUser

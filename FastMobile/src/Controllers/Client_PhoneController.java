@@ -21,7 +21,4 @@ public class Client_PhoneController {
         return client_PhoneJPA.findClient_Phone(id);
     }
     
-    public Client_Phone getClient_PhoneByNumber(String number){
-        return client_PhoneJPA.fineClient_PhoneByNumber(number);
-    }
 }

@@ -231,9 +231,9 @@ public class PaymentLoad extends javax.swing.JFrame {
         if(file == null){
             JOptionPane.showMessageDialog(null,"Por favor seleccione un archivo válido");
         }else{
-            System.out.println("enviar a Payment Load Controller");
+            //System.out.println("enviar a Payment Load Controller");
             try {
-                paymentLoadController.loadPayments(this,file,usuario);
+                paymentLoadController.loadPayments(this,file,usuario);                
             } catch (ParseException ex) {
                 Logger.getLogger(PaymentLoad.class.getName()).log(Level.SEVERE, null, ex);
             }

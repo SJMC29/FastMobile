@@ -46,12 +46,12 @@ public class PaymentRegister extends javax.swing.JFrame {
     }
  
      public Client identificacionClaveCliente(String idClientS){
-        // int idClientINT = Integer.parseInt(idClientS);      
-        cliente = clientController.getClienteByPerson(idClientS);
+        int idClientINT = Integer.parseInt(idClientS);      
+        cliente = clientController.getClient(idClientINT);
         
         nombreCliente.setText(cliente.getPerson().getName());
         apellidoCliente.setText(cliente.getPerson().getLastName());
-        identificacionCliente.setText(idClientS);
+        identificacionCliente.setText(cliente.getPerson().getId_Person());
         
         return cliente;
     }

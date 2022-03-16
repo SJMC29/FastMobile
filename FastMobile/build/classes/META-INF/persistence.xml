@@ -9,14 +9,11 @@
     <class>Models.User</class>
     <class>Models.Client</class>
     <class>Models.Client_Phone</class>
-    <class>Models.Payment</class>
-    <class>Models.Consume</class>
-    <class>Models.Counter</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://te1.tunnelin.com:52900/FastMobile"/>
-      <property name="javax.persistence.jdbc.user" value="postgres"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://castor.db.elephantsql.com:5432/brqcicjo"/>
+      <property name="javax.persistence.jdbc.user" value="brqcicjo"/>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="Aletrox123"/>
+      <property name="javax.persistence.jdbc.password" value="W9x4Q4yWxXR1Y5FqSbcl4wpBtkx-7tFW"/>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
   </persistence-unit>

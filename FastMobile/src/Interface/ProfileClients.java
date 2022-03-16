@@ -43,17 +43,15 @@ public class ProfileClients extends javax.swing.JFrame {
         nombresT.setText(c.getPerson().getName());
         apellidosT.setText(c.getPerson().getLastName());
         identificacionT.setText(c.getPerson().getId_Person());
-        identificacionT.setEditable(false);
         email.setText(c.getPerson().geteMail());
         telefono.setText(c.getPerson().getPhone());
         direction.setText(c.getPerson().getAddress());
         suspendido.setSelected(c.isSuspended());
         controladorClient.loadTypes(tipo);
         tipo.setSelectedIndex(c.getClien_Type().getId_type()-1);
-        SimpleDateFormat formatter4=new SimpleDateFormat("E, MMM dd yyyy");             
-        String strDate = formatter4.format(c.getLastPayment());  
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");             
+        String strDate = dateFormat.format(c.getLastPayment());  
         ultimoPago.setText(strDate);
-        ultimoPago.setEditable(false);
         controladorProfile.cargarTelefonos(tabla, c);
         latitudT.setText(String.valueOf(c.getPerson().getLatitude()));
         logitudT.setText(String.valueOf(c.getPerson().getLongitude()));
@@ -243,7 +241,7 @@ public class ProfileClients extends javax.swing.JFrame {
         seAgrego.setForeground(new java.awt.Color(0, 102, 51));
         seAgrego.setText("Se actualizó al cliente exitosamente.");
         White.add(seAgrego);
-        seAgrego.setBounds(393, 452, 309, 25);
+        seAgrego.setBounds(393, 452, 530, 25);
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -435,8 +433,19 @@ public class ProfileClients extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void seAgrego(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seAgrego
-        controladorProfile.actualizarDatos(this, usuario);
+<<<<<<< Updated upstream
+        controladorProfile.actualizarDatos(this);
         seAgrego.setVisible(true);
+=======
+        controladorProfile.actualizarDatos(this, usuario);
+        if(controladorProfile.validation(this)==0){
+            seAgrego.setVisible(true);
+        }else{
+            seAgrego.setText("Datos inválidos, intente de nuevo.");
+            seAgrego.setForeground(Color.red);
+            seAgrego.setVisible(true);
+        } 
+>>>>>>> Stashed changes
     }//GEN-LAST:event_seAgrego
 
     private void menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseClicked
