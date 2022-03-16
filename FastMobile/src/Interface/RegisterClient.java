@@ -293,11 +293,6 @@ public class RegisterClient extends javax.swing.JFrame {
 
         jTextFieldClient_Phone.setText("Telefono");
         jTextFieldClient_Phone.setToolTipText("Cedula de Ciudadania");
-        jTextFieldClient_Phone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldClient_PhoneActionPerformed(evt);
-            }
-        });
 
         jComboBoxPlan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxPlan.addActionListener(new java.awt.event.ActionListener() {
@@ -483,9 +478,14 @@ public class RegisterClient extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void crearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearClienteActionPerformed
-        // TODO add your handling code here:
-        seAgrego.setVisible(true);
         clientControl.sendForm(this);
+        if(clientControl.validation(this)==0){
+            seAgrego.setVisible(true);
+        }else{
+            seAgrego.setText("Datos inválidos, intente de nuevo.");
+            seAgrego.setForeground(Color.red);
+            seAgrego.setVisible(true);
+        }
     }//GEN-LAST:event_crearClienteActionPerformed
 
     private void menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseClicked
@@ -504,19 +504,11 @@ public class RegisterClient extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxPlanActionPerformed
 
-    private void jTextFieldClient_PhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldClient_PhoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldClient_PhoneActionPerformed
-
     private void jRadioButtonSuspendedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSuspendedActionPerformed
         // TODO add your handling code here:
         this.active= !this.active;
         System.out.println(this.active);
     }//GEN-LAST:event_jRadioButtonSuspendedActionPerformed
-
-    private void jTextFieldPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPhoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPhoneActionPerformed
 
     private void menuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseEntered
         menu.setForeground(new Color(242,229,46));
@@ -526,6 +518,10 @@ public class RegisterClient extends javax.swing.JFrame {
     private void menuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseExited
         menu.setForeground(new Color(41,135,217));
     }//GEN-LAST:event_menuMouseExited
+
+    private void jTextFieldPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPhoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPhoneActionPerformed
     
     
     /**

@@ -6,6 +6,8 @@ package Interface;
 
 import Function.PaymentLoadController;
 import Models.User;
+import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Image;
 import java.io.File;
 import java.text.ParseException;
@@ -77,6 +79,7 @@ public class PaymentLoad extends javax.swing.JFrame {
         fastMobileWhite = new javax.swing.JLabel();
         userIcon = new javax.swing.JLabel();
         menu = new javax.swing.JLabel();
+        centroAdmin1 = new javax.swing.JLabel();
         Separador = new javax.swing.JPanel();
         CENTER = new javax.swing.JPanel();
         centroAdmin = new javax.swing.JLabel();
@@ -109,9 +112,20 @@ public class PaymentLoad extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                menuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                menuMouseExited(evt);
+            }
         });
         TOP.add(menu);
         menu.setBounds(850, 40, 50, 20);
+
+        centroAdmin1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        centroAdmin1.setText("CENTRO DE ADMINISTRACIÓN FAST MOBILE");
+        TOP.add(centroAdmin1);
+        centroAdmin1.setBounds(320, 40, 330, 19);
 
         getContentPane().add(TOP);
         TOP.setBounds(0, 0, 1030, 100);
@@ -212,10 +226,7 @@ public class PaymentLoad extends javax.swing.JFrame {
             pathRead.setText(file.getAbsolutePath());
             pathRead.setVisible(true);
             //TODO PaymentLoadController use file
-        }
-        //j.getSelectedFile().getAbsolutePath();
-        
-        
+        }  
     }//GEN-LAST:event_selectFileActionPerformed
 
     private void seAgregoExitosamente(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seAgregoExitosamente
@@ -231,7 +242,6 @@ public class PaymentLoad extends javax.swing.JFrame {
         if(file == null){
             JOptionPane.showMessageDialog(null,"Por favor seleccione un archivo válido");
         }else{
-            System.out.println("enviar a Payment Load Controller");
             try {
                 paymentLoadController.loadPayments(this,file,usuario);
             } catch (ParseException ex) {
@@ -239,6 +249,15 @@ public class PaymentLoad extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_cargarPagosActionPerformed
+
+    private void menuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseEntered
+        menu.setForeground(new Color(242,229,46));
+        menu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_menuMouseEntered
+
+    private void menuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseExited
+        menu.setForeground(new Color(41,135,217));
+    }//GEN-LAST:event_menuMouseExited
 
     
     /**
@@ -283,6 +302,7 @@ public class PaymentLoad extends javax.swing.JFrame {
     private javax.swing.JPanel TOP;
     private javax.swing.JButton cargarPagos;
     private javax.swing.JLabel centroAdmin;
+    private javax.swing.JLabel centroAdmin1;
     private javax.swing.JLabel fastMobileWhite;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel menu;

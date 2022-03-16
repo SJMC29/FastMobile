@@ -5,6 +5,8 @@
 package Interface;
 
 import Function.LoginController;
+import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.IOException;
@@ -167,6 +169,14 @@ public class Login extends javax.swing.JFrame {
 
         forgotPassword.setForeground(new java.awt.Color(102, 102, 102));
         forgotPassword.setText("Olvidé mi contraseña");
+        forgotPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                forgotPasswordMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                forgotPasswordMouseExited(evt);
+            }
+        });
         menuWhite.add(forgotPassword);
         forgotPassword.setBounds(180, 180, 130, 20);
 
@@ -225,6 +235,15 @@ public class Login extends javax.swing.JFrame {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_LOGINActionPerformed
+
+    private void forgotPasswordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotPasswordMouseEntered
+        forgotPassword.setForeground(new Color(242,229,46));
+        forgotPassword.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_forgotPasswordMouseEntered
+
+    private void forgotPasswordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotPasswordMouseExited
+        forgotPassword.setForeground(new Color(102,102,102));
+    }//GEN-LAST:event_forgotPasswordMouseExited
 
     /**
      * @param args the command line arguments

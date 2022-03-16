@@ -399,9 +399,6 @@
                     <Property name="text" type="java.lang.String" value="Telefono"/>
                     <Property name="toolTipText" type="java.lang.String" value="Cedula de Ciudadania"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldClient_PhoneActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBoxPlan">
                   <Properties>

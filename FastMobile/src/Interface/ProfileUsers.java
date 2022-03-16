@@ -160,7 +160,6 @@ public class ProfileUsers extends javax.swing.JFrame {
         Blue = new javax.swing.JPanel();
         Menu = new javax.swing.JLabel();
         logout = new javax.swing.JLabel();
-        back = new javax.swing.JLabel();
         perfilDeUsuario1 = new javax.swing.JLabel();
         userImage = new javax.swing.JLabel();
         White = new javax.swing.JPanel();
@@ -235,18 +234,6 @@ public class ProfileUsers extends javax.swing.JFrame {
         });
         Blue.add(logout);
         logout.setBounds(70, 70, 72, 16);
-
-        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Menu/Back.png"))); // NOI18N
-        back.setMaximumSize(new java.awt.Dimension(65, 65));
-        back.setMinimumSize(new java.awt.Dimension(65, 65));
-        back.setPreferredSize(new java.awt.Dimension(65, 65));
-        back.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                backMouseEntered(evt);
-            }
-        });
-        Blue.add(back);
-        back.setBounds(940, 30, 50, 50);
 
         perfilDeUsuario1.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
         perfilDeUsuario1.setForeground(new java.awt.Color(255, 255, 255));
@@ -404,7 +391,7 @@ public class ProfileUsers extends javax.swing.JFrame {
 
         upDateUsuario.setBackground(new java.awt.Color(255, 255, 255));
         upDateUsuario.setForeground(new java.awt.Color(41, 135, 217));
-        upDateUsuario.setText("ACTUALIZAR USUSARIO");
+        upDateUsuario.setText("ACTUALIZAR USUARIO");
         upDateUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 seAgrego(evt);
@@ -457,10 +444,6 @@ public class ProfileUsers extends javax.swing.JFrame {
     private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
         logout.setForeground(Color.white);
     }//GEN-LAST:event_logoutMouseExited
-
-    private void backMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseEntered
-        back.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_backMouseEntered
 
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
         // TODO add your handling code here:
@@ -543,7 +526,6 @@ public class ProfileUsers extends javax.swing.JFrame {
     private javax.swing.JRadioButton activo;
     private javax.swing.JLabel apellidosL;
     private javax.swing.JTextField apellidosT;
-    private javax.swing.JLabel back;
     private javax.swing.JTextField contrasena;
     private javax.swing.JLabel contrasenaL;
     private javax.swing.JLabel direccion;

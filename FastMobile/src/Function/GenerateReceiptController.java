@@ -6,6 +6,7 @@ package Function;
 
 import Controllers.ClientController;
 import Controllers.ConsumeController;
+import Controllers.CounterController;
 import Controllers.PaymentConroller;
 import Interface.GenerateReceipt;
 import Interface.Menu;
@@ -54,6 +55,7 @@ public class GenerateReceiptController {
     ClientController clientController = new ClientController();
     PaymentConroller paymentController = new PaymentConroller();
     ConsumeController cons = new ConsumeController();
+    CounterController counterController = new CounterController();
     Client global_client;
     
     
@@ -129,7 +131,9 @@ public class GenerateReceiptController {
         java.util.Date date = new Date();
         documento.add(new Phrase(formatter4.format(date)));
         documento.add(new Phrase("\nFactura de venta No ",FontFactory.getFont("arial",11,Font.BOLD)));
-        documento.add(new Phrase("-----"));
+        counterController.upDate();
+        int counter = counterController.getCounter();
+        documento.add(new Phrase(counter+""));
         
         float total = 0;
         
@@ -270,7 +274,7 @@ public class GenerateReceiptController {
         
         documento.add(new Phrase("\n"));
         Barcode128 barcode128 = new Barcode128();
-        barcode128.setCode("(415)"+"valorfactura"+"(8021)"+global_client.getPerson().getId_Person()+"(3902)"+total+"(96)"+actualMonth[1]);//(415)7707247180153(8021)ID(3902)VALOR(96)PERIODO
+        barcode128.setCode("(415)"+counter+"(8021)"+global_client.getPerson().getId_Person()+"(3902)"+total+"(96)"+actualMonth[1]);//(415)7707247180153(8021)ID(3902)VALOR(96)PERIODO
         barcode128.setCodeType(Barcode128.CODE128);
         PdfContentByte pdfContentByte = pdfWriter.getDirectContent();
         Image code128Image = barcode128.createImageWithBarcode(pdfContentByte, null, null);

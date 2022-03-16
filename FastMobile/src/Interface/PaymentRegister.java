@@ -37,14 +37,12 @@ public class PaymentRegister extends javax.swing.JFrame {
         initComponents();
         scaleImage();
         seAgrego.setVisible(false);
-        System.out.println("HOLA USUARIO");
     }
        
     public PaymentRegister() {
         initComponents();
         scaleImage();
         seAgrego.setVisible(false);
-        System.out.println("HOLA VACÍO");
     }
  
      public Client identificacionClaveCliente(String idClientS){
@@ -174,7 +172,7 @@ public class PaymentRegister extends javax.swing.JFrame {
         seAgrego.setForeground(new java.awt.Color(0, 102, 51));
         seAgrego.setText("Se registró el pago exitosamente.");
         White.add(seAgrego);
-        seAgrego.setBounds(390, 350, 280, 25);
+        seAgrego.setBounds(390, 350, 520, 25);
 
         nombresL.setText("Identificación del cliente:");
 
@@ -311,9 +309,14 @@ public class PaymentRegister extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarCliente
 
     private void registrarPago(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarPago
-        // TODO add your handling code here:
-        controladorPaymentRegister.actualizarFecha(lineasTelefonicas, cliente);
-        seAgrego.setVisible(true);
+        try {
+            controladorPaymentRegister.actualizarFecha(lineasTelefonicas, cliente);
+            seAgrego.setVisible(true);
+        } catch (Exception e) {
+            seAgrego.setText("Datos inválidos, intente de nuevo.");
+            seAgrego.setForeground(Color.red);
+            seAgrego.setVisible(true);
+        }
     }//GEN-LAST:event_registrarPago
 
     private void menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseClicked

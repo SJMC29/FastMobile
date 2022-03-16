@@ -403,7 +403,7 @@ public class RegisterUser extends javax.swing.JFrame {
         seAgrego.setForeground(new java.awt.Color(0, 102, 51));
         seAgrego.setText("Se agregó el usuario exitosamente");
         CENTER.add(seAgrego);
-        seAgrego.setBounds(340, 360, 300, 30);
+        seAgrego.setBounds(340, 360, 620, 30);
 
         centroAdmin1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         centroAdmin1.setText("Registro de usuarios. ");
@@ -417,9 +417,14 @@ public class RegisterUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void crearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearUsuarioActionPerformed
-        // TODO add your handling code here:
         userController.sendForm(this);
-        
+        if(userController.validation(this)==0){
+            seAgrego.setVisible(true);
+        }else{
+            seAgrego.setText("Datos inválidos, intente de nuevo.");
+            seAgrego.setForeground(Color.red);
+            seAgrego.setVisible(true);
+        }
     }//GEN-LAST:event_crearUsuarioActionPerformed
 
     private void seAgregoExitosamente(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seAgregoExitosamente

@@ -5,6 +5,7 @@ import Controllers.ClientController;
 import Controllers.Client_PhoneController;
 import Controllers.Client_TypeController;
 import Controllers.ConsumeController;
+import Controllers.CounterController;
 import Controllers.PersonController;
 import Controllers.PlanController;
 import Controllers.RolController;
@@ -117,17 +118,25 @@ public class Tests {
         //Client_Phone tel = phoneControl.getClient_Phone(2);
         //String[] dates = {"2022-3-1","2022-3-31"};
         
+        //System.out.println(cons.getMonthlyConsumes(dates, tel));
+        
+        //personControl.destroyPerson("1052661846");
         
         //ConsumeController cons = new ConsumeController();
         
         //System.out.println(cons.getMonthlyConsumes(dates, tel));
-        phoneControl.destroyPerson(14);
-        phoneControl.destroyPerson(15);
-        clientControl.destroyClient(6);        
-        personControl.destroyPerson("Cédula");
+        //GenerateReceiptController zzJava = new GenerateReceiptController();
+        //System.out.println(zzJava.parseToColombian(1000000));
+
+        //System.out.println("Fin del Test");
         
-        
-        
+        CounterController counterControl = new CounterController();
+        counterControl.createCounter();
+        int c = counterControl.getCounter();
+        System.out.println("c = " + c);
+        counterControl.upDate();
+        c = counterControl.getCounter();
+        System.out.println("c = " + c);
     }
     
 }
