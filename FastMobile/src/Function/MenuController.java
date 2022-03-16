@@ -8,6 +8,7 @@ import Controllers.UserController;
 import Interface.ConsumeLoad;
 import Interface.ListClients;
 import Interface.ListUsers;
+import Interface.GenerateReceipt;
 import Interface.Login;
 import Interface.Menu;
 import Interface.PaymentLoad;
@@ -16,6 +17,10 @@ import Interface.ProfileUsers;
 import Interface.RegisterClient;
 import Interface.RegisterUser;
 import Models.User;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 /**
  *
  * @author Sara Maradiago
@@ -62,4 +67,19 @@ public class MenuController {
         new PaymentLoad(usuario).setVisible(true);
         menu.dispose();
     }
+    
+    public void goToGenerateReceipt(Menu menu, User usuario) {
+        new GenerateReceipt(usuario).setVisible(true);
+        menu.dispose();
+    }
+    
+    public void goToDashboard() {//GEN-FIRST:event_VerDashboardMouseClicked
+        try {
+            Desktop.getDesktop().browse(new URI("https://app.powerbi.com/view?r=eyJrIjoiZTE4YjYwMjQtNDE0OC00NDZjLThlMWMtNGFmNjQyYjc1M2MwIiwidCI6IjhjMDdhNTExLTZjZTYtNDIzYy1iMDllLWRhYmU5ZDgyNjVjMyIsImMiOjR9"));
+        } catch (URISyntaxException ex) {
+            System.out.println(ex);
+        }catch(IOException e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_VerDashboardMouseClicked
 }
