@@ -75,7 +75,7 @@ public class MenuController {
     
     public void goToDashboard() {//GEN-FIRST:event_VerDashboardMouseClicked
         try {
-            Desktop.getDesktop().browse(new URI("https://app.powerbi.com/view?r=eyJrIjoiZTE4YjYwMjQtNDE0OC00NDZjLThlMWMtNGFmNjQyYjc1M2MwIiwidCI6IjhjMDdhNTExLTZjZTYtNDIzYy1iMDllLWRhYmU5ZDgyNjVjMyIsImMiOjR9"));
+            Desktop.getDesktop().browse(new URI("https://app.powerbi.com/view?r=eyJrIjoiZWZmNWFmNmQtYWU4MC00NjdiLWFiNWYtZjRjZDNjYTU3OTdjIiwidCI6IjhjMDdhNTExLTZjZTYtNDIzYy1iMDllLWRhYmU5ZDgyNjVjMyIsImMiOjR9"));
         } catch (URISyntaxException ex) {
             System.out.println(ex);
         }catch(IOException e){

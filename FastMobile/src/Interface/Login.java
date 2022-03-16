@@ -32,6 +32,7 @@ public class Login extends javax.swing.JFrame {
         //LOGIN.setBackground(new Color(255,255,255,0));
         scaleImage();
         this.setTitle("Fast Mobile");
+        forgotPassword.setVisible(false);
         //Esto de ultimo siempre
     }
     //Gets

@@ -182,6 +182,8 @@ public class RegisterClient extends javax.swing.JFrame {
         centroAdmin1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1024, 576));
+        setPreferredSize(new java.awt.Dimension(1024, 576));
         getContentPane().setLayout(null);
 
         TOP.setBackground(new java.awt.Color(255, 255, 255));

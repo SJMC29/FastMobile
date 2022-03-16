@@ -6,6 +6,7 @@ import Controllers.Client_PhoneController;
 import Controllers.Client_TypeController;
 import Controllers.ConsumeController;
 import Controllers.CounterController;
+import Controllers.PaymentConroller;
 import Controllers.PersonController;
 import Controllers.PlanController;
 import Controllers.RolController;
@@ -28,6 +29,8 @@ public class Tests {
         PlanController planControl = new PlanController();
         PersonController personControl = new PersonController();
         UserController userControl = new UserController();
+        ConsumeController consumeController = new ConsumeController();
+        PaymentConroller paymentController = new PaymentConroller();
         /*// Creacion de roles
         Rol rol_1 = new Rol("Administrador");
         Rol rol_2 = new Rol("Gerente");
@@ -60,12 +63,14 @@ public class Tests {
         */
         
         //USUARIOS
+        /*
         for(User u :userControl.getUsers()){
             System.out.println(u);            
         }
         
         User u = userControl.getUser("1193477073");
         Client cliente = clientControl.getClient(1);
+        */
         
         
        //Plan pl_2 = new Plan("Plan Ilimitado",999999,999999,true,75990);
@@ -112,9 +117,6 @@ public class Tests {
         SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd yyyy HH:mm:ss zzz");
         Date date = sdf.parse(time);
         */
-
-        
-        
         //Client_Phone tel = phoneControl.getClient_Phone(2);
         //String[] dates = {"2022-3-1","2022-3-31"};
         
@@ -129,7 +131,7 @@ public class Tests {
         //System.out.println(zzJava.parseToColombian(1000000));
 
         //System.out.println("Fin del Test");
-        
+        /*
         CounterController counterControl = new CounterController();
         counterControl.createCounter();
         int c = counterControl.getCounter();
@@ -137,6 +139,8 @@ public class Tests {
         counterControl.upDate();
         c = counterControl.getCounter();
         System.out.println("c = " + c);
+        */
+        
     }
     
 }

@@ -169,8 +169,19 @@ public class GenerateReceiptController {
         for(Client_Phone t: telefonos){
          basics.addCell(t.getPhone_Number());
          basics.addCell(t.getPlan().getName());
-         basics.addCell(t.getPlan().getMinutes()+"");
-         basics.addCell(t.getPlan().getInternet()+" GB");
+         int minutes = t.getPlan().getMinutes();
+         if(minutes > 1000){
+             basics.addCell("Ilimitado");
+         }else{
+             basics.addCell(minutes+"");
+         }
+         
+         int datos = t.getPlan().getInternet();
+         if(datos > 1000){
+             basics.addCell("Ilimitado");
+         }else{
+             basics.addCell(datos+" GB");
+         }
          basics.addCell(parseToColombian(t.getPlan().getPrice()));   
          total += t.getPlan().getPrice();
         }         

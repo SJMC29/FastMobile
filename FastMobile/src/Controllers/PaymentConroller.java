@@ -6,7 +6,10 @@ package Controllers;
 
 import Models.Payment;
 import Persistence.PaymentJpaController;
+import Persistence.exceptions.NonexistentEntityException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,6 +25,14 @@ public class PaymentConroller {
     
     public List<Payment> getPayments(){
         return paymentJPA.findPaymentEntities();
+    }
+    
+    public void deletePayment(Integer id){
+        try {
+            paymentJPA.destroy(id);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(PaymentConroller.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
