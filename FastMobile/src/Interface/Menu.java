@@ -78,11 +78,11 @@ public class Menu extends javax.swing.JFrame {
         icon = new ImageIcon("src\\Images\\Menu\\RegistroPagos.jpg");
         //Escalando para que se acomoden
         img = icon.getImage();
-        imgScale = img.getScaledInstance(listaClientes_img.getWidth(),listaClientes_img.getHeight(),Image.SCALE_SMOOTH);
+        imgScale = img.getScaledInstance(registroPagos_img.getWidth(),registroPagos_img.getHeight(),Image.SCALE_SMOOTH);
         scaledIcon = new ImageIcon(imgScale);
-        listaClientes_img.setIcon(scaledIcon);
+        registroPagos_img.setIcon(scaledIcon);
         
-        icon = new ImageIcon("src\\Images\\Menu\\cargarPagos.jpg");
+        icon = new ImageIcon("src\\Images\\Menu\\cargarPagos.jpeg");
         //Escalando para que se acomoden
         img = icon.getImage();
         imgScale = img.getScaledInstance(cargarPagos_img.getWidth(),cargarPagos_img.getHeight(),Image.SCALE_SMOOTH);
@@ -163,7 +163,7 @@ public class Menu extends javax.swing.JFrame {
         generarRecibo = new javax.swing.JPanel();
         cargarConsumos3 = new javax.swing.JPanel();
         textoCrearUsuario4 = new javax.swing.JLabel();
-        CargarConsumos1 = new javax.swing.JLabel();
+        generarRecibos = new javax.swing.JLabel();
         generarRecibos_img = new javax.swing.JLabel();
         verDashboard = new javax.swing.JPanel();
         verDashboard2 = new javax.swing.JPanel();
@@ -524,21 +524,21 @@ public class Menu extends javax.swing.JFrame {
         cargarConsumos3.add(textoCrearUsuario4);
         textoCrearUsuario4.setBounds(20, 30, 180, 20);
 
-        CargarConsumos1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        CargarConsumos1.setText("Generar recibos");
-        CargarConsumos1.addMouseListener(new java.awt.event.MouseAdapter() {
+        generarRecibos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        generarRecibos.setText("Generar recibos");
+        generarRecibos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                CargarConsumos1MouseClicked(evt);
+                generarRecibosMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                CargarConsumos1MouseEntered(evt);
+                generarRecibosMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                CargarConsumos1MouseExited(evt);
+                generarRecibosMouseExited(evt);
             }
         });
-        cargarConsumos3.add(CargarConsumos1);
-        CargarConsumos1.setBounds(20, 10, 120, 20);
+        cargarConsumos3.add(generarRecibos);
+        generarRecibos.setBounds(20, 10, 120, 20);
 
         generarRecibo.add(cargarConsumos3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 220, 60));
 
@@ -565,7 +565,7 @@ public class Menu extends javax.swing.JFrame {
         textoCrearUsuario3.setBounds(20, 30, 180, 20);
 
         VerDashboard.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        VerDashboard.setText("Dash Board");
+        VerDashboard.setText("Dashboard");
         VerDashboard.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 VerDashboardMouseClicked(evt);
@@ -757,26 +757,26 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_VerDashboardMouseClicked
 
     private void VerDashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerDashboardMouseEntered
-        verDashboard.setForeground(new Color(41,135,217)); 
-        verDashboard.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        VerDashboard.setForeground(new Color(41,135,217));  
+        VerDashboard.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_VerDashboardMouseEntered
 
     private void VerDashboardMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerDashboardMouseExited
-        verDashboard.setForeground(Color.black);
+        VerDashboard.setForeground(Color.black);
     }//GEN-LAST:event_VerDashboardMouseExited
 
-    private void CargarConsumos1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CargarConsumos1MouseClicked
+    private void generarRecibosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generarRecibosMouseClicked
         menu_controller.goToConsumeLoad(this, usuario);
-    }//GEN-LAST:event_CargarConsumos1MouseClicked
+    }//GEN-LAST:event_generarRecibosMouseClicked
 
-    private void CargarConsumos1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CargarConsumos1MouseEntered
-        cargarConsumos.setForeground(new Color(41,135,217)); 
-        cargarConsumos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_CargarConsumos1MouseEntered
+    private void generarRecibosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generarRecibosMouseEntered
+        generarRecibos.setForeground(new Color(41,135,217)); 
+        generarRecibos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_generarRecibosMouseEntered
 
-    private void CargarConsumos1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CargarConsumos1MouseExited
-        cargarConsumos.setForeground(Color.black);
-    }//GEN-LAST:event_CargarConsumos1MouseExited
+    private void generarRecibosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generarRecibosMouseExited
+        generarRecibos.setForeground(Color.black);
+    }//GEN-LAST:event_generarRecibosMouseExited
 
     /**
      * @param args the command line arguments
@@ -815,7 +815,6 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CargarConsumos;
-    private javax.swing.JLabel CargarConsumos1;
     private javax.swing.JLabel CargarPagos;
     private javax.swing.JLabel CrearCliente;
     private javax.swing.JLabel CrearUsuario;
@@ -836,6 +835,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel crearUsuario_img;
     private javax.swing.JLabel dashboard_img;
     private javax.swing.JPanel generarRecibo;
+    private javax.swing.JLabel generarRecibos;
     private javax.swing.JLabel generarRecibos_img;
     private javax.swing.JLabel jLabelFullName;
     private javax.swing.JLabel jLabelProfileImage;

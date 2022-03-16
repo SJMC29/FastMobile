@@ -77,6 +77,7 @@ public class ListUsers extends javax.swing.JFrame {
         tablaUsuarios = new javax.swing.JTable();
         siguiente = new javax.swing.JButton();
         anterior = new javax.swing.JButton();
+        centroAdmin1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -189,7 +190,7 @@ public class ListUsers extends javax.swing.JFrame {
         }
 
         White.add(jScrollPane1);
-        jScrollPane1.setBounds(60, 130, 920, 290);
+        jScrollPane1.setBounds(60, 170, 920, 250);
 
         siguiente.setBackground(new java.awt.Color(255, 255, 255));
         siguiente.setForeground(new java.awt.Color(41, 135, 217));
@@ -212,6 +213,11 @@ public class ListUsers extends javax.swing.JFrame {
         });
         White.add(anterior);
         anterior.setBounds(60, 450, 130, 42);
+
+        centroAdmin1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        centroAdmin1.setText("Lista de usuarios.");
+        White.add(centroAdmin1);
+        centroAdmin1.setBounds(60, 130, 287, 20);
 
         getContentPane().add(White);
         White.setBounds(0, 0, 1030, 580);
@@ -316,6 +322,7 @@ public class ListUsers extends javax.swing.JFrame {
     private javax.swing.JPanel White;
     private javax.swing.JButton anterior;
     private javax.swing.JLabel centroAdmin;
+    private javax.swing.JLabel centroAdmin1;
     private javax.swing.JLabel fastMobileWhite;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel menu;

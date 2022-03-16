@@ -6,6 +6,8 @@ package Interface;
 
 import Function.PaymentLoadController;
 import Models.User;
+import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Image;
 import java.io.File;
 import java.text.ParseException;
@@ -109,6 +111,12 @@ public class PaymentLoad extends javax.swing.JFrame {
         menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                menuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                menuMouseExited(evt);
             }
         });
         TOP.add(menu);
@@ -241,6 +249,15 @@ public class PaymentLoad extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_cargarPagosActionPerformed
+
+    private void menuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseEntered
+        menu.setForeground(new Color(242,229,46));
+        menu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_menuMouseEntered
+
+    private void menuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseExited
+        menu.setForeground(new Color(41,135,217));
+    }//GEN-LAST:event_menuMouseExited
 
     
     /**
