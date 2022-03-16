@@ -52,6 +52,7 @@ public class RegisterClientController {
     PlanController planControl = new PlanController();  
     List<Client_Type> types;
     List<Plan> plans;
+    boolean funciono = false;
     
     public Client_Type tipoSeleccionado(int i){
         return types.get(i);
@@ -61,6 +62,10 @@ public class RegisterClientController {
             new Menu(usuario).setVisible(true);
             registerClient.dispose();
     }
+    
+    public boolean funciono(){
+        return funciono;        
+    }    
     
     public void sendForm(RegisterClient rc){
         String cedula = rc.getjTextFieldCedula().getText();
@@ -75,7 +80,7 @@ public class RegisterClientController {
         Date current_date = new Date();
         reset_bg(rc);
         if(validation(rc) == 0){//Si no hay error enviar
-            //TODOOOOO
+            funciono = true;
             boolean suspended = rc.getjRadioButtonSuspended();
             Person person = new Person(
                     cedula,

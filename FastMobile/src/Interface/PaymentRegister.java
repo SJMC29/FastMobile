@@ -309,8 +309,11 @@ public class PaymentRegister extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarCliente
 
     private void registrarPago(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarPago
+        seAgrego.setVisible(false);
         try {
             controladorPaymentRegister.actualizarFecha(lineasTelefonicas, cliente);
+            seAgrego.setText("Se registró el pago exitosamente.");
+            seAgrego.setForeground(new Color(0,102,51));
             seAgrego.setVisible(true);
         } catch (Exception e) {
             seAgrego.setText("Datos inválidos, intente de nuevo.");
