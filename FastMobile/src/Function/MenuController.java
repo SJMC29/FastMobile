@@ -5,14 +5,12 @@
 package Function;
 
 import Controllers.UserController;
-<<<<<<< Updated upstream
-=======
 import Interface.ConsumeLoad;
-import Interface.GenerateReceipt;
->>>>>>> Stashed changes
 import Interface.ListClients;
+import Interface.ListUsers;
 import Interface.Login;
 import Interface.Menu;
+import Interface.PaymentLoad;
 import Interface.PaymentRegister;
 import Interface.ProfileUsers;
 import Interface.RegisterClient;
@@ -49,8 +47,6 @@ public class MenuController {
             new PaymentRegister(user).setVisible(true);
             menu.dispose();    
     }
-<<<<<<< Updated upstream
-=======
     
     public void goToListUsers(Menu menu, User user){                        
             new ListUsers(user).setVisible(true); 
@@ -66,10 +62,4 @@ public class MenuController {
         new PaymentLoad(usuario).setVisible(true);
         menu.dispose();
     }
-    
-    public void goToGenerateReceipt(Menu menu, User usuario) {
-        new GenerateReceipt(usuario).setVisible(true);
-        menu.dispose();
-    }    
->>>>>>> Stashed changes
 }
