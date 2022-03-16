@@ -26,8 +26,8 @@ import javax.persistence.TemporalType;
 @NamedQueries({
         @NamedQuery(name = "Monthly_Consumes", 
                     query = "select c from Consumes c where c.consumeDate BETWEEN CAST (:startDate AS DATE) AND CAST (:endDate AS DATE) AND c.phone=:phone"),
-        //@NamedQuery(name = "UsersRol",
-                    //query = "SELECT u FROM users u WHERE u.rol = :rol")
+        //@NamedQuery(name = "Generar_Recibo",
+                    //query = "SELECT generarrecibo()")
     })
 
 public class Consume implements Serializable {

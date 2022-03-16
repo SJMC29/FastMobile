@@ -4,8 +4,7 @@
  */
 package Persistence;
 
-import Models.Client_Phone;
-import Models.Consume;
+import Models.Counter;
 import Persistence.exceptions.NonexistentEntityException;
 import java.io.Serializable;
 import java.util.List;
@@ -19,30 +18,29 @@ import javax.persistence.criteria.Root;
 
 /**
  *
- * @author Fanfo
+ * @author EDITH
  */
-public class ConsumeJpaController implements Serializable {
+public class CounterJpaController implements Serializable {
 
-    public ConsumeJpaController(EntityManagerFactory emf) {
+    public CounterJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
 
-    public ConsumeJpaController(){
+    public CounterJpaController(){
         emf = Persistence.createEntityManagerFactory("FastMobile_PU");
-
     }
     
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
-    public void create(Consume consume) {
+    public void create(Counter counter) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(consume);
+            em.persist(counter);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -51,19 +49,19 @@ public class ConsumeJpaController implements Serializable {
         }
     }
 
-    public void edit(Consume consume) throws NonexistentEntityException, Exception {
+    public void edit(Counter counter) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            consume = em.merge(consume);
+            counter = em.merge(counter);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Integer id = consume.getId_Consume();
-                if (findConsume(id) == null) {
-                    throw new NonexistentEntityException("The consume with id " + id + " no longer exists.");
+                Integer id = counter.getId_receipt();
+                if (findCounter(id) == null) {
+                    throw new NonexistentEntityException("The counter with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -79,14 +77,14 @@ public class ConsumeJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Consume consume;
+            Counter counter;
             try {
-                consume = em.getReference(Consume.class, id);
-                consume.getId_Consume();
+                counter = em.getReference(Counter.class, id);
+                counter.getId_receipt();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The consume with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The counter with id " + id + " no longer exists.", enfe);
             }
-            em.remove(consume);
+            em.remove(counter);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -95,19 +93,19 @@ public class ConsumeJpaController implements Serializable {
         }
     }
 
-    public List<Consume> findConsumeEntities() {
-        return findConsumeEntities(true, -1, -1);
+    public List<Counter> findCounterEntities() {
+        return findCounterEntities(true, -1, -1);
     }
 
-    public List<Consume> findConsumeEntities(int maxResults, int firstResult) {
-        return findConsumeEntities(false, maxResults, firstResult);
+    public List<Counter> findCounterEntities(int maxResults, int firstResult) {
+        return findCounterEntities(false, maxResults, firstResult);
     }
 
-    private List<Consume> findConsumeEntities(boolean all, int maxResults, int firstResult) {
+    private List<Counter> findCounterEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Consume.class));
+            cq.select(cq.from(Counter.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -119,20 +117,20 @@ public class ConsumeJpaController implements Serializable {
         }
     }
 
-    public Consume findConsume(Integer id) {
+    public Counter findCounter(Integer id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Consume.class, id);
+            return em.find(Counter.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getConsumeCount() {
+    public int getCounterCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Consume> rt = cq.from(Consume.class);
+            Root<Counter> rt = cq.from(Counter.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
@@ -141,20 +139,4 @@ public class ConsumeJpaController implements Serializable {
         }
     }
     
-    public List<Consume> findMonthlyConsumes(String[] dates, Client_Phone ph){
-        String startDate = dates[0];
-        String endDate = dates[1];
-        
-        EntityManager em = getEntityManager();
-        try{
-            return (List<Consume>) em.createNamedQuery("Monthly_Consumes")
-                    .setParameter("startDate", startDate)
-                    .setParameter("endDate", endDate)
-                    .setParameter("phone", ph)
-                    .getResultList();
-        } finally {
-            em.close();
-        }
-        
-    }
 }
