@@ -60,12 +60,12 @@ public class Tests {
         */
         
         //USUARIOS
-        /*for(User u :userControl.getUsers()){
+        for(User u :userControl.getUsers()){
             System.out.println(u);            
         }
         
         User u = userControl.getUser("1193477073");
-        Client cliente = clientControl.getClient(1);*/
+        Client cliente = clientControl.getClient(1);
         
         
        //Plan pl_2 = new Plan("Plan Ilimitado",999999,999999,true,75990);

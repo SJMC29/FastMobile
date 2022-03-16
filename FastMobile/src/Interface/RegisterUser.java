@@ -417,8 +417,11 @@ public class RegisterUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void crearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearUsuarioActionPerformed
+        seAgrego.setVisible(false);
         userController.sendForm(this);
-        if(userController.validation(this)==0){
+        if(userController.funciono()){
+            seAgrego.setText("Se agregó el usuario exitosamente.");
+            seAgrego.setForeground(new Color(0,102,51));
             seAgrego.setVisible(true);
         }else{
             seAgrego.setText("Datos inválidos, intente de nuevo.");

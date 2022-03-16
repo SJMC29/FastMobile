@@ -28,6 +28,7 @@ public class RegisterUserController {
     PersonController personControl = new PersonController();
     UserController userControl = new UserController();
     List<Rol> roles;
+    boolean funciono = false;
     
     public void goToMenu(RegisterUser registeruser, User usuario){
             new Menu(usuario).setVisible(true);
@@ -38,10 +39,15 @@ public class RegisterUserController {
         return roles.get(i);
     }
     
+    public boolean funciono(){
+        return funciono;        
+    }    
+    
     public void sendForm(RegisterUser ru){  
         
         reset_bg(ru);
         if(validation(ru) == 0){
+        funciono = true;
                     Person p = new Person(ru.getjTextFieldCedula().getText(),
                     ru.getjTextFieldNombre().getText(),
                     ru.getjTextFieldApellido().getText(),
