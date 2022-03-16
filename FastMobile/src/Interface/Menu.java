@@ -8,7 +8,17 @@ import Function.MenuController;
 import Models.User;
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Desktop;
 import java.awt.Image;
+<<<<<<< Updated upstream
+=======
+import java.awt.Toolkit;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+>>>>>>> Stashed changes
 import javax.swing.ImageIcon;
 
 /**
@@ -49,12 +59,54 @@ public class Menu extends javax.swing.JFrame {
         scaledIcon = new ImageIcon(imgScale);
         crearCliente_img.setIcon(scaledIcon);
         
-        icon = new ImageIcon("src\\Images\\Menu\\RegistroPagos.jpg");
+        icon = new ImageIcon("src\\Images\\Menu\\listaClientes.jpg");
         //Escalando para que se acomoden
         img = icon.getImage();
         imgScale = img.getScaledInstance(listaClientes_img.getWidth(),listaClientes_img.getHeight(),Image.SCALE_SMOOTH);
         scaledIcon = new ImageIcon(imgScale);
         listaClientes_img.setIcon(scaledIcon);
+        
+        icon = new ImageIcon("src\\Images\\Menu\\listaUsuarios.jpg");
+        //Escalando para que se acomoden
+        img = icon.getImage();
+        imgScale = img.getScaledInstance(listaUsuarios_img.getWidth(),listaUsuarios_img.getHeight(),Image.SCALE_SMOOTH);
+        scaledIcon = new ImageIcon(imgScale);
+        listaUsuarios_img.setIcon(scaledIcon);
+        
+        icon = new ImageIcon("src\\Images\\Menu\\RegistroPagos.jpg");
+        //Escalando para que se acomoden
+        img = icon.getImage();
+        imgScale = img.getScaledInstance(registroPagos_img.getWidth(),registroPagos_img.getHeight(),Image.SCALE_SMOOTH);
+        scaledIcon = new ImageIcon(imgScale);
+        registroPagos_img.setIcon(scaledIcon);
+        
+        icon = new ImageIcon("src\\Images\\Menu\\cargarPagos.jpeg");
+        //Escalando para que se acomoden
+        img = icon.getImage();
+        imgScale = img.getScaledInstance(cargarPagos_img.getWidth(),cargarPagos_img.getHeight(),Image.SCALE_SMOOTH);
+        scaledIcon = new ImageIcon(imgScale);
+        cargarPagos_img.setIcon(scaledIcon);
+        
+        icon = new ImageIcon("src\\Images\\Menu\\cargarConsumos.jpg");
+        //Escalando para que se acomoden
+        img = icon.getImage();
+        imgScale = img.getScaledInstance(cargarConsumos_img.getWidth(),cargarConsumos_img.getHeight(),Image.SCALE_SMOOTH);
+        scaledIcon = new ImageIcon(imgScale);
+        cargarConsumos_img.setIcon(scaledIcon);
+        
+        icon = new ImageIcon("src\\Images\\Menu\\generarRecibo.jpg");
+        //Escalando para que se acomoden
+        img = icon.getImage();
+        imgScale = img.getScaledInstance(generarRecibo_img.getWidth(),generarRecibo_img.getHeight(),Image.SCALE_SMOOTH);
+        scaledIcon = new ImageIcon(imgScale);
+        generarRecibo_img.setIcon(scaledIcon);
+        
+        icon = new ImageIcon("src\\Images\\Menu\\dashboard.jpg");
+        //Escalando para que se acomoden
+        img = icon.getImage();
+        imgScale = img.getScaledInstance(dashboard_img.getWidth(),dashboard_img.getHeight(),Image.SCALE_SMOOTH);
+        scaledIcon = new ImageIcon(imgScale);
+        dashboard_img.setIcon(scaledIcon);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -86,11 +138,42 @@ public class Menu extends javax.swing.JFrame {
         ListaDeClientes = new javax.swing.JLabel();
         textoListaClientes = new javax.swing.JLabel();
         listaClientes_img = new javax.swing.JLabel();
+<<<<<<< Updated upstream
+=======
+        listaUsuariosP = new javax.swing.JPanel();
+        listaUsuariosP1 = new javax.swing.JPanel();
+        listaDeUsuarios = new javax.swing.JLabel();
+        textoRegistroPagos1 = new javax.swing.JLabel();
+        listaUsuarios_img = new javax.swing.JLabel();
+>>>>>>> Stashed changes
         registroPagos = new javax.swing.JPanel();
         registroPagos2 = new javax.swing.JPanel();
         registroDePagos = new javax.swing.JLabel();
         textoRegistroPagos = new javax.swing.JLabel();
         registroPagos_img = new javax.swing.JLabel();
+<<<<<<< Updated upstream
+=======
+        cargarPagos = new javax.swing.JPanel();
+        cargarPagos2 = new javax.swing.JPanel();
+        textoCrearUsuario1 = new javax.swing.JLabel();
+        CargarPagos = new javax.swing.JLabel();
+        cargarPagos_img = new javax.swing.JLabel();
+        cargarConsumos = new javax.swing.JPanel();
+        cargarConsumos2 = new javax.swing.JPanel();
+        textoCrearUsuario2 = new javax.swing.JLabel();
+        CargarConsumos = new javax.swing.JLabel();
+        cargarConsumos_img = new javax.swing.JLabel();
+        generarRecibo = new javax.swing.JPanel();
+        generarRecibo1 = new javax.swing.JPanel();
+        generarRecibotxt = new javax.swing.JLabel();
+        generarRecibos = new javax.swing.JLabel();
+        generarRecibo_img = new javax.swing.JLabel();
+        verDashboard = new javax.swing.JPanel();
+        verDashboard2 = new javax.swing.JPanel();
+        textoCrearUsuario3 = new javax.swing.JLabel();
+        VerDashboard = new javax.swing.JLabel();
+        dashboard_img = new javax.swing.JLabel();
+>>>>>>> Stashed changes
         panelDerecho = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -161,10 +244,10 @@ public class Menu extends javax.swing.JFrame {
         crearUsuario2.setBackground(new java.awt.Color(255, 255, 255));
         crearUsuario2.setLayout(null);
 
-        textoCrearUsuario.setText("<html>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut libero nec magna</html>");
+        textoCrearUsuario.setText("Añadir un nuevo usuario.");
         textoCrearUsuario.setPreferredSize(new java.awt.Dimension(180, 16));
         crearUsuario2.add(textoCrearUsuario);
-        textoCrearUsuario.setBounds(20, 30, 180, 16);
+        textoCrearUsuario.setBounds(20, 30, 180, 20);
 
         CrearUsuario.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         CrearUsuario.setText("Crear Usuario");
@@ -215,10 +298,10 @@ public class Menu extends javax.swing.JFrame {
         crearCliente2.add(CrearCliente);
         CrearCliente.setBounds(20, 10, 120, 16);
 
-        textoCrearCliente.setText("<html>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut libero nec magna</html>");
+        textoCrearCliente.setText("Añadir un nuevo cliente.");
         textoCrearCliente.setPreferredSize(new java.awt.Dimension(180, 16));
         crearCliente2.add(textoCrearCliente);
-        textoCrearCliente.setBounds(20, 30, 180, 16);
+        textoCrearCliente.setBounds(20, 26, 180, 20);
 
         crearCliente.add(crearCliente2);
         crearCliente2.setBounds(0, 100, 220, 60);
@@ -253,10 +336,10 @@ public class Menu extends javax.swing.JFrame {
         listaClientes2.add(ListaDeClientes);
         ListaDeClientes.setBounds(20, 10, 120, 20);
 
-        textoListaClientes.setText("<html>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut libero nec magna</html>");
+        textoListaClientes.setText("Visualizar clientes.");
         textoListaClientes.setPreferredSize(new java.awt.Dimension(180, 16));
         listaClientes2.add(textoListaClientes);
-        textoListaClientes.setBounds(20, 30, 180, 16);
+        textoListaClientes.setBounds(20, 30, 180, 20);
 
         listaClientes.add(listaClientes2);
         listaClientes2.setBounds(0, 100, 220, 60);
@@ -265,8 +348,53 @@ public class Menu extends javax.swing.JFrame {
         listaClientes_img.setMaximumSize(new java.awt.Dimension(65, 65));
         listaClientes_img.setMinimumSize(new java.awt.Dimension(65, 65));
         listaClientes_img.setPreferredSize(new java.awt.Dimension(65, 65));
+<<<<<<< Updated upstream
         listaClientes.add(listaClientes_img);
         listaClientes_img.setBounds(0, 0, 216, 160);
+=======
+        listaClientes.add(listaClientes_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 216, 160));
+
+        panelCentro.add(listaClientes);
+
+        listaUsuariosP.setBackground(new java.awt.Color(255, 255, 255));
+        listaUsuariosP.setMinimumSize(new java.awt.Dimension(220, 150));
+        listaUsuariosP.setPreferredSize(new java.awt.Dimension(220, 150));
+        listaUsuariosP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        listaUsuariosP1.setBackground(new java.awt.Color(255, 255, 255));
+        listaUsuariosP1.setLayout(null);
+
+        listaDeUsuarios.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        listaDeUsuarios.setText("Lista de Usuarios");
+        listaDeUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listaDeUsuariosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                listaDeUsuariosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                listaDeUsuariosMouseExited(evt);
+            }
+        });
+        listaUsuariosP1.add(listaDeUsuarios);
+        listaDeUsuarios.setBounds(20, 10, 120, 16);
+
+        textoRegistroPagos1.setText("Visualizar usuarios.");
+        textoRegistroPagos1.setPreferredSize(new java.awt.Dimension(180, 16));
+        listaUsuariosP1.add(textoRegistroPagos1);
+        textoRegistroPagos1.setBounds(20, 30, 180, 16);
+
+        listaUsuariosP.add(listaUsuariosP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 220, 60));
+
+        listaUsuarios_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Menu/CrearUsuario.jpg"))); // NOI18N
+        listaUsuarios_img.setMaximumSize(new java.awt.Dimension(65, 65));
+        listaUsuarios_img.setMinimumSize(new java.awt.Dimension(65, 65));
+        listaUsuarios_img.setPreferredSize(new java.awt.Dimension(65, 65));
+        listaUsuariosP.add(listaUsuarios_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 140));
+
+        panelCentro.add(listaUsuariosP);
+>>>>>>> Stashed changes
 
         registroPagos.setBackground(new java.awt.Color(255, 255, 255));
         registroPagos.setLayout(null);
@@ -290,10 +418,10 @@ public class Menu extends javax.swing.JFrame {
         registroPagos2.add(registroDePagos);
         registroDePagos.setBounds(20, 10, 120, 16);
 
-        textoRegistroPagos.setText("<html>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut libero nec magna</html>");
+        textoRegistroPagos.setText("Registrar un último pago.");
         textoRegistroPagos.setPreferredSize(new java.awt.Dimension(180, 16));
         registroPagos2.add(textoRegistroPagos);
-        textoRegistroPagos.setBounds(20, 36, 180, 10);
+        textoRegistroPagos.setBounds(20, 30, 180, 16);
 
         registroPagos.add(registroPagos2);
         registroPagos2.setBounds(0, 100, 220, 60);
@@ -302,6 +430,7 @@ public class Menu extends javax.swing.JFrame {
         registroPagos_img.setMaximumSize(new java.awt.Dimension(65, 65));
         registroPagos_img.setMinimumSize(new java.awt.Dimension(65, 65));
         registroPagos_img.setPreferredSize(new java.awt.Dimension(65, 65));
+<<<<<<< Updated upstream
         registroPagos.add(registroPagos_img);
         registroPagos_img.setBounds(0, 0, 220, 140);
 
@@ -331,6 +460,169 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(registroPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+=======
+        registroPagos.add(registroPagos_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 140));
+
+        panelCentro.add(registroPagos);
+
+        cargarPagos.setBackground(new java.awt.Color(255, 255, 255));
+        cargarPagos.setForeground(new java.awt.Color(255, 255, 255));
+        cargarPagos.setMinimumSize(new java.awt.Dimension(220, 150));
+        cargarPagos.setPreferredSize(new java.awt.Dimension(220, 150));
+        cargarPagos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cargarPagos2.setBackground(new java.awt.Color(255, 255, 255));
+        cargarPagos2.setLayout(null);
+
+        textoCrearUsuario1.setText("Subir un pago realizado.");
+        textoCrearUsuario1.setPreferredSize(new java.awt.Dimension(180, 16));
+        cargarPagos2.add(textoCrearUsuario1);
+        textoCrearUsuario1.setBounds(20, 30, 180, 20);
+
+        CargarPagos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        CargarPagos.setText("Cargar Pagos");
+        CargarPagos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CargarPagosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CargarPagosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                CargarPagosMouseExited(evt);
+            }
+        });
+        cargarPagos2.add(CargarPagos);
+        CargarPagos.setBounds(20, 10, 120, 20);
+
+        cargarPagos.add(cargarPagos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 220, 60));
+
+        cargarPagos_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Menu/CrearUsuario.jpg"))); // NOI18N
+        cargarPagos_img.setMaximumSize(new java.awt.Dimension(65, 65));
+        cargarPagos_img.setMinimumSize(new java.awt.Dimension(65, 65));
+        cargarPagos_img.setPreferredSize(new java.awt.Dimension(65, 65));
+        cargarPagos.add(cargarPagos_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 150));
+
+        panelCentro.add(cargarPagos);
+
+        cargarConsumos.setBackground(new java.awt.Color(255, 255, 255));
+        cargarConsumos.setForeground(new java.awt.Color(255, 255, 255));
+        cargarConsumos.setMinimumSize(new java.awt.Dimension(220, 150));
+        cargarConsumos.setPreferredSize(new java.awt.Dimension(220, 150));
+        cargarConsumos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cargarConsumos2.setBackground(new java.awt.Color(255, 255, 255));
+        cargarConsumos2.setLayout(null);
+
+        textoCrearUsuario2.setText("Subir un consumo realizado.");
+        textoCrearUsuario2.setPreferredSize(new java.awt.Dimension(180, 16));
+        cargarConsumos2.add(textoCrearUsuario2);
+        textoCrearUsuario2.setBounds(20, 30, 180, 20);
+
+        CargarConsumos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        CargarConsumos.setText("Cargar Consumos");
+        CargarConsumos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CargarConsumosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CargarConsumosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                CargarConsumosMouseExited(evt);
+            }
+        });
+        cargarConsumos2.add(CargarConsumos);
+        CargarConsumos.setBounds(20, 10, 120, 20);
+
+        cargarConsumos.add(cargarConsumos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 220, 60));
+
+        cargarConsumos_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Menu/CrearUsuario.jpg"))); // NOI18N
+        cargarConsumos_img.setMaximumSize(new java.awt.Dimension(65, 65));
+        cargarConsumos_img.setMinimumSize(new java.awt.Dimension(65, 65));
+        cargarConsumos_img.setPreferredSize(new java.awt.Dimension(65, 65));
+        cargarConsumos.add(cargarConsumos_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 150));
+
+        panelCentro.add(cargarConsumos);
+
+        generarRecibo.setBackground(new java.awt.Color(255, 255, 255));
+        generarRecibo.setForeground(new java.awt.Color(255, 255, 255));
+        generarRecibo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        generarRecibo1.setBackground(new java.awt.Color(255, 255, 255));
+        generarRecibo1.setLayout(null);
+
+        generarRecibotxt.setText("Generar un recibo.");
+        generarRecibotxt.setPreferredSize(new java.awt.Dimension(180, 16));
+        generarRecibo1.add(generarRecibotxt);
+        generarRecibotxt.setBounds(20, 30, 180, 20);
+
+        generarRecibos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        generarRecibos.setText("Generar Recibo");
+        generarRecibos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                generarRecibosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                generarRecibosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                generarRecibosMouseExited(evt);
+            }
+        });
+        generarRecibo1.add(generarRecibos);
+        generarRecibos.setBounds(20, 10, 120, 20);
+
+        generarRecibo.add(generarRecibo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 220, 60));
+
+        generarRecibo_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Menu/CrearUsuario.jpg"))); // NOI18N
+        generarRecibo_img.setMaximumSize(new java.awt.Dimension(65, 65));
+        generarRecibo_img.setMinimumSize(new java.awt.Dimension(65, 65));
+        generarRecibo_img.setPreferredSize(new java.awt.Dimension(65, 65));
+        generarRecibo.add(generarRecibo_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 150));
+
+        panelCentro.add(generarRecibo);
+
+        verDashboard.setBackground(new java.awt.Color(255, 255, 255));
+        verDashboard.setForeground(new java.awt.Color(255, 255, 255));
+        verDashboard.setMinimumSize(new java.awt.Dimension(220, 150));
+        verDashboard.setPreferredSize(new java.awt.Dimension(220, 150));
+        verDashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        verDashboard2.setBackground(new java.awt.Color(255, 255, 255));
+        verDashboard2.setLayout(null);
+
+        textoCrearUsuario3.setText("Acceder al dashboard.");
+        textoCrearUsuario3.setPreferredSize(new java.awt.Dimension(180, 16));
+        verDashboard2.add(textoCrearUsuario3);
+        textoCrearUsuario3.setBounds(20, 30, 180, 20);
+
+        VerDashboard.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        VerDashboard.setText("Dashboard");
+        VerDashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                VerDashboardMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                VerDashboardMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                VerDashboardMouseExited(evt);
+            }
+        });
+        verDashboard2.add(VerDashboard);
+        VerDashboard.setBounds(20, 10, 120, 20);
+
+        verDashboard.add(verDashboard2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 220, 60));
+
+        dashboard_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Menu/CrearUsuario.jpg"))); // NOI18N
+        dashboard_img.setMaximumSize(new java.awt.Dimension(65, 65));
+        dashboard_img.setMinimumSize(new java.awt.Dimension(65, 65));
+        dashboard_img.setPreferredSize(new java.awt.Dimension(65, 65));
+        verDashboard.add(dashboard_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 150));
+
+        panelCentro.add(verDashboard);
+>>>>>>> Stashed changes
 
         getContentPane().add(panelCentro);
         panelCentro.setBounds(0, 100, 802, 480);
@@ -434,6 +726,87 @@ public class Menu extends javax.swing.JFrame {
         registroDePagos.setForeground(Color.black);
     }//GEN-LAST:event_registroDePagosMouseExited
 
+<<<<<<< Updated upstream
+=======
+    private void listaDeUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaDeUsuariosMouseClicked
+        menu_controller.goToListUsers(this, usuario);
+    }//GEN-LAST:event_listaDeUsuariosMouseClicked
+
+    private void listaDeUsuariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaDeUsuariosMouseEntered
+        listaDeUsuarios.setForeground(new Color(41,135,217)); 
+        listaDeUsuarios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_listaDeUsuariosMouseEntered
+
+    private void listaDeUsuariosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaDeUsuariosMouseExited
+        listaDeUsuarios.setForeground(Color.black);
+    }//GEN-LAST:event_listaDeUsuariosMouseExited
+
+    private void CargarPagosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CargarPagosMouseClicked
+        // TODO add your handling code here:
+        menu_controller.goToPaymentsLoad(this, usuario);
+    }//GEN-LAST:event_CargarPagosMouseClicked
+
+    private void CargarPagosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CargarPagosMouseEntered
+        // TODO add your handling code here:
+        CargarPagos.setForeground(new Color(41,135,217)); 
+        CargarPagos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_CargarPagosMouseEntered
+
+    private void CargarPagosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CargarPagosMouseExited
+        // TODO add your handling code here:
+        CargarPagos.setForeground(Color.black);
+    }//GEN-LAST:event_CargarPagosMouseExited
+
+    private void CargarConsumosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CargarConsumosMouseClicked
+        // TODO add your handling code here:
+        menu_controller.goToConsumeLoad(this, usuario);
+    }//GEN-LAST:event_CargarConsumosMouseClicked
+
+    private void CargarConsumosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CargarConsumosMouseEntered
+        // TODO add your handling code here:
+        CargarConsumos.setForeground(new Color(41,135,217)); 
+        CargarConsumos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_CargarConsumosMouseEntered
+
+    private void CargarConsumosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CargarConsumosMouseExited
+        // TODO add your handling code here:
+        CargarConsumos.setForeground(Color.black);
+    }//GEN-LAST:event_CargarConsumosMouseExited
+
+    private void VerDashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerDashboardMouseClicked
+        try {
+            Desktop.getDesktop().browse(new URI("https://app.powerbi.com/view?r=eyJrIjoiZGFlNTRiOGItNzY0Zi00ODM4LWI5YzgtMDIzNmM3ZTU1OTBhIiwidCI6IjhjMDdhNTExLTZjZTYtNDIzYy1iMDllLWRhYmU5ZDgyNjVjMyIsImMiOjR9"));
+        } catch (URISyntaxException ex) {
+            System.out.println(ex);
+        }catch(IOException e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_VerDashboardMouseClicked
+
+    private void VerDashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerDashboardMouseEntered
+        VerDashboard.setForeground(new Color(41,135,217)); 
+        VerDashboard.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_VerDashboardMouseEntered
+
+    private void VerDashboardMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerDashboardMouseExited
+        VerDashboard.setForeground(Color.black);
+    }//GEN-LAST:event_VerDashboardMouseExited
+
+    private void generarRecibosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generarRecibosMouseClicked
+        menu_controller.goToGenerateReceipt(this, usuario);
+        //new GenerateReceipt(usuario).setVisible(true);
+    }//GEN-LAST:event_generarRecibosMouseClicked
+
+    private void generarRecibosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generarRecibosMouseEntered
+        generarRecibos.setForeground(new Color(41,135,217)); 
+        generarRecibos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_generarRecibosMouseEntered
+
+    private void generarRecibosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generarRecibosMouseExited
+        generarRecibos.setForeground(Color.black);
+    }//GEN-LAST:event_generarRecibosMouseExited
+
+>>>>>>> Stashed changes
     /**
      * @param args the command line arguments
      */
@@ -473,18 +846,44 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel CrearCliente;
     private javax.swing.JLabel CrearUsuario;
     private javax.swing.JLabel ListaDeClientes;
+<<<<<<< Updated upstream
+=======
+    private javax.swing.JLabel VerDashboard;
+    private javax.swing.JPanel cargarConsumos;
+    private javax.swing.JPanel cargarConsumos2;
+    private javax.swing.JLabel cargarConsumos_img;
+    private javax.swing.JPanel cargarPagos;
+    private javax.swing.JPanel cargarPagos2;
+    private javax.swing.JLabel cargarPagos_img;
+>>>>>>> Stashed changes
     private javax.swing.JPanel crearCliente;
     private javax.swing.JPanel crearCliente2;
     private javax.swing.JLabel crearCliente_img;
     private javax.swing.JPanel crearUsuario;
     private javax.swing.JPanel crearUsuario2;
     private javax.swing.JLabel crearUsuario_img;
+<<<<<<< Updated upstream
+=======
+    private javax.swing.JLabel dashboard_img;
+    private javax.swing.JPanel generarRecibo;
+    private javax.swing.JPanel generarRecibo1;
+    private javax.swing.JLabel generarRecibo_img;
+    private javax.swing.JLabel generarRecibos;
+    private javax.swing.JLabel generarRecibotxt;
+>>>>>>> Stashed changes
     private javax.swing.JLabel jLabelFullName;
     private javax.swing.JLabel jLabelProfileImage;
     private javax.swing.JPanel jPanelBlue;
     private javax.swing.JPanel listaClientes;
     private javax.swing.JPanel listaClientes2;
     private javax.swing.JLabel listaClientes_img;
+<<<<<<< Updated upstream
+=======
+    private javax.swing.JLabel listaDeUsuarios;
+    private javax.swing.JPanel listaUsuariosP;
+    private javax.swing.JPanel listaUsuariosP1;
+    private javax.swing.JLabel listaUsuarios_img;
+>>>>>>> Stashed changes
     private javax.swing.JLabel logout;
     private javax.swing.JPanel panelCentro;
     private javax.swing.JPanel panelDerecho;

@@ -4,19 +4,12 @@
  */
 package Interface;
 
-import Controllers.PersonController;
-import Controllers.RolController;
-import Controllers.UserController;
 import Function.RegisterUserController;
-import Models.Person;
-import Models.Rol;
 import Models.User;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Image;
-import java.util.List;
 import javax.swing.ImageIcon;
-import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 
@@ -92,9 +85,7 @@ public class RegisterUser extends javax.swing.JFrame {
 
     public JTextField getjTextFieldPhone() {
         return jTextFieldPhone;
-    }
-    
-    
+    }    
     
     public void scaleImage(){
         
@@ -216,11 +207,6 @@ public class RegisterUser extends javax.swing.JFrame {
         crearUsuario.setBackground(new java.awt.Color(255, 255, 255));
         crearUsuario.setForeground(new java.awt.Color(41, 135, 217));
         crearUsuario.setText("CREAR USUSARIO");
-        crearUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                seAgregoExitosamente(evt);
-            }
-        });
         crearUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 crearUsuarioActionPerformed(evt);
@@ -266,11 +252,6 @@ public class RegisterUser extends javax.swing.JFrame {
         jTextFieldEmail.setText("Correo electrónico");
 
         jTextFieldPhone.setText("Teléfono");
-        jTextFieldPhone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPhoneActionPerformed(evt);
-            }
-        });
 
         ingreseDatos7.setText("Dirección de residencia:");
 
@@ -403,7 +384,7 @@ public class RegisterUser extends javax.swing.JFrame {
         seAgrego.setForeground(new java.awt.Color(0, 102, 51));
         seAgrego.setText("Se agregó el usuario exitosamente");
         CENTER.add(seAgrego);
-        seAgrego.setBounds(340, 360, 300, 30);
+        seAgrego.setBounds(340, 360, 590, 30);
 
         centroAdmin1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         centroAdmin1.setText("Registro de usuarios. ");
@@ -417,22 +398,19 @@ public class RegisterUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void crearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearUsuarioActionPerformed
-        // TODO add your handling code here:
         userController.sendForm(this);
-        
+        if(userController.validation(this)==0){
+            seAgrego.setVisible(true);
+        }else{
+            seAgrego.setText("Datos inválidos, intente de nuevo.");
+            seAgrego.setForeground(Color.red);
+            seAgrego.setVisible(true);
+        } 
     }//GEN-LAST:event_crearUsuarioActionPerformed
-
-    private void seAgregoExitosamente(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seAgregoExitosamente
-        seAgrego.setVisible(true);
-    }//GEN-LAST:event_seAgregoExitosamente
 
     private void menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseClicked
        userController.goToMenu(this, usuario);
     }//GEN-LAST:event_menuMouseClicked
-
-    private void jTextFieldPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPhoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPhoneActionPerformed
 
     private void jRadioButtonActiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonActiveActionPerformed
         // TODO add your handling code here:

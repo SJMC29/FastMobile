@@ -15,6 +15,7 @@ import Models.Rol;
 import Models.User;
 import java.util.List;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 
 /**
  *
@@ -22,6 +23,7 @@ import javax.swing.JComboBox;
  */
 public class RegisterUserController {
     
+    //RegisterUser registerUser = new RegisterUser();
     RolController rolControl = new RolController();
     PersonController personControl = new PersonController();
     UserController userControl = new UserController();
@@ -33,6 +35,7 @@ public class RegisterUserController {
     }    
     
     public void sendForm(RegisterUser ru){
+<<<<<<< Updated upstream
         Person p = new Person(ru.getjTextFieldCedula().getText(), 
                                 ru.getjTextFieldNombre().getText(), 
                                 ru.getjTextFieldApellido().getText(),
@@ -56,6 +59,26 @@ public class RegisterUserController {
         ru.getjTextFieldNombre().setText("");
         ru.getjTextFieldPassword().setText("");
         ru.getjTextFieldPhone().setText("");
+=======
+        reset_bg(ru);
+        if(validation(ru) == 0){
+            Person p = new Person(ru.getjTextFieldCedula().getText(), 
+                                    ru.getjTextFieldNombre().getText(), 
+                                    ru.getjTextFieldApellido().getText(),
+                                    ru.getjTextFieldEmail().getText(),
+                                    ru.getjTextFieldPhone().getText(),
+                                    ru.getjTextFieldAddress().getText(),
+                                    Double.parseDouble(ru.getjTextFieldLatitud().getText()),
+                                    Double.parseDouble(ru.getjTextFieldLongitud().getText()));
+            // System.out.println("p = " + p);
+            Rol r = rolSeleccionado(ru.getjComboBoxRol().getSelectedIndex());
+            User u = new User(p, ru.getjTextFieldPassword().getText(), ru.isActive(), r);
+            personControl.createPerson(p);
+            userControl.createUser(u);
+            //System.out.println("Descomentame negro");
+            reset_text(ru);    
+        }
+>>>>>>> Stashed changes
     }
     
     public void cargarRoles(JComboBox<String> comboBoxRol){

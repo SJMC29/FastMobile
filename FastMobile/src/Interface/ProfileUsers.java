@@ -366,7 +366,21 @@ public class ProfileUsers extends javax.swing.JFrame {
     }//GEN-LAST:event_goToMenu
 
     private void seAgrego(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seAgrego
+<<<<<<< Updated upstream
         seAgrego.setVisible(true);
+=======
+        if(usuario.getRol().getName().equals("Administrador") || userPerfil==null){
+            profile_user_controller.actualizarUsuario(this, usuario);
+            seAgrego.setVisible(true);
+        }else{
+            Toolkit.getDefaultToolkit().beep();
+            JOptionPane.showMessageDialog(
+                    this, 
+                    "Solo los Administradores pueden actualizar la informacion de otros usuarios",
+                    "¡¡ ACCESS DENIED !!", 
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+>>>>>>> Stashed changes
     }//GEN-LAST:event_seAgrego
 
     /**

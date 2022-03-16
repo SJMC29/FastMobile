@@ -5,53 +5,60 @@
 package Interface;
 
 import Controllers.ClientController;
+import Function.GenerateReceiptController;
 import Function.MenuController;
 import Function.PaymentRegisterController;
 import Function.ProfileClientsController;
 import Function.RegisterClientController;
 import Models.Client;
 import Models.User;
+import com.itextpdf.text.DocumentException;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Image;
+import java.awt.Toolkit;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 
  /*
  * @author Fanfo
  */
-public class PaymentRegister extends javax.swing.JFrame {
+public class GenerateReceipt extends javax.swing.JFrame {
     
     MenuController menu_controller = new MenuController();
     RegisterClientController controladorClient = new RegisterClientController();
     ProfileClientsController controladorProfile = new ProfileClientsController();
-    PaymentRegisterController controladorPaymentRegister = new PaymentRegisterController();
+    GenerateReceiptController controladorGenerateReceipt = new GenerateReceiptController();
     ClientController clientController = new ClientController();
     User usuario;
     Client cliente;
        
     
-    public PaymentRegister(User u) {
+    public GenerateReceipt(User u) {
         usuario = u;
         initComponents();
         scaleImage();
-        seAgrego.setVisible(false);
+        seGenero.setVisible(false);
     }
        
-    public PaymentRegister() {
+    public GenerateReceipt() {
         initComponents();
         scaleImage();
-        seAgrego.setVisible(false);
+        seGenero.setVisible(false);
     }
  
-     public Client identificacionClaveCliente(String idClientS){
-        int idClientINT = Integer.parseInt(idClientS);      
-        cliente = clientController.getClient(idClientINT);
+    public Client identificacionClaveCliente(String idClientS){
+        // int idClientINT = Integer.parseInt(idClientS);      
+        cliente = clientController.getClienteByPerson(idClientS);
         
         nombreCliente.setText(cliente.getPerson().getName());
         apellidoCliente.setText(cliente.getPerson().getLastName());
-        identificacionCliente.setText(cliente.getPerson().getId_Person());
+        identificacionCliente.setText(idClientS);
         
         return cliente;
     }
@@ -88,7 +95,7 @@ public class PaymentRegister extends javax.swing.JFrame {
         Separador = new javax.swing.JPanel();
         centroAdmin = new javax.swing.JLabel();
         White = new javax.swing.JPanel();
-        seAgrego = new javax.swing.JLabel();
+        seGenero = new javax.swing.JLabel();
         formulario = new javax.swing.JPanel();
         nombresL = new javax.swing.JLabel();
         identificacionClave = new javax.swing.JTextField();
@@ -102,12 +109,12 @@ public class PaymentRegister extends javax.swing.JFrame {
         nombres = new javax.swing.JLabel();
         apellidos = new javax.swing.JLabel();
         identificacion = new javax.swing.JLabel();
-        registrarPago = new javax.swing.JButton();
+        generarFactura = new javax.swing.JButton();
         centroAdmin1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1024, 576));
+        setMinimumSize(new java.awt.Dimension(1024, 576));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -167,12 +174,12 @@ public class PaymentRegister extends javax.swing.JFrame {
         White.setBackground(new java.awt.Color(255, 255, 255));
         White.setLayout(null);
 
-        seAgrego.setBackground(new java.awt.Color(204, 255, 204));
-        seAgrego.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        seAgrego.setForeground(new java.awt.Color(0, 102, 51));
-        seAgrego.setText("Se registró el pago exitosamente.");
-        White.add(seAgrego);
-        seAgrego.setBounds(390, 350, 480, 25);
+        seGenero.setBackground(new java.awt.Color(204, 255, 204));
+        seGenero.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        seGenero.setForeground(new java.awt.Color(0, 102, 51));
+        seGenero.setText("Se generó la factura exitosamente.");
+        White.add(seGenero);
+        seGenero.setBounds(390, 350, 320, 25);
 
         nombresL.setText("Identificación del cliente:");
 
@@ -180,16 +187,16 @@ public class PaymentRegister extends javax.swing.JFrame {
 
         lineasTelefonicas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Número de línea", "Último pago registrado"
+                "Número de línea", "Consumo Minutos", "Consumo Datos"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -200,6 +207,7 @@ public class PaymentRegister extends javax.swing.JFrame {
         if (lineasTelefonicas.getColumnModel().getColumnCount() > 0) {
             lineasTelefonicas.getColumnModel().getColumn(0).setResizable(false);
             lineasTelefonicas.getColumnModel().getColumn(1).setResizable(false);
+            lineasTelefonicas.getColumnModel().getColumn(2).setResizable(false);
         }
 
         datosDeLaLinea.setText("Datos de la línea:");
@@ -272,22 +280,22 @@ public class PaymentRegister extends javax.swing.JFrame {
                 .addComponent(datosDeLaLinea)
                 .addGap(10, 10, 10)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         White.add(formulario);
         formulario.setBounds(70, 60, 900, 250);
 
-        registrarPago.setBackground(new java.awt.Color(255, 255, 255));
-        registrarPago.setForeground(new java.awt.Color(41, 135, 217));
-        registrarPago.setText("REGISTRAR PAGO");
-        registrarPago.addMouseListener(new java.awt.event.MouseAdapter() {
+        generarFactura.setBackground(new java.awt.Color(255, 255, 255));
+        generarFactura.setForeground(new java.awt.Color(41, 135, 217));
+        generarFactura.setText("GENERAR FACTURA");
+        generarFactura.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                registrarPago(evt);
+                generarFactura(evt);
             }
         });
-        White.add(registrarPago);
-        registrarPago.setBounds(70, 340, 208, 42);
+        White.add(generarFactura);
+        generarFactura.setBounds(70, 340, 208, 42);
 
         centroAdmin1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         centroAdmin1.setText("Registro de pagos.");
@@ -304,24 +312,34 @@ public class PaymentRegister extends javax.swing.JFrame {
         System.out.println("Buscando cliente en DB.");
         //1100288113
         //12345678
-        controladorPaymentRegister.cargarTelefonosYFecha(lineasTelefonicas, identificacionClaveCliente(identificacionClave.getText()));
+        controladorGenerateReceipt.Month();
+        controladorGenerateReceipt.cargarTelefonosYFecha(lineasTelefonicas, identificacionClaveCliente(identificacionClave.getText()));
         //ACTUALIZAR TABLA
     }//GEN-LAST:event_buscarCliente
 
-    private void registrarPago(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarPago
-        // TODO add your handling code here:
+    private void generarFactura(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generarFactura
         try {
-            controladorPaymentRegister.actualizarFecha(lineasTelefonicas, cliente);
-            seAgrego.setVisible(true);
-        } catch (Exception e) {
-            seAgrego.setText("Datos inválidos, intente de nuevo.");
-            seAgrego.setForeground(Color.red);
-            seAgrego.setVisible(true);
-        }             
-    }//GEN-LAST:event_registrarPago
+            if(!identificacionCliente.getText().equals("-")){ 
+            controladorGenerateReceipt.createPdf();
+            seGenero.setVisible(true);
+        }else{ 
+            Toolkit.getDefaultToolkit().beep(); 
+            JOptionPane.showMessageDialog( 
+                    this,  
+                    "Por favor, ingrese un cliente válido.", 
+                    "Fallo en la generación de la factura.",  
+                    JOptionPane.INFORMATION_MESSAGE); 
+        }           
+            
+        } catch (DocumentException ex) {
+            Logger.getLogger(GenerateReceipt.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(GenerateReceipt.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_generarFactura
 
     private void menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseClicked
-        controladorPaymentRegister.goToMenu(this, usuario);
+        controladorGenerateReceipt.goToMenu(this, usuario);
     }//GEN-LAST:event_menuMouseClicked
 
     private void menuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseEntered
@@ -337,48 +355,10 @@ public class PaymentRegister extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PaymentRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PaymentRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PaymentRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PaymentRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PaymentRegister().setVisible(true);
+                
+                new GenerateReceipt().setVisible(true);
             }
         });
     }
@@ -395,6 +375,7 @@ public class PaymentRegister extends javax.swing.JFrame {
     private javax.swing.JLabel datosDeLaLinea;
     private javax.swing.JLabel fastMobileWhite;
     private javax.swing.JPanel formulario;
+    private javax.swing.JButton generarFactura;
     private javax.swing.JLabel identificacion;
     private javax.swing.JTextField identificacionClave;
     private javax.swing.JLabel identificacionCliente;
@@ -404,8 +385,7 @@ public class PaymentRegister extends javax.swing.JFrame {
     private javax.swing.JLabel nombreCliente;
     private javax.swing.JLabel nombres;
     private javax.swing.JLabel nombresL;
-    private javax.swing.JButton registrarPago;
-    private javax.swing.JLabel seAgrego;
+    private javax.swing.JLabel seGenero;
     private javax.swing.JLabel userIcon;
     // End of variables declaration//GEN-END:variables
 }
