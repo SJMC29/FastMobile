@@ -3,6 +3,7 @@ package Controllers;
 
 import Models.Client_Phone;
 import Persistence.Client_PhoneJpaController;
+import Persistence.exceptions.NonexistentEntityException;
 import java.util.List;
 
 public class Client_PhoneController {
@@ -23,5 +24,9 @@ public class Client_PhoneController {
     
     public Client_Phone getClient_PhoneByNumber(String number){
         return client_PhoneJPA.fineClient_PhoneByNumber(number);
+    }
+    
+    public void destroyPerson(Integer id) throws NonexistentEntityException{
+        client_PhoneJPA.destroy(id);
     }
 }

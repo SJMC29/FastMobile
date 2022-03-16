@@ -121,8 +121,13 @@ public class Tests {
         //ConsumeController cons = new ConsumeController();
         
         //System.out.println(cons.getMonthlyConsumes(dates, tel));
-        GenerateReceiptController zzJava = new GenerateReceiptController();
-        System.out.println(zzJava.parseToColombian(1000000));
+        phoneControl.destroyPerson(14);
+        phoneControl.destroyPerson(15);
+        clientControl.destroyClient(6);        
+        personControl.destroyPerson("Cédula");
+        
+        
+        
     }
     
 }
