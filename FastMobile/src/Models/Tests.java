@@ -4,10 +4,13 @@ package Models;
 import Controllers.ClientController;
 import Controllers.Client_PhoneController;
 import Controllers.Client_TypeController;
+import Controllers.ConsumeController;
+import Controllers.CounterController;
 import Controllers.PersonController;
 import Controllers.PlanController;
 import Controllers.RolController;
 import Controllers.UserController;
+import Function.GenerateReceiptController;
 import Interface.ProfileClients;
 import Interface.RegisterUser;
 import Persistence.exceptions.IllegalOrphanException;
@@ -65,8 +68,8 @@ public class Tests {
         Client cliente = clientControl.getClient(1);*/
         
         
-       Plan pl_2 = new Plan("Plan Ilimitado",999999,999999,true,75990);
-       planControl.createPlan(pl_2);
+       //Plan pl_2 = new Plan("Plan Ilimitado",999999,999999,true,75990);
+       //planControl.createPlan(pl_2);
         
         /*
         for(Client_Type cl: typeControl.getClient_Types()){
@@ -77,11 +80,11 @@ public class Tests {
         //personControl.destroyPerson("19831237833");
         
         //CLIENTES
-        
+        /*
         for(Client c: clientControl.getClients()){
             System.out.println(c);
         }
-        
+        */
         //personControl.destroyPerson("19831237833");
         //clientControl.destroyClient(1);
         
@@ -98,8 +101,42 @@ public class Tests {
         //for(Client c: clientControl.getClients()){
         //    System.out.println(c);
         //}
+        //Client cxp = clientControl.getClienteByPerson("1079173611");
+        //System.out.println("cxp = " + cxp);
         
+        //Client_Phone phone1 = phoneControl.getClient_PhoneByNumber("Telefono");
+        //System.out.println("phone1 = " + phone1);
+        
+        /* // Parse to Date
+        String time = "Sun Jul 15 2012 12:22:00 GMT+03:00 (FLE Daylight Time)";
+        SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd yyyy HH:mm:ss zzz");
+        Date date = sdf.parse(time);
+        */
+
+        
+        
+        //Client_Phone tel = phoneControl.getClient_Phone(2);
+        //String[] dates = {"2022-3-1","2022-3-31"};
+        
+        //System.out.println(cons.getMonthlyConsumes(dates, tel));
+        
+        //personControl.destroyPerson("1052661846");
+        
+        //ConsumeController cons = new ConsumeController();
+        
+        //System.out.println(cons.getMonthlyConsumes(dates, tel));
+        //GenerateReceiptController zzJava = new GenerateReceiptController();
+        //System.out.println(zzJava.parseToColombian(1000000));
+
+        //System.out.println("Fin del Test");
+        
+        CounterController counterControl = new CounterController();
+        counterControl.createCounter();
+        int c = counterControl.getCounter();
+        System.out.println("c = " + c);
+        counterControl.upDate();
+        c = counterControl.getCounter();
+        System.out.println("c = " + c);
     }
-    
     
 }

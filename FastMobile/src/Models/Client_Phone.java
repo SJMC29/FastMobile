@@ -10,8 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity(name="client_phones")
+@NamedQueries({
+        @NamedQuery(name = "Phone_Number", 
+                    query = "SELECT ph FROM client_phones ph WHERE ph.phone_Number = :number")
+})
 public class Client_Phone implements Serializable {
     
     // Atributos
@@ -73,7 +79,20 @@ public class Client_Phone implements Serializable {
     // to String
     @Override
     public String toString() {
-        return "Client_Phone{" + "id_Phone=" + id_Phone + ", client=" + client + ", phone_Number=" + phone_Number + ", plan=" + plan + '}';
+        return "Client_Phone{" + "id_Phone=" + id_Phone + ", client=" + client.getId_Client() + ", phone_Number=" + phone_Number + ", plan=" + plan + '}';
+    }
+    
+    @Override
+    public boolean equals(Object object)
+    {
+        boolean sameSame = false;
+
+        if (object != null && object instanceof Client_Phone)
+        {
+            sameSame = this.id_Phone == ((Client_Phone) object).id_Phone;
+        }
+
+        return sameSame;
     }
     
 }
